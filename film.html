@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Film - Muhammad Dzaki Salman</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#0d7ff2",
+            "background-light": "#f5f7f8",
+            "background-dark": "#101922",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .film-card {
+      transition: all 0.3s ease;
+    }
+    .film-card:hover {
+      transform: translateY(-8px);
+    }
+    .film-card img {
+      transition: transform 0.3s ease;
+    }
+    .film-card:hover img {
+      transform: scale(1.05);
+    }
+    .star-rating {
+      color: #fbbf24;
+    }
+    .star-empty {
+      color: #4b5563;
+    }
+  </style>
+</head>
+<body class="font-display">
+  <div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden">
+    <div class="layout-container flex h-full grow flex-col">
+      <div class="px-4 sm:px-10 md:px-20 lg:px-40 flex flex-1 justify-center py-5">
+        <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+          <div id="header-container"></div>
+          <main class="flex flex-col gap-10 sm:gap-16 mt-8 sm:mt-12">
+            
+            <!-- Header Section -->
+            <section class="py-6">
+              <div class="px-4 text-center">
+                <h1 class="text-white text-4xl md:text-5xl font-black leading-tight tracking-[-0.033em] mb-6">
+                  Film
+                </h1>
+                <div class="max-w-3xl mx-auto">
+                  <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+                    Welcome to my Film page! Here you can explore the films I've recently watched and my all-time favorites. I'm passionate about sci-fi and superhero films, and this page reflects the movies that inspire my creativity and drive.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <!-- Featured Films Section -->
+            <section class="py-6">
+              <div class="px-4">
+                <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] pb-5 pt-5 border-b border-[#223649] mb-6">
+                  Featured Films
+                </h2>
+                <div id="loading-indicator" class="text-center py-8 text-gray-400">
+                  <p>Loading films from Letterboxd...</p>
+                </div>
+                <div id="featured-films-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  
+                </div>
+              </div>
+            </section>
+
+            <!-- Film Listings Section -->
+            <section class="py-6">
+              <div class="px-4">
+                <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] pb-5 pt-5 border-b border-[#223649] mb-6">
+                  All Films
+                </h2>
+                <div id="all-films-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <!-- Films will be loaded dynamically from Letterboxd -->
+                </div>
+              </div>
+            </section>
+
+          </main>
+          <div id="footer-container"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="components/load-components.js"></script>
+  <script src="components/letterboxd-loader.js"></script>
+  <script>
+    // Load header and footer components
+    loadComponents('Film', 'film');
+    
+    // Load films from Letterboxd when page is ready
+    window.addEventListener('DOMContentLoaded', () => {
+      loadLetterboxdFilms();
+    });
+  </script>
+</body>
+</html>
+
