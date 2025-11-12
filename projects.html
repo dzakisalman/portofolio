@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Projects - Muhammad Dzaki Salman</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#0d7ff2",
+            "background-light": "#f5f7f8",
+            "background-dark": "#101922",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+  </style>
+</head>
+<body class="font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-4 sm:px-10 md:px-20 lg:px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+<div id="header-container"></div>
+<main class="flex flex-col gap-10 sm:gap-16 mt-8 sm:mt-12">
+<!-- Latest Projects Section -->
+<section class="flex flex-col gap-6">
+<h2 class="text-black dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5 border-b border-white/10 dark:border-[#223649]">Latest Projects</h2>
+<div class="flex flex-col gap-8">
+<div class="p-4 @container">
+<div class="flex flex-col items-stretch justify-start rounded-lg @xl:flex-row @xl:items-start bg-black/5 dark:bg-white/5 p-4 sm:p-6 transition-all hover:shadow-lg hover:shadow-primary/10">
+<div class="w-full @xl:w-2/5 flex-shrink-0 bg-center bg-no-repeat aspect-video bg-cover rounded-lg" data-alt="Letterboxd-App Flutter mobile application" style='background-image: url("images/letterboxd.jpg");'></div>
+<div class="flex w-full min-w-72 grow flex-col items-stretch justify-center gap-4 py-4 @xl:px-6">
+<p class="text-black dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">Letterboxd-App</p>
+<p class="text-black/60 dark:text-[#90adcb] text-base font-normal leading-relaxed">
+                        A front-end mobile application where I redesigned the Letterboxd app based on a design I found on Figma. Inspired by its visual style, I decided to implement this design into a Flutter application, aiming to create an intuitive, visually appealing mobile experience that retains the core features of the original Letterboxd app, but with a refreshed user interface. The project utilizes Flutter for cross-platform development, ensuring a consistent look and feel across both Android and iOS.
+                      </p>
+<div class="flex flex-wrap gap-2">
+<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">Flutter</span>
+<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">Dart</span>
+<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">Cross-platform</span>
+<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">UI/UX</span>
+</div>
+<div class="flex items-center gap-3 justify-start mt-2">
+<a href="https://github.com/dzakisalman/letterboxd-app" target="_blank" rel="noopener noreferrer" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-5 bg-primary text-white text-sm font-medium leading-normal hover:bg-primary/90 transition-colors">
+<span class="truncate">View on GitHub</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- All Projects Section -->
+<section class="flex flex-col gap-6">
+<h2 class="text-black dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5 border-b border-white/10 dark:border-[#223649]">All Projects</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="p-4 @container">
+<div class="flex h-full flex-col items-stretch justify-start rounded-xl bg-black/5 dark:bg-white/5 p-4 transition-all hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg mb-4" data-alt="Mebel Jati Redesign website" style='background-image: url("images/mebeljati.png");'></div>
+<div class="flex h-full flex-col items-start justify-between gap-4">
+<div class="flex flex-col gap-2">
+<p class="text-black dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Mebel Jati Redesign</p>
+<p class="text-black/60 dark:text-[#90adcb] text-sm font-normal leading-normal">
+                          A website redesign project for the Human-Computer Interaction course Midterm Exam. The team chose the "Mebel Jati" website as the project subject and worked on a redesign using HTML and CSS to improve the site's user interface and user experience, focusing on a modern, user-friendly layout.
+                        </p>
+<div class="flex flex-wrap gap-2 pt-1">
+<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">HTML</span>
+<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">CSS</span>
+<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">UI/UX</span>
+</div>
+</div>
+<a href="https://github.com/dzakisalman/UTSMebelJati" target="_blank" rel="noopener noreferrer" class="flex mt-2 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary text-white text-sm font-medium leading-normal hover:bg-primary/90 transition-colors">
+<span class="truncate">View on GitHub</span>
+</a>
+</div>
+</div>
+</div>
+<div class="p-4 @container">
+<div class="flex h-full flex-col items-stretch justify-start rounded-xl bg-black/5 dark:bg-white/5 p-4 transition-all hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg mb-4" data-alt="FoodTopia Android mobile application" style='background-image: url("images/foodtopia.png");'></div>
+<div class="flex h-full flex-col items-start justify-between gap-4">
+<div class="flex flex-col gap-2">
+<p class="text-black dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">FoodTopia</p>
+<p class="text-black/60 dark:text-[#90adcb] text-sm font-normal leading-normal">
+                          A comprehensive Android mobile application created as the Capstone Project within the Bangkit Academy program, designed to empower users in managing their nutrition and recipe choices. The app integrates a recipe browsing and management system with machine-learning models that predict diet categories based on user input of nutritional data.
+                        </p>
+<div class="flex flex-wrap gap-2 pt-1">
+<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">Kotlin</span>
+<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">MVVM</span>
+<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">Firestore</span>
+<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">TensorFlow</span>
+</div>
+</div>
+<a href="https://github.com/dzakisalman/Bangkit_Project_Capstone_FoodTopia" target="_blank" rel="noopener noreferrer" class="flex mt-2 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary text-white text-sm font-medium leading-normal hover:bg-primary/90 transition-colors">
+<span class="truncate">View on GitHub</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer Section -->
+<div id="footer-container"></div>
+</main>
+</div>
+</div>
+</div>
+</div>
+<script src="components/load-components.js"></script>
+<script>
+  // Load header and footer components
+  loadComponents('Projects', 'project');
+</script>
+</body></html>
