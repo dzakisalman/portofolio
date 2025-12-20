@@ -19,6 +19,15 @@ const TMDB_IMAGE_BASE = 'https://image.tmdb.org/t/p/w500';
 // CORS proxy (using a public CORS proxy - you may want to use your own)
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';
 
+// Featured films: explicitly set these Letterboxd film URLs to show in Featured Films.
+// This avoids depending on the profile scraping to choose featured films.
+const FEATURED_FILM_URLS = [
+  'https://letterboxd.com/film/inception/',
+  'https://letterboxd.com/film/the-batman/',
+  'https://letterboxd.com/film/superman-2025/',
+  'https://letterboxd.com/film/captain-america-the-winter-soldier/'
+];
+
 // Convert Letterboxd rating to numeric
 function letterboxdRatingToNumeric(rating) {
   const ratingMap = {
@@ -259,6 +268,35 @@ async function getTMDBFilmDetails(title, year = '') {
   return null;
 }
 
+// Fetch a single Letterboxd film page and extract metadata (og:image, og:title, description)
+async function fetchLetterboxdFilmPage(url) {
+  try {
+    let response;
+    try {
+      response = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)' } });
+    } catch (err) {
+      // Fall back to proxy if CORS blocks direct fetch
+      response = await fetch(CORS_PROXY + encodeURIComponent(url));
+    }
+
+    if (!response || !response.ok) throw new Error('Failed to fetch Letterboxd film page');
+    const html = await response.text();
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+
+    const ogImage = doc.querySelector('meta[property="og:image"]')?.getAttribute('content') ||
+                    doc.querySelector('meta[name="twitter:image"]')?.getAttribute('content') || null;
+    const ogTitle = doc.querySelector('meta[property="og:title"]')?.getAttribute('content') || doc.title || null;
+    const ogDesc = doc.querySelector('meta[property="og:description"]')?.getAttribute('content') ||
+                   doc.querySelector('meta[name="description"]')?.getAttribute('content') || null;
+
+    return { posterUrl: ogImage, title: ogTitle, description: ogDesc, link: url };
+  } catch (error) {
+    console.warn('Error fetching Letterboxd film page:', error);
+    return null;
+  }
+}
+
 // Fetch Letterboxd profile page and scrape film data
 async function fetchLetterboxdData() {
   try {
@@ -467,21 +505,82 @@ async function fetchLetterboxdData() {
 }
 
 // Render featured films
-function renderFeaturedFilms(films) {
+async function renderFeaturedFilms(films, featuredUrls = FEATURED_FILM_URLS) {
   const featuredContainer = document.getElementById('featured-films-container');
-  if (!featuredContainer || films.length === 0) return;
-  
-  // Get top 3-5 rated films for featured
-  const featured = films
-    .filter(f => f.ratingNumeric >= 4)
-    .sort((a, b) => b.ratingNumeric - a.ratingNumeric)
-    .slice(0, 5);
-  
+  if (!featuredContainer) return;
+
+  // If explicit featured URLs are provided, construct the featured list in that order
+  let featured = [];
+  if (featuredUrls && featuredUrls.length > 0) {
+    function slugFromUrl(url) {
+      try { const u = new URL(url); const parts = u.pathname.replace(/^\/+|\/+$/g, '').split('/'); return parts[parts.length - 1]; } catch { return url.split('/').filter(Boolean).pop(); }
+    }
+
+    for (const url of featuredUrls) {
+      const slug = slugFromUrl(url).toLowerCase();
+      // Try to find matching film from scraped data
+      let film = films.find(f => (f.filmSlug && f.filmSlug.toLowerCase().includes(slug)) || (f.link && f.link.toLowerCase().includes(slug)) || (f.title && f.title.toLowerCase().replace(/\s+/g,'-').includes(slug)));
+
+      if (!film) {
+        // If not found in scraped data, attempt to fetch TMDB details by guessing title from slug
+        const titleGuess = slug.replace(/-/g, ' ');
+        // Try to detect a year inside the slug to make TMDB search more accurate (e.g., 'superman-2025')
+        const yearMatch = slug.match(/(19|20)\d{2}/);
+        const yearHint = yearMatch ? yearMatch[0] : '';
+        console.log(`Featured: looking up TMDB for "${titleGuess}" year:${yearHint}`);
+        const tmdb = await getTMDBFilmDetails(titleGuess, yearHint);
+        film = {
+          title: tmdb?.title ?? titleGuess.replace(/\b\w/g, c => c.toUpperCase()),
+          year: tmdb?.releaseDate ? tmdb.releaseDate.split('-')[0] : (yearHint || ''),
+          rating: '',
+          ratingNumeric: tmdb ? (tmdb.rating / 2) : 0,
+          link: url,
+          poster: tmdb?.poster ?? null,
+          posterUrl: tmdb?.poster ?? null,
+          overview: tmdb?.overview ?? '',
+          genres: tmdb?.genres ?? [],
+          imdbId: tmdb?.imdbId ?? null,
+          tmdbRating: tmdb?.rating ?? 0
+        };
+
+        // If no poster found from TMDB, try to fetch the Letterboxd film page directly for og:image
+        if ((!film.poster || film.poster === null) && url) {
+          try {
+            const lbData = await fetchLetterboxdFilmPage(url);
+            if (lbData) {
+              if (lbData.posterUrl) {
+                film.poster = film.posterUrl = lbData.posterUrl;
+                console.log(`Featured: found Letterboxd poster for "${film.title}"`);
+              }
+              if (!film.overview && lbData.description) film.overview = lbData.description;
+              if (!film.title && lbData.title) film.title = lbData.title;
+            }
+          } catch (e) {
+            console.log('Featured: Letterboxd page fallback failed', e);
+          }
+        }
+      }
+
+      featured.push(film);
+    }
+  } else {
+    // Fallback: top-rated films from scraped data
+    featured = films
+      .filter(f => f.ratingNumeric >= 4)
+      .sort((a, b) => b.ratingNumeric - a.ratingNumeric)
+      .slice(0, 5);
+  }
+
   if (featured.length === 0) return;
-  
+
   featuredContainer.innerHTML = featured.map((film, index) => {
     const isWide = index === featured.length - 1 && featured.length === 3;
-    const posterUrl = film.poster || film.posterUrl || 'https://via.placeholder.com/500x750?text=No+Poster';
+    // Ensure posterUrl is a usable URL string (avoid 'null'/'undefined' strings)
+    let posterUrl = film.poster || film.posterUrl || '';
+    if (!posterUrl || posterUrl === 'null' || posterUrl === 'undefined') {
+      posterUrl = 'https://via.placeholder.com/500x750?text=No+Poster';
+      console.log(`Featured: no poster for "${film.title}", using placeholder`);
+    }
     const rating = film.ratingNumeric || 0;
     const ratingText = rating > 0 ? rating.toFixed(1) : 'N/A';
     const genres = film.genres && film.genres.length > 0 
@@ -555,7 +654,7 @@ function renderFeaturedFilms(films) {
       </div>
     `;
   }).join('');
-}
+} 
 
 // Render all films
 function renderAllFilms(films) {
@@ -564,7 +663,11 @@ function renderAllFilms(films) {
   
   allFilmsContainer.innerHTML = films.map(film => {
     // Use poster from film data, prioritize TMDB poster, then Letterboxd, then placeholder
-    const posterUrl = film.poster || film.posterUrl || 'https://via.placeholder.com/500x750?text=No+Poster';
+    let posterUrl = film.poster || film.posterUrl || '';
+    if (!posterUrl || posterUrl === 'null' || posterUrl === 'undefined') {
+      posterUrl = 'https://via.placeholder.com/500x750?text=No+Poster';
+      console.log(`AllFilms: no poster for "${film.title}", using placeholder`);
+    }
     const rating = film.ratingNumeric || 0;
     const ratingText = rating > 0 ? rating.toFixed(1) : 'N/A';
     const stars = rating > 0 ? numericToStars(rating) : '☆☆☆☆☆';
@@ -625,12 +728,13 @@ async function loadLetterboxdFilms() {
     const films = await fetchLetterboxdData();
     
     if (films.length === 0) {
-      console.warn('No films found. Using fallback data.');
+      console.warn('No films found. Rendering featured films from featured URLs.');
+      await renderFeaturedFilms([], FEATURED_FILM_URLS);
       return;
     }
     
-    // Render featured films (top rated)
-    renderFeaturedFilms(films);
+    // Render featured films (use explicit featured URLs)
+    await renderFeaturedFilms(films);
     
     // Render all films
     renderAllFilms(films);
