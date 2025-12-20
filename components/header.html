@@ -1,4 +1,4 @@
-<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-white/10 dark:border-[#223649] px-4 sm:px-10 py-4">
+<header class="relative flex items-center justify-between whitespace-nowrap border-b border-solid border-white/10 dark:border-[#223649] px-4 sm:px-10 py-4">
 <div class="flex items-center gap-4 text-white">
 <div class="size-5 text-primary">
 <svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
@@ -7,6 +7,14 @@
 </div>
 <h1 id="page-title" class="text-black dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">Home</h1>
 </div>
+<!-- Mobile menu button (visible on small screens) -->
+<div class="flex sm:hidden flex-1 justify-end">
+  <button id="mobile-menu-button" aria-expanded="false" aria-controls="mobile-nav" class="p-2 rounded-md text-white hover:bg-[#223649]" onclick="(function(){const nav=document.getElementById('mobile-nav'); if(!nav) return; nav.classList.toggle('hidden'); const expanded = !nav.classList.contains('hidden'); this.setAttribute('aria-expanded', expanded); })()">
+    <span class="material-symbols-outlined">menu</span>
+  </button>
+</div>
+
+<!-- Desktop nav (hidden on small screens) -->
 <div class="hidden sm:flex flex-1 justify-end gap-8">
 <div class="flex items-center gap-9">
 <a id="nav-home" class="text-black/80 dark:text-white/80 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="index.html">Home</a>
@@ -17,6 +25,19 @@
 <a class="text-black/80 dark:text-white/80 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Comics</a>
 <a class="text-black/80 dark:text-white/80 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Photography</a>
 </div>
+</div>
+
+<!-- Mobile nav dropdown (hidden by default) -->
+<div id="mobile-nav" class="sm:hidden hidden absolute right-4 top-full mt-2 w-[calc(100%-2rem)] bg-[#182634] rounded-lg p-4 border border-[#314d68] z-50">
+  <div class="flex flex-col gap-3">
+    <a id="mobile-nav-home" class="text-black/80 dark:text-white/80 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="index.html">Home</a>
+    <a id="mobile-nav-about" class="text-black/80 dark:text-white/80 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="about.html">About</a>
+    <a id="mobile-nav-project" class="text-black/80 dark:text-white/80 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="projects.html">Project</a>
+    <a id="mobile-nav-film" class="text-black/80 dark:text-white/80 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="film.html">Films</a>
+    <a class="text-black/80 dark:text-white/80 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Shows</a>
+    <a class="text-black/80 dark:text-white/80 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Comics</a>
+    <a class="text-black/80 dark:text-white/80 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Photography</a>
+  </div>
 </div>
 </header>
 

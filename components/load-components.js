@@ -14,11 +14,15 @@ async function loadComponents(pageName, activeNav) {
         pageTitle.textContent = pageName;
       }
       
-      // Set active navigation
+      // Set active navigation (desktop and mobile)
       if (activeNav) {
         const activeNavElement = document.getElementById(`nav-${activeNav}`);
         if (activeNavElement) {
           activeNavElement.classList.add('text-primary');
+        }
+        const mobileNavElement = document.getElementById(`mobile-nav-${activeNav}`);
+        if (mobileNavElement) {
+          mobileNavElement.classList.add('text-primary');
         }
       }
     }
