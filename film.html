@@ -62,12 +62,12 @@
       <div class="px-4 sm:px-10 md:px-20 lg:px-40 flex flex-1 justify-center py-5">
         <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
           <div id="header-container"></div>
-          <main class="flex flex-col gap-10 sm:gap-16 mt-8 sm:mt-12">
+          <main class="flex flex-col gap-8 sm:gap-12 mt-4 sm:mt-8">
             
             <!-- Header Section -->
-            <section class="py-6">
+            <section class="py-0">
               <div class="px-4 text-center">
-                <h1 class="text-white text-4xl md:text-5xl font-black leading-tight tracking-[-0.033em] mb-6">
+                <h1 class="text-white text-4xl md:text-5xl font-black leading-tight tracking-[-0.033em] mb-0">
                   Film
                 </h1>
                 <div class="max-w-3xl mx-auto">
@@ -79,27 +79,33 @@
             </section>
 
             <!-- Featured Films Section -->
-            <section class="py-6">
+            <section class="py-0">
               <div class="px-4">
-                <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] pb-5 pt-5 border-b border-[#223649] mb-6">
-                  Featured Films
-                </h2>
+                <div class="flex items-start justify-between gap-4">
+                  <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] pb-5 pt-5 border-b border-[#223649] mb-6">
+                    Favorite Films
+                  </h2>
+                  <a href="https://letterboxd.com/AncientPrime/" target="_blank" rel="noopener noreferrer" class="ml-auto mt-5 inline-flex items-center gap-2 rounded-lg bg-[#223649] hover:bg-primary px-3 py-2 text-sm font-semibold text-white">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/letterboxd.svg" alt="Letterboxd" class="w-4 h-4" style="filter: brightness(0) invert(1);" />
+                    View on Letterboxd
+                  </a>
+                </div>
                 <div id="loading-indicator" class="text-center py-8 text-gray-400">
                   <p>Loading films from Letterboxd...</p>
                 </div>
-                <div id="featured-films-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div id="featured-films-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
                   
                 </div>
               </div>
             </section>
 
             <!-- Film Listings Section -->
-            <section class="py-6">
+            <section class="py-0">
               <div class="px-4">
                 <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] pb-5 pt-5 border-b border-[#223649] mb-6">
                   All Films
                 </h2>
-                <div id="all-films-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div id="all-films-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   <!-- Films will be loaded dynamically from Letterboxd -->
                 </div>
               </div>
