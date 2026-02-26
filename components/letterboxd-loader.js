@@ -66,12 +66,12 @@ async function parseLetterboxdHTML(htmlText) {
   // Try multiple selectors for different Letterboxd page layouts
   // Selector 1: Poster containers (most common)
   let posterContainers = doc.querySelectorAll('li.poster-container, div.poster-container, li[class*="poster"]');
-  
+
   // Selector 2: Film grid items
   if (posterContainers.length === 0) {
     posterContainers = doc.querySelectorAll('ul.poster-list li, div[class*="film"]');
   }
-  
+
   // Selector 3: Any element with film data attributes
   if (posterContainers.length === 0) {
     posterContainers = doc.querySelectorAll('[data-film-slug], [data-film-id]');
@@ -83,23 +83,23 @@ async function parseLetterboxdHTML(htmlText) {
     try {
       // Extract title from img alt or data attributes
       const img = container.querySelector('img');
-      const title = img?.getAttribute('alt') || 
-                   container.getAttribute('data-film-name') ||
-                   container.querySelector('span[class*="title"], a[class*="title"]')?.textContent?.trim() ||
-                   '';
-      
+      const title = img?.getAttribute('alt') ||
+        container.getAttribute('data-film-name') ||
+        container.querySelector('span[class*="title"], a[class*="title"]')?.textContent?.trim() ||
+        '';
+
       if (!title) continue;
 
       // Extract poster URL from img src - try multiple attributes
       let posterUrl = null;
       if (img) {
         // Try different attributes in order of preference
-        posterUrl = img.getAttribute('data-src') || 
-                   img.getAttribute('src') || 
-                   img.getAttribute('data-original') ||
-                   img.getAttribute('data-lazy-src') ||
-                   img.src;
-        
+        posterUrl = img.getAttribute('data-src') ||
+          img.getAttribute('src') ||
+          img.getAttribute('data-original') ||
+          img.getAttribute('data-lazy-src') ||
+          img.src;
+
         // Convert to high-res if available (Letterboxd uses specific image sizes)
         if (posterUrl && posterUrl !== 'undefined' && posterUrl !== 'null') {
           // Letterboxd CDN URL format: https://a.ltrbxd.com/resized/film-poster/...
@@ -120,7 +120,7 @@ async function parseLetterboxdHTML(htmlText) {
           posterUrl = null;
         }
       }
-      
+
       // Debug logging
       if (title && !posterUrl) {
         console.log(`No poster found for: ${title}`);
@@ -134,8 +134,8 @@ async function parseLetterboxdHTML(htmlText) {
         rating = ratingElement.textContent.trim();
         // Check for star emoji or text
         if (!rating || rating.length === 0) {
-          rating = ratingElement.getAttribute('data-rating') || 
-                  ratingElement.getAttribute('title') || '';
+          rating = ratingElement.getAttribute('data-rating') ||
+            ratingElement.getAttribute('title') || '';
         }
       }
       // Also check parent for rating
@@ -148,22 +148,22 @@ async function parseLetterboxdHTML(htmlText) {
 
       // Extract link to film page
       const linkElement = container.querySelector('a');
-      const link = linkElement ? 
+      const link = linkElement ?
         (linkElement.href.startsWith('http') ? linkElement.href : `https://letterboxd.com${linkElement.getAttribute('href')}`) :
         `https://letterboxd.com/film/${title.toLowerCase().replace(/\s+/g, '-')}/`;
 
       // Extract year if available (usually in title or separate element)
       const yearElement = container.querySelector('small[class*="year"], span[class*="year"]');
       const year = yearElement?.textContent?.trim() || '';
-      
+
       // Extract review/description if available
       const reviewElement = container.querySelector('p[class*="review"], div[class*="review"], .review-text');
       const description = reviewElement?.textContent?.trim() || '';
 
       // Extract film slug for better identification
-      const filmSlug = container.getAttribute('data-film-slug') || 
-                      linkElement?.getAttribute('href')?.replace('/film/', '').replace('/', '') ||
-                      '';
+      const filmSlug = container.getAttribute('data-film-slug') ||
+        linkElement?.getAttribute('href')?.replace('/film/', '').replace('/', '') ||
+        '';
 
       films.push({
         title: title.trim(),
@@ -211,7 +211,7 @@ async function parseLetterboxdHTML(htmlText) {
 async function getTMDBFilmDetails(title, year = '') {
   try {
     const searchUrl = `${TMDB_BASE_URL}/search/movie?api_key=${TMDB_API_KEY}&query=${encodeURIComponent(title)}${year ? `&year=${year}` : ''}`;
-    
+
     // Try direct fetch first
     let response;
     try {
@@ -220,13 +220,13 @@ async function getTMDBFilmDetails(title, year = '') {
       // If CORS fails, use proxy
       response = await fetch(CORS_PROXY + encodeURIComponent(searchUrl));
     }
-    
+
     if (!response.ok) throw new Error('TMDB API error');
-    
+
     const data = await response.json();
     if (data.results && data.results.length > 0) {
       const film = data.results[0];
-      
+
       // Get detailed info including genres
       const detailsUrl = `${TMDB_BASE_URL}/movie/${film.id}?api_key=${TMDB_API_KEY}`;
       let detailsResponse;
@@ -235,7 +235,7 @@ async function getTMDBFilmDetails(title, year = '') {
       } catch (error) {
         detailsResponse = await fetch(CORS_PROXY + encodeURIComponent(detailsUrl));
       }
-      
+
       if (detailsResponse.ok) {
         const details = await detailsResponse.json();
         return {
@@ -250,7 +250,7 @@ async function getTMDBFilmDetails(title, year = '') {
           rating: film.vote_average || 0
         };
       }
-      
+
       return {
         id: film.id,
         title: film.title,
@@ -285,10 +285,10 @@ async function fetchLetterboxdFilmPage(url) {
     const doc = parser.parseFromString(html, 'text/html');
 
     const ogImage = doc.querySelector('meta[property="og:image"]')?.getAttribute('content') ||
-                    doc.querySelector('meta[name="twitter:image"]')?.getAttribute('content') || null;
+      doc.querySelector('meta[name="twitter:image"]')?.getAttribute('content') || null;
     const ogTitle = doc.querySelector('meta[property="og:title"]')?.getAttribute('content') || doc.title || null;
     const ogDesc = doc.querySelector('meta[property="og:description"]')?.getAttribute('content') ||
-                   doc.querySelector('meta[name="description"]')?.getAttribute('content') || null;
+      doc.querySelector('meta[name="description"]')?.getAttribute('content') || null;
 
     return { posterUrl: ogImage, title: ogTitle, description: ogDesc, link: url };
   } catch (error) {
@@ -297,125 +297,161 @@ async function fetchLetterboxdFilmPage(url) {
   }
 }
 
-// Fetch Letterboxd profile page and scrape film data
-async function fetchLetterboxdData() {
+// Fetch films from Letterboxd RSS feed (primary source - more reliable, no CORS issues)
+async function fetchLetterboxdRSS() {
+  const rssUrl = `https://letterboxd.com/${LETTERBOXD_USERNAME}/rss/`;
+  let response;
+
+  // Try direct fetch first
   try {
-    console.log('Fetching Letterboxd profile page...');
-    
-    // Try to fetch the films page first (more structured data)
-    let response;
+    response = await fetch(rssUrl);
+  } catch (e) {
+    console.log('RSS direct fetch failed, trying CORS proxy...', e);
+    response = await fetch(CORS_PROXY + encodeURIComponent(rssUrl));
+  }
+
+  if (!response || !response.ok) throw new Error(`RSS fetch failed: ${response?.status}`);
+
+  const xmlText = await response.text();
+  const parser = new DOMParser();
+  const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+  const items = xmlDoc.querySelectorAll('item');
+  const films = [];
+
+  for (const item of items) {
+    // Prefer Letterboxd-specific tags (more accurate)
+    const lbTitle = item.getElementsByTagNameNS('https://letterboxd.com', 'filmTitle')[0]?.textContent
+      || item.getElementsByTagName('letterboxd:filmTitle')[0]?.textContent;
+    const lbYear = item.getElementsByTagNameNS('https://letterboxd.com', 'filmYear')[0]?.textContent
+      || item.getElementsByTagName('letterboxd:filmYear')[0]?.textContent;
+    const lbRating = item.getElementsByTagNameNS('https://letterboxd.com', 'memberRating')[0]?.textContent
+      || item.getElementsByTagName('letterboxd:memberRating')[0]?.textContent;
+
+    // Fallback: parse from <title> tag
+    let filmTitle = lbTitle;
+    let year = lbYear || '';
+    if (!filmTitle) {
+      let rawTitle = item.querySelector('title')?.textContent || '';
+      rawTitle = rawTitle.replace(/^.*?watched\s+|^.*?rated\s+/i, '').trim();
+      const yearMatch = rawTitle.match(/\((\d{4})\)/);
+      year = yearMatch ? yearMatch[1] : '';
+      filmTitle = rawTitle.replace(/\s*\(\d{4}\)\s*$/, '').trim();
+    }
+
+    if (!filmTitle) continue;
+
+    // Rating: prefer numeric lb:memberRating (0.5–5), else parse stars from description
+    let ratingNumeric = lbRating ? parseFloat(lbRating) : 0;
+    let ratingStars = '';
+    if (!ratingNumeric) {
+      const desc = item.querySelector('description')?.textContent || '';
+      const starMatch = desc.match(/([★½]+)/);
+      ratingStars = starMatch ? starMatch[1] : '';
+      ratingNumeric = letterboxdRatingToNumeric(ratingStars);
+    }
+
+    // Extract poster from <description> img tag
+    const descHtml = item.querySelector('description')?.textContent || '';
+    const imgMatch = descHtml.match(/<img[^>]+src="([^"]+)"/);
+    const posterUrl = imgMatch ? imgMatch[1] : null;
+
+    const link = item.querySelector('link')?.textContent || '';
+
+    films.push({
+      title: filmTitle.trim(),
+      year,
+      rating: ratingStars,
+      ratingNumeric,
+      link,
+      description: '',
+      posterUrl
+    });
+  }
+
+  console.log(`RSS: parsed ${films.length} films`);
+  return films;
+}
+
+// Fetch Letterboxd data — RSS primary, HTML scraping fallback
+async function fetchLetterboxdData() {
+  // ── PRIMARY: RSS Feed ─────────────────────────────────────────────────────
+  try {
+    console.log('Fetching Letterboxd RSS feed (primary)...');
+    const films = await fetchLetterboxdRSS();
+
+    if (films.length === 0) throw new Error('RSS returned 0 films');
+
+    console.log(`RSS: ${films.length} films found. Enriching with TMDB...`);
+    return await enrichWithTMDB(films);
+
+  } catch (rssError) {
+    console.warn('RSS feed failed, falling back to HTML scraping...', rssError);
+  }
+
+  // ── FALLBACK: HTML Scraping ───────────────────────────────────────────────
+  try {
     let htmlText;
-    
-    // Try direct fetch first
+    let response;
+
     try {
       response = await fetch(LETTERBOXD_FILMS_URL, {
-        headers: {
-          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-        }
+        headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36' }
       });
+      if (response.ok) htmlText = await response.text();
+      else throw new Error(`Direct fetch failed: ${response.status}`);
+    } catch (e) {
+      console.log('HTML direct fetch failed, trying proxy...', e);
+      const proxyUrl = CORS_PROXY + encodeURIComponent(LETTERBOXD_FILMS_URL);
+      response = await fetch(proxyUrl);
       if (response.ok) {
         htmlText = await response.text();
-        console.log('Direct fetch successful from films page');
       } else {
-        throw new Error(`Direct fetch failed: ${response.status}`);
-      }
-    } catch (error) {
-      console.log('Direct fetch failed, trying CORS proxy...', error);
-      // If CORS fails, use proxy
-      try {
-        const proxyUrl = CORS_PROXY + encodeURIComponent(LETTERBOXD_FILMS_URL);
-        response = await fetch(proxyUrl);
-        if (response.ok) {
-          htmlText = await response.text();
-          console.log('Proxy fetch successful from films page');
-        } else {
-          // Try profile page as fallback
-          const profileProxyUrl = CORS_PROXY + encodeURIComponent(LETTERBOXD_PROFILE_URL);
-          response = await fetch(profileProxyUrl);
-          if (response.ok) {
-            htmlText = await response.text();
-            console.log('Proxy fetch successful from profile page');
-          } else {
-            throw new Error(`Proxy fetch failed: ${response.status}`);
-          }
-        }
-      } catch (proxyError) {
-        console.error('Both direct and proxy fetch failed:', proxyError);
-        throw proxyError;
+        const profileProxy = CORS_PROXY + encodeURIComponent(LETTERBOXD_PROFILE_URL);
+        response = await fetch(profileProxy);
+        if (response.ok) htmlText = await response.text();
+        else throw new Error(`All fallbacks failed: ${response.status}`);
       }
     }
-    
-    if (!htmlText || htmlText.length === 0) {
-      throw new Error('Empty response from Letterboxd');
-    }
-    
-    console.log('Parsing HTML...');
+
+    if (!htmlText) throw new Error('Empty HTML response');
+
     const films = await parseLetterboxdHTML(htmlText);
-    
-    if (films.length === 0) {
-      console.warn('No films found in HTML. Profile might be private or page structure changed.');
-      return [];
-    }
-    
-    console.log(`Found ${films.length} films. Fetching TMDB details...`);
-    
-    // Get TMDB details for each film (limit to first 20 for performance and rate limiting)
-    const filmsWithDetails = [];
-    const maxFilms = Math.min(films.length, 20);
-    
-    for (let i = 0; i < maxFilms; i++) {
-      const film = films[i];
-      console.log(`Processing ${i + 1}/${maxFilms}: ${film.title}`);
-      
-      try {
-        // Always try to get TMDB data for poster and additional info
-        let tmdbData = null;
-        let finalPoster = null;
-        
-        // Try to get TMDB data first (more reliable for posters)
-        tmdbData = await getTMDBFilmDetails(film.title, film.year);
-        
-        if (tmdbData && tmdbData.poster) {
-          // Use TMDB poster as primary source (more reliable)
-          finalPoster = tmdbData.poster;
-          console.log(`✓ Using TMDB poster for: ${film.title}`);
-        } else if (film.posterUrl) {
-          // Fallback to Letterboxd poster if TMDB doesn't have one
-          finalPoster = film.posterUrl;
-          console.log(`✓ Using Letterboxd poster for: ${film.title}`);
-        } else {
-          // No poster available
-          console.warn(`✗ No poster found for: ${film.title}`);
-          finalPoster = null;
-        }
-        
-        if (tmdbData) {
-          filmsWithDetails.push({
-            ...film,
-            poster: finalPoster || tmdbData.poster || null,
-            backdrop: tmdbData.backdrop || null,
-            overview: tmdbData.overview || film.description || '',
-            genres: tmdbData.genres || [],
-            releaseDate: tmdbData.releaseDate || film.year || '',
-            imdbId: tmdbData.imdbId || null,
-            tmdbRating: tmdbData.rating || 0
-          });
-        } else {
-          // Use Letterboxd data only if TMDB fails
-          filmsWithDetails.push({
-            ...film,
-            poster: finalPoster,
-            overview: film.description || '',
-            genres: [],
-            releaseDate: film.year || '',
-            imdbId: null,
-            tmdbRating: 0
-          });
-        }
-      } catch (error) {
-        console.error(`Error processing ${film.title}:`, error);
-        // Still add the film with basic data
-        filmsWithDetails.push({
+    if (films.length === 0) throw new Error('HTML parse returned 0 films');
+
+    console.log(`HTML scrape: ${films.length} films. Enriching with TMDB...`);
+    return await enrichWithTMDB(films);
+
+  } catch (htmlError) {
+    console.error('All data sources failed:', htmlError);
+    return [];
+  }
+}
+
+// Enrich film list with TMDB data (poster, genre, overview, etc.)
+async function enrichWithTMDB(films) {
+  const result = [];
+  const maxFilms = Math.min(films.length, 20);
+
+  for (let i = 0; i < maxFilms; i++) {
+    const film = films[i];
+    console.log(`TMDB ${i + 1}/${maxFilms}: ${film.title}`);
+
+    try {
+      const tmdb = await getTMDBFilmDetails(film.title, film.year);
+
+      if (tmdb) {
+        result.push({
+          ...film,
+          poster: tmdb.poster || film.posterUrl || null,
+          backdrop: tmdb.backdrop || null,
+          overview: tmdb.overview || film.description || '',
+          genres: tmdb.genres || [],
+          releaseDate: tmdb.releaseDate || film.year || '',
+          imdbId: tmdb.imdbId || null,
+          tmdbRating: tmdb.rating || 0
+        });
+      } else {
+        result.push({
           ...film,
           poster: film.posterUrl || null,
           overview: film.description || '',
@@ -425,83 +461,16 @@ async function fetchLetterboxdData() {
           tmdbRating: 0
         });
       }
-      
-      // Rate limiting: delay between requests to avoid being blocked
-      if (i < maxFilms - 1) {
-        await new Promise(resolve => setTimeout(resolve, 300));
-      }
+    } catch (err) {
+      console.error(`TMDB error for ${film.title}:`, err);
+      result.push({ ...film, poster: film.posterUrl || null, genres: [], tmdbRating: 0 });
     }
-    
-    console.log(`Successfully loaded ${filmsWithDetails.length} films with details`);
-    return filmsWithDetails;
-  } catch (error) {
-    console.error('Error fetching Letterboxd data via scraping:', error);
-    console.log('Falling back to RSS feed...');
-    
-    // Fallback to RSS feed if scraping fails
-    try {
-      const rssUrl = `https://letterboxd.com/${LETTERBOXD_USERNAME}/rss/`;
-      let response;
-      try {
-        response = await fetch(rssUrl);
-      } catch (e) {
-        response = await fetch(CORS_PROXY + encodeURIComponent(rssUrl));
-      }
-      
-      if (response.ok) {
-        const xmlText = await response.text();
-        const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
-        const items = xmlDoc.querySelectorAll('item');
-        const films = [];
-        
-        for (const item of items) {
-          const title = item.querySelector('title')?.textContent || '';
-          const link = item.querySelector('link')?.textContent || '';
-          const description = item.querySelector('description')?.textContent || '';
-          const ratingMatch = description.match(/([★½]+)/);
-          const rating = ratingMatch ? ratingMatch[1] : '';
-          
-          let filmTitle = title.replace(/watched\s+|rated\s+/i, '').trim();
-          const yearMatch = filmTitle.match(/\((\d{4})\)/);
-          const year = yearMatch ? yearMatch[1] : '';
-          filmTitle = filmTitle.replace(/\s*\(\d{4}\)\s*$/, '').trim();
-          
-          if (filmTitle) {
-            films.push({
-              title: filmTitle,
-              year: year,
-              rating: rating,
-              ratingNumeric: letterboxdRatingToNumeric(rating),
-              link: link,
-              description: description,
-              posterUrl: null
-            });
-          }
-        }
-        
-        // Get TMDB details for RSS films
-        const filmsWithDetails = [];
-        for (let i = 0; i < Math.min(films.length, 20); i++) {
-          const film = films[i];
-          const tmdbData = await getTMDBFilmDetails(film.title, film.year);
-          if (tmdbData) {
-            filmsWithDetails.push({ ...film, ...tmdbData });
-          } else {
-            filmsWithDetails.push(film);
-          }
-          await new Promise(resolve => setTimeout(resolve, 300));
-        }
-        
-        console.log(`Loaded ${filmsWithDetails.length} films from RSS feed fallback`);
-        return filmsWithDetails;
-      }
-    } catch (rssError) {
-      console.error('RSS feed fallback also failed:', rssError);
-    }
-    
-    return [];
+
+    if (i < maxFilms - 1) await new Promise(r => setTimeout(r, 300));
   }
+
+  console.log(`Enriched ${result.length} films with TMDB data`);
+  return result;
 }
 
 // Render featured films
@@ -519,14 +488,15 @@ async function renderFeaturedFilms(films, featuredUrls = FEATURED_FILM_URLS) {
     for (const url of featuredUrls) {
       const slug = slugFromUrl(url).toLowerCase();
       // Try to find matching film from scraped data
-      let film = films.find(f => (f.filmSlug && f.filmSlug.toLowerCase().includes(slug)) || (f.link && f.link.toLowerCase().includes(slug)) || (f.title && f.title.toLowerCase().replace(/\s+/g,'-').includes(slug)));
+      let film = films.find(f => (f.filmSlug && f.filmSlug.toLowerCase().includes(slug)) || (f.link && f.link.toLowerCase().includes(slug)) || (f.title && f.title.toLowerCase().replace(/\s+/g, '-').includes(slug)));
 
       if (!film) {
         // If not found in scraped data, attempt to fetch TMDB details by guessing title from slug
-        const titleGuess = slug.replace(/-/g, ' ');
         // Try to detect a year inside the slug to make TMDB search more accurate (e.g., 'superman-2025')
         const yearMatch = slug.match(/(19|20)\d{2}/);
         const yearHint = yearMatch ? yearMatch[0] : '';
+        // Strip the year from the title guess so TMDB gets a clean title (e.g. 'superman' not 'superman 2025')
+        const titleGuess = slug.replace(/[-_]?(19|20)\d{2}[-_]?/g, ' ').replace(/-/g, ' ').replace(/\s+/g, ' ').trim();
         console.log(`Featured: looking up TMDB for "${titleGuess}" year:${yearHint}`);
         const tmdb = await getTMDBFilmDetails(titleGuess, yearHint);
         film = {
@@ -573,148 +543,59 @@ async function renderFeaturedFilms(films, featuredUrls = FEATURED_FILM_URLS) {
 
   if (featured.length === 0) return;
 
-  featuredContainer.innerHTML = featured.map((film, index) => {
-    const isWide = index === featured.length - 1 && featured.length === 3;
-    // Ensure posterUrl is a usable URL string (avoid 'null'/'undefined' strings)
-    let posterUrl = film.poster || film.posterUrl || '';
-    if (!posterUrl || posterUrl === 'null' || posterUrl === 'undefined') {
-      posterUrl = 'https://via.placeholder.com/500x750?text=No+Poster';
-      console.log(`Featured: no poster for "${film.title}", using placeholder`);
-    }
-    const rating = film.ratingNumeric || 0;
-    const ratingText = rating > 0 ? rating.toFixed(1) : 'N/A';
-    const genres = film.genres && film.genres.length > 0 
-      ? film.genres.slice(0, 3).map(g => `<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">${g}</span>`).join('')
-      : '';
-    const imdbLink = film.imdbId ? `https://www.imdb.com/title/${film.imdbId}/` : film.link || '#';
-    
-    if (isWide) {
-      return `
-        <div class="film-card flex flex-col rounded-xl border border-[#314d68] bg-[#182634] overflow-hidden group md:col-span-2">
-          <div class="flex flex-col md:flex-row">
-            <div class="w-full md:w-2/5 h-80 md:h-auto relative overflow-hidden bg-[#182634]">
-              <img src="${posterUrl}" alt="${film.title}" class="w-full h-full object-cover" style="display: block;" onerror="this.onerror=null; this.src='https://via.placeholder.com/500x750?text=No+Poster';" />
-            </div>
-            <div class="w-full md:w-3/5 p-6 flex flex-col">
-              <div class="flex items-center justify-between mb-3">
-                <h3 class="text-white text-2xl font-bold">${film.title}</h3>
-                <div class="flex items-center gap-1">
-                  <span class="text-primary font-bold text-lg">${ratingText}</span>
-                  <span class="text-gray-400 text-sm">/10</span>
-                </div>
-              </div>
-              <div class="flex flex-wrap gap-2 mb-4">
-                ${genres}
-              </div>
-              <p class="text-gray-300 text-sm leading-relaxed mb-4 flex-grow">
-                ${film.overview || film.description || 'No description available.'}
-              </p>
-              <div class="flex items-center gap-2 text-sm text-gray-400 mb-4">
-                <span class="material-symbols-outlined text-base">play_circle</span>
-                <span>View on Letterboxd</span>
-              </div>
-              <a href="${imdbLink}" target="_blank" rel="noopener noreferrer" class="text-primary font-semibold text-sm self-start hover:underline flex items-center gap-1">
-                View on ${film.imdbId ? 'IMDb' : 'Letterboxd'}
-                <span class="material-symbols-outlined text-base">arrow_forward</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      `;
-    }
-    
-    return `
-      <div class="film-card flex flex-col rounded-xl border border-[#314d68] bg-[#182634] overflow-hidden group">
-        <div class="w-full h-80 relative overflow-hidden bg-[#182634]">
-          <img src="${posterUrl}" alt="${film.title}" class="w-full h-full object-cover" style="display: block;" onerror="this.onerror=null; this.src='https://via.placeholder.com/500x750?text=No+Poster';" />
-        </div>
-        <div class="p-6 flex flex-col flex-grow">
-          <div class="flex items-center justify-between mb-3">
-            <h3 class="text-white text-2xl font-bold">${film.title}</h3>
-            <div class="flex items-center gap-1">
-              <span class="text-primary font-bold text-lg">${ratingText}</span>
-              <span class="text-gray-400 text-sm">/10</span>
-            </div>
-          </div>
-          <div class="flex flex-wrap gap-2 mb-4">
-            ${genres}
-          </div>
-          <p class="text-gray-300 text-sm leading-relaxed mb-4 flex-grow">
-            ${film.overview || film.description || 'No description available.'}
-          </p>
-          <div class="flex items-center gap-2 text-sm text-gray-400 mb-4">
-            <span class="material-symbols-outlined text-base">play_circle</span>
-            <span>View on Letterboxd</span>
-          </div>
-          <a href="${imdbLink}" target="_blank" rel="noopener noreferrer" class="text-primary font-semibold text-sm self-start hover:underline flex items-center gap-1">
-            View on ${film.imdbId ? 'IMDb' : 'Letterboxd'}
-            <span class="material-symbols-outlined text-base">arrow_forward</span>
-          </a>
+  featuredContainer.className = 'grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4';
+  featuredContainer.innerHTML = featured.map(renderFilmCard).join('');
+}
+
+
+// Render a single film card (used by both featured and all-films sections)
+function renderFilmCard(film) {
+  let posterUrl = film.poster || film.posterUrl || null;
+  if (!posterUrl || posterUrl === 'null' || posterUrl === 'undefined') {
+    posterUrl = 'https://via.placeholder.com/500x750?text=No+Poster';
+  }
+  const rating = film.ratingNumeric || 0;
+  const ratingText = rating > 0 ? rating.toFixed(1) : 'N/A';
+  const year = film.year || (film.releaseDate ? film.releaseDate.split('-')[0] : '');
+  const genres = film.genres && film.genres.length > 0
+    ? film.genres.slice(0, 2).map(g => `<span class="text-xs bg-white/10 text-white/80 px-2 py-0.5 rounded-full">${g}</span>`).join('')
+    : '';
+  const letterboxdLink = film.link || '#';
+
+  return `
+    <a href="${letterboxdLink}" target="_blank" rel="noopener noreferrer" class="group block relative rounded-lg overflow-hidden" style="aspect-ratio: 2/3;">
+      <img
+        src="${posterUrl}"
+        alt="${film.title}"
+        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+        onerror="this.onerror=null; this.src='https://via.placeholder.com/500x750?text=No+Poster';"
+      />
+      <!-- Hover overlay -->
+      <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3">
+        <h3 class="text-white font-bold text-sm leading-tight mb-1">${film.title}</h3>
+        ${year ? `<p class="text-gray-300 text-xs mb-2">${year}</p>` : ''}
+        <div class="flex flex-wrap gap-1 mb-2">${genres}</div>
+        <div class="flex items-center gap-1">
+          <span class="material-symbols-outlined text-primary" style="font-size:14px;">play_circle</span>
+          <span class="text-primary text-xs font-semibold">View on Letterboxd</span>
         </div>
       </div>
-    `;
-  }).join('');
-} 
+      <!-- Rating badge -->
+      ${rating > 0 ? `
+      <div class="absolute top-2 right-2 bg-black/70 backdrop-blur-sm text-primary font-bold text-xs px-1.5 py-0.5 rounded">
+        ${ratingText}
+      </div>` : ''}
+    </a>
+  `;
+}
 
 // Render all films
 function renderAllFilms(films) {
   const allFilmsContainer = document.getElementById('all-films-container');
   if (!allFilmsContainer) return;
-  
-  allFilmsContainer.innerHTML = films.map(film => {
-    // Use poster from film data, prioritize TMDB poster, then Letterboxd, then placeholder
-    let posterUrl = film.poster || film.posterUrl || '';
-    if (!posterUrl || posterUrl === 'null' || posterUrl === 'undefined') {
-      posterUrl = 'https://via.placeholder.com/500x750?text=No+Poster';
-      console.log(`AllFilms: no poster for "${film.title}", using placeholder`);
-    }
-    const rating = film.ratingNumeric || 0;
-    const ratingText = rating > 0 ? rating.toFixed(1) : 'N/A';
-    const stars = rating > 0 ? numericToStars(rating) : '☆☆☆☆☆';
-    const genres = film.genres && film.genres.length > 0 
-      ? film.genres.slice(0, 2).map(g => `<span class="text-xs font-medium bg-primary/20 text-primary px-2 py-1 rounded-full">${g}</span>`).join('')
-      : '';
-    const imdbLink = film.imdbId ? `https://www.imdb.com/title/${film.imdbId}/` : film.link || '#';
-    const description = film.overview || film.description || 'No description available.';
-    const shortDescription = description.length > 150 ? description.substring(0, 150) + '...' : description;
-    
-    return `
-      <div class="film-card flex flex-col rounded-xl border border-[#314d68] bg-[#182634] overflow-hidden group">
-        <div class="w-full h-64 relative overflow-hidden bg-[#182634]">
-          <img src="${posterUrl}" alt="${film.title}" class="w-full h-full object-cover" style="display: block;" onerror="this.onerror=null; this.src='https://via.placeholder.com/500x750?text=No+Poster';" />
-          <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-10">
-            <div class="text-center px-4">
-              <div class="flex items-center justify-center gap-1 mb-2">
-                <span class="text-yellow-400 font-bold text-lg">${ratingText}</span>
-                <span class="text-white text-sm">/10</span>
-              </div>
-              <p class="text-white text-sm">${shortDescription}</p>
-            </div>
-          </div>
-        </div>
-        <div class="p-4 flex flex-col flex-grow">
-          <h3 class="text-white text-lg font-bold mb-2">${film.title}</h3>
-          <div class="flex items-center gap-1 mb-3">
-            <span class="star-rating">${stars}</span>
-            <span class="text-gray-400 text-xs ml-1">(${ratingText}/10)</span>
-          </div>
-          <p class="text-gray-300 text-sm leading-relaxed mb-3 flex-grow">
-            ${shortDescription}
-          </p>
-          <div class="flex flex-wrap gap-2 mb-3">
-            ${genres}
-          </div>
-          <div class="flex items-center gap-2 text-xs text-gray-400 mb-3">
-            <span class="material-symbols-outlined text-sm">play_circle</span>
-            <span>Letterboxd</span>
-          </div>
-          <a href="${imdbLink}" target="_blank" rel="noopener noreferrer" class="text-primary font-semibold text-xs hover:underline">
-            View Details →
-          </a>
-        </div>
-      </div>
-    `;
-  }).join('');
+
+  allFilmsContainer.className = 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4';
+  allFilmsContainer.innerHTML = films.map(renderFilmCard).join('');
 }
 
 // Main function to load and display films
@@ -723,22 +604,22 @@ async function loadLetterboxdFilms() {
   if (loadingIndicator) {
     loadingIndicator.style.display = 'block';
   }
-  
+
   try {
     const films = await fetchLetterboxdData();
-    
+
     if (films.length === 0) {
       console.warn('No films found. Rendering featured films from featured URLs.');
       await renderFeaturedFilms([], FEATURED_FILM_URLS);
       return;
     }
-    
+
     // Render featured films (use explicit featured URLs)
     await renderFeaturedFilms(films);
-    
+
     // Render all films
     renderAllFilms(films);
-    
+
   } catch (error) {
     console.error('Error loading films:', error);
   } finally {
