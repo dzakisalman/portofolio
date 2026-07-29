@@ -24,8 +24,8 @@ const CORS_PROXY = 'https://api.allorigins.win/raw?url=';
 const FEATURED_FILM_URLS = [
   'https://letterboxd.com/film/inception/',
   'https://letterboxd.com/film/the-batman/',
-  'https://letterboxd.com/film/superman-2025/',
-  'https://letterboxd.com/film/captain-america-the-winter-soldier/'
+  'https://letterboxd.com/film/the-odyssey-2026/',
+  'https://letterboxd.com/film/project-hail-mary/'
 ];
 
 // Convert Letterboxd rating to numeric
