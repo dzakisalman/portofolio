@@ -1,128 +1,260 @@
 <!DOCTYPE html>
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>About - Muhammad Dzaki Salman</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-<script>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>About - Muhammad Dzaki Salman</title>
+  <meta name="description" content="Biography, journey, skills, and background of Muhammad Dzaki Salman, a passionate mobile developer."/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <script>
     tailwind.config = {
       darkMode: "class",
       theme: {
         extend: {
           colors: {
             "primary": "#0d7ff2",
-            "background-light": "#f5f7f8",
-            "background-dark": "#101922",
+            "primary-hover": "#0a6bd1",
+            "background-dark": "#0c131c",
+            "surface-dark": "#121d2a",
+            "surface-card": "#162332",
+            "surface-border": "#22374c",
+            "surface-border-hover": "#355474",
           },
           fontFamily: {
-            "display": ["Inter", "sans-serif"]
-          },
-          borderRadius: {
-            "DEFAULT": "0.25rem",
-            "lg": "0.5rem",
-            "xl": "0.75rem",
-            "full": "9999px"
+            "sans": ["Plus Jakarta Sans", "Inter", "sans-serif"],
+            "display": ["Plus Jakarta Sans", "Inter", "sans-serif"]
           },
         },
       },
     }
   </script>
-<style>
-    .glassmorphism {
-      background: rgba(16, 26, 35, 0.6);
-      -webkit-backdrop-filter: blur(10px);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(34, 54, 73, 0.5);
-    }
+  <style>
     html {
       scroll-behavior: smooth;
     }
+    .card-glow {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .card-glow:hover {
+      border-color: #0d7ff2;
+      box-shadow: 0 12px 30px -10px rgba(13, 127, 242, 0.2);
+    }
   </style>
 </head>
-<body class="font-display">
-<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden">
-<div class="layout-container flex h-full grow flex-col">
-<div class="px-4 sm:px-10 md:px-20 lg:px-40 flex flex-1 justify-center py-5">
-<div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-<div id="header-container"></div>
-<main class="flex flex-col gap-8 sm:gap-12 mt-4 sm:mt-8">
-<!-- Introduction Section -->
-<section class="py-0 mb-0">
-<div class="px-4">
-<div class="flex flex-col md:flex-row gap-4 md:gap-8 items-start">
-<div class="w-full md:w-1/3 flex justify-center md:justify-start">
-<img src="images/profile.jpeg" alt="Muhammad Dzaki Salman" class="w-48 h-48 md:w-56 md:h-56 rounded-full object-cover border-2 border-primary shadow-lg" onerror="this.onerror=null; this.src='https://www.instagram.com/dzakisalman_/media/?size=l'" />
-</div>
-<div class="w-full md:w-2/3">
-<h1 class="text-white text-4xl md:text-5xl font-black leading-tight tracking-[-0.033em] mb-4">About Me</h1>
-<div class="rounded-lg border border-[#314d68] bg-[#182634] p-6 md:p-8">
-<p class="text-gray-300 text-base md:text-lg leading-relaxed text-justify">
-Hi! I'm <span class="text-primary font-semibold">Muhammad Dzaki Salman</span>, a passionate Mobile Developer currently in my third year at <span class="text-primary font-semibold">Universitas Negeri Surabaya (UNESA)</span>, pursuing a degree in Computer Science. I began my coding journey in 2022, during my first year of college, diving into languages like C++ and Python. As I explored the world of programming, I found myself particularly drawn to mobile development.
-</p>
-</div>
-</div>
-</div>
-</div>
-</section>
+<body class="font-sans bg-background-dark text-slate-100 min-h-screen flex flex-col antialiased selection:bg-primary/30 selection:text-white">
 
-<!-- Learning Journey and Experience Section -->
-<section class="py-0 mb-0">
-<div class="px-4">
-<h2 class="text-white text-3xl font-bold leading-tight tracking-[-0.015em] mb-4 flex items-center gap-3">
-<span class="material-symbols-outlined text-primary text-4xl">school</span>
-Learning Journey & Experience
-</h2>
-<div class="rounded-lg border border-[#314d68] bg-[#182634] p-6 md:p-8">
-<p class="text-gray-300 text-base md:text-lg leading-relaxed text-justify">
-In 2024, I joined the <span class="text-primary font-semibold">Bangkit Academy's Independent Study Program</span>, where I specialized in Kotlin for Android app development. This experience helped me build a solid foundation in mobile development. Afterward, I had the opportunity to intern at <span class="text-primary font-semibold">ORDO Apps</span>, where I honed my skills further by working with Flutter, allowing me to create beautiful, high-performance mobile applications.
-</p>
-</div>
-</div>
-</section>
+  <!-- Header Container -->
+  <div id="header-container"></div>
 
-<!-- Hobbies and Interests Section -->
-<section class="py-0 mb-0">
-<div class="px-4">
-<h2 class="text-white text-3xl font-bold leading-tight tracking-[-0.015em] mb-4 flex items-center gap-3">
-<span class="material-symbols-outlined text-primary text-4xl">favorite</span>
-Hobbies & Interests
-</h2>
-<div class="rounded-lg border border-[#314d68] bg-[#182634] p-6 md:p-8">
-<p class="text-gray-300 text-base md:text-lg leading-relaxed text-justify">
-Outside of development, I have a strong passion for <span class="text-primary font-semibold">sci-fi and superhero films and shows</span>, which inspire my creativity. I'm also an avid reader of <span class="text-primary font-semibold">manhwa</span> and enjoy the art of <span class="text-primary font-semibold">photography</span>, capturing the world through my lens.
-</p>
-</div>
-</div>
-</section>
+  <!-- Main Content -->
+  <main class="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex flex-col gap-14">
 
-<!-- Conclusion Section -->
-<section class="py-0 mb-0">
-<div class="px-4">
-<h2 class="text-white text-3xl font-bold leading-tight tracking-[-0.015em] mb-4 flex items-center gap-3">
-<span class="material-symbols-outlined text-primary text-4xl">rocket_launch</span>
-Looking Forward
-</h2>
-<div class="rounded-lg border border-[#314d68] bg-[#182634] p-6 md:p-8">
-<p class="text-gray-300 text-base md:text-lg leading-relaxed text-justify">
-I believe in <span class="text-primary font-semibold">continuous learning</span> and am always excited to explore new technologies and creative avenues. This portfolio reflects my journey as a developer and the projects I'm passionate about, as well as my interests outside of tech. Feel free to browse and connect!
-</p>
-</div>
-</div>
-</section>
-</main>
-<div id="footer-container"></div>
-</div>
-</div>
-</div>
-</div>
-<script src="components/load-components.js"></script>
-<script>
-  // Load header and footer components
-  loadComponents('About', 'about');
-</script>
-</body></html>
+    <!-- Hero Intro Section -->
+    <section class="flex flex-col md:flex-row items-center md:items-start gap-8 lg:gap-12 pb-8 border-b border-[#22374c]">
+      <!-- Avatar Card -->
+      <div class="w-full md:w-1/3 flex flex-col items-center text-center">
+        <div class="relative group">
+          <div class="absolute -inset-1 bg-gradient-to-tr from-primary to-sky-400 rounded-full blur-md opacity-40 group-hover:opacity-75 transition duration-300"></div>
+          <div class="relative w-44 h-44 sm:w-52 sm:h-52 rounded-full p-1 bg-gradient-to-b from-[#355474] to-[#121d2a] shadow-xl">
+            <img 
+              src="images/profile.jpeg" 
+              alt="Muhammad Dzaki Salman" 
+              class="w-full h-full object-cover rounded-full" 
+              onerror="this.onerror=null; this.src='https://www.instagram.com/dzakisalman_/media/?size=l'" 
+            />
+          </div>
+        </div>
 
+        <h2 class="text-white text-xl font-bold mt-4">Muhammad Dzaki Salman</h2>
+        <p class="text-primary text-sm font-semibold mt-0.5">Mobile Developer</p>
+        <p class="text-slate-400 text-xs mt-1">Surabaya, Indonesia</p>
+
+        <!-- Quick metadata badge -->
+        <div class="mt-4 w-full p-3 rounded-xl bg-[#162332] border border-[#22374c] text-xs text-slate-300 flex flex-col gap-2 text-left">
+          <div class="flex items-center justify-between">
+            <span class="text-slate-400">Education</span>
+            <span class="font-semibold text-white">UNESA</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-slate-400">Major</span>
+            <span class="font-semibold text-white">Computer Science</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-slate-400">Focus</span>
+            <span class="font-semibold text-primary">Flutter & Kotlin</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bio / Story -->
+      <div class="w-full md:w-2/3 flex flex-col gap-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#162332] border border-[#22374c] text-xs font-semibold text-primary self-start">
+          <span>ABOUT ME</span>
+        </div>
+        <h1 class="text-white text-3xl sm:text-4xl font-extrabold tracking-tight">
+          Crafting intuitive mobile experiences with clean code & modern AI.
+        </h1>
+        <div class="p-6 rounded-2xl bg-[#162332] border border-[#22374c] text-slate-300 text-base leading-relaxed flex flex-col gap-4 shadow-sm">
+          <p>
+            Hi there! I'm <strong class="text-white">Muhammad Dzaki Salman</strong>, a dedicated Front-End Mobile Developer currently in my third year studying Computer Science at <strong class="text-primary font-medium">Universitas Negeri Surabaya (UNESA)</strong>.
+          </p>
+          <p>
+            My programming journey sparked in 2022 when I first experimented with C++ and Python. Exploring software development quickly led me to fall in love with <strong class="text-white">mobile development</strong> — the unique thrill of holding a freshly compiled application in your hand and designing fluid, tactile user interfaces.
+          </p>
+          <p>
+            Since then, I have specialized in <strong class="text-primary font-medium">Flutter</strong> and <strong class="text-primary font-medium">Kotlin</strong>, architecting solutions that combine smooth UI animations with on-device machine learning (ML Kit, TensorFlow Lite) and generative AI capabilities.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience & Milestones Timeline -->
+    <section class="flex flex-col gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-primary/20 text-primary flex items-center justify-center font-bold text-sm">
+          01
+        </div>
+        <div>
+          <h2 class="text-white text-2xl font-bold tracking-tight">Experience & Learning Milestones</h2>
+          <p class="text-slate-400 text-sm">Key chapters in my growth as an engineer</p>
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        <!-- 2026 -->
+        <div class="card-glow p-6 rounded-2xl bg-[#162332] border border-[#22374c] flex flex-col sm:flex-row gap-4">
+          <div class="sm:w-36 flex-shrink-0">
+            <span class="text-xs font-bold text-amber-400 bg-amber-400/10 border border-amber-400/20 px-2.5 py-1 rounded-md">
+              2026
+            </span>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-white font-bold text-lg">🏆 1st Place Winner – Flutter Fusion Competition</h3>
+            <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+              Led front-end development and UI/UX for <strong class="text-primary">NantiFit</strong>, an AI-powered health and fitness ecosystem incorporating real-time camera pose detection, AI nutrition analysis, and workout shorts.
+            </p>
+          </div>
+        </div>
+
+        <!-- 2024: ORDO Apps -->
+        <div class="card-glow p-6 rounded-2xl bg-[#162332] border border-[#22374c] flex flex-col sm:flex-row gap-4">
+          <div class="sm:w-36 flex-shrink-0">
+            <span class="text-xs font-bold text-primary bg-primary/10 border border-primary/20 px-2.5 py-1 rounded-md">
+              2024
+            </span>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-white font-bold text-lg">Mobile Developer Intern – ORDO Apps</h3>
+            <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+              Honed production-grade Flutter development skills by collaborating on client-facing mobile applications, implementing responsive layouts, state management, and API integrations.
+            </p>
+          </div>
+        </div>
+
+        <!-- 2024: Bangkit Academy -->
+        <div class="card-glow p-6 rounded-2xl bg-[#162332] border border-[#22374c] flex flex-col sm:flex-row gap-4">
+          <div class="sm:w-36 flex-shrink-0">
+            <span class="text-xs font-bold text-emerald-400 bg-emerald-400/10 border border-emerald-400/20 px-2.5 py-1 rounded-md">
+              2024
+            </span>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-white font-bold text-lg">Bangkit Academy – Mobile Development Cohort (Kotlin)</h3>
+            <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+              Completed Google-backed independent study program specializing in native Android development with Kotlin, MVVM architecture, Room database, Coroutines, and finished with the FoodTopia Capstone project.
+            </p>
+          </div>
+        </div>
+
+        <!-- 2022: UNESA -->
+        <div class="card-glow p-6 rounded-2xl bg-[#162332] border border-[#22374c] flex flex-col sm:flex-row gap-4">
+          <div class="sm:w-36 flex-shrink-0">
+            <span class="text-xs font-bold text-slate-400 bg-slate-800 border border-slate-700 px-2.5 py-1 rounded-md">
+              2022
+            </span>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-white font-bold text-lg">Started Computer Science at UNESA</h3>
+            <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+              Began university journey, mastering core computer science foundations, algorithms, object-oriented programming in C++, and scripting with Python.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Creative Passions & Philosophy -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      
+      <!-- Passions Card -->
+      <div class="card-glow p-6 sm:p-8 rounded-2xl bg-[#162332] border border-[#22374c] flex flex-col">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-8 h-8 rounded-lg bg-primary/20 text-primary flex items-center justify-center font-bold text-sm">
+            02
+          </div>
+          <h2 class="text-white text-xl font-bold">Hobbies & Visual Inspiration</h2>
+        </div>
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed flex-1">
+          Outside of coding, I'm captivated by <strong class="text-white">sci-fi and superhero cinema</strong>, exploring cinematic lighting and narrative world-building that feeds directly into my UI design sensibility. I also spend my downtime reading <strong class="text-white">manhwa</strong> and practicing street <strong class="text-white">photography</strong>.
+        </p>
+        <div class="mt-6 pt-4 border-t border-[#22374c]">
+          <a href="film.html" class="inline-flex items-center gap-2 text-xs font-bold text-primary hover:underline">
+            <span>Explore my Film Diary</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Engineering Philosophy -->
+      <div class="card-glow p-6 sm:p-8 rounded-2xl bg-[#162332] border border-[#22374c] flex flex-col">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-8 h-8 rounded-lg bg-primary/20 text-primary flex items-center justify-center font-bold text-sm">
+            03
+          </div>
+          <h2 class="text-white text-xl font-bold">Looking Forward</h2>
+        </div>
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed flex-1">
+          I believe in relentless curiosity and continuous improvement. Technology advances constantly, and I strive to bridge the gap between complex algorithms (like computer vision & generative models) and delightful, responsive consumer experiences.
+        </p>
+        <div class="mt-6 pt-4 border-t border-[#22374c] flex items-center gap-2 text-xs text-slate-400">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          <span>Ready for new challenges & engineering teams</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Contact & Connect Card -->
+    <section class="p-8 rounded-2xl bg-gradient-to-br from-[#162332] via-[#121d2a] to-[#0c131c] border border-[#22374c] flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
+      <div>
+        <h2 class="text-white text-2xl font-bold">Let's Build Something Together</h2>
+        <p class="text-slate-400 text-sm mt-1 max-w-md">
+          Whether you have a mobile app idea, need a Flutter developer, or simply want to say hi, my inbox is always open.
+        </p>
+      </div>
+      <div class="flex flex-wrap items-center gap-3">
+        <a href="https://www.linkedin.com/in/dzakisalman/" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-xl bg-primary hover:bg-primary-hover text-white text-sm font-bold shadow-md shadow-primary/20 transition-all duration-200">
+          Connect on LinkedIn
+        </a>
+        <a href="https://github.com/dzakisalman" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-xl bg-[#182737] hover:bg-[#22374c] border border-[#22374c] text-white text-sm font-semibold transition-all duration-200">
+          GitHub
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer Container -->
+  <div id="footer-container"></div>
+
+  <!-- Scripts -->
+  <script src="components/load-components.js"></script>
+  <script>
+    // Load header & footer with active nav 'about'
+    loadComponents('About', 'about');
+  </script>
+</body>
+</html>

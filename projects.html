@@ -1,315 +1,332 @@
 <!DOCTYPE html>
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Projects - Muhammad Dzaki Salman</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-<script id="tailwind-config">
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Projects - Muhammad Dzaki Salman</title>
+  <meta name="description" content="Explore mobile applications, machine learning integrations, and software projects developed by Muhammad Dzaki Salman."/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <script>
     tailwind.config = {
       darkMode: "class",
       theme: {
         extend: {
           colors: {
             "primary": "#0d7ff2",
-            "background-light": "#f5f7f8",
-            "background-dark": "#101922",
+            "primary-hover": "#0a6bd1",
+            "background-dark": "#0c131c",
+            "surface-dark": "#121d2a",
+            "surface-card": "#162332",
+            "surface-border": "#22374c",
+            "surface-border-hover": "#355474",
           },
           fontFamily: {
-            "display": ["Inter", "sans-serif"]
-          },
-          borderRadius: {
-            "DEFAULT": "0.25rem",
-            "lg": "0.5rem",
-            "xl": "0.75rem",
-            "full": "9999px"
+            "sans": ["Plus Jakarta Sans", "Inter", "sans-serif"],
+            "display": ["Plus Jakarta Sans", "Inter", "sans-serif"]
           },
         },
       },
     }
   </script>
-<style>
-    .material-symbols-outlined {
-      font-variation-settings:
-        'FILL' 0,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 24
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .card-glow {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .card-glow:hover {
+      transform: translateY(-3px);
+      border-color: #0d7ff2;
+      box-shadow: 0 12px 30px -10px rgba(13, 127, 242, 0.2);
+    }
+    .filter-btn.active {
+      background-color: #0d7ff2;
+      color: #ffffff;
+      border-color: #0d7ff2;
     }
   </style>
 </head>
-<body class="font-display">
-<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden">
-<div class="layout-container flex h-full grow flex-col">
-<div class="px-4 sm:px-10 md:px-20 lg:px-40 flex flex-1 justify-center py-5">
-<div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-<div id="header-container"></div>
-<main class="flex flex-col gap-8 sm:gap-12 mt-4 sm:mt-8">
-<!-- Latest Projects Section -->
-<section class="flex flex-col gap-4">
-<div class="flex items-start justify-between gap-4">
-<h2 class="text-black dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5 border-b border-white/10 dark:border-[#223649]">Latest Projects</h2>
-<a href="https://github.com/dzakisalman" target="_blank" rel="noopener noreferrer" class="ml-auto mt-5 inline-flex items-center gap-2 rounded-lg bg-[#223649] hover:bg-primary px-3 py-2 text-sm font-semibold text-white">
-  <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" class="w-4 h-4" style="filter: brightness(0) invert(1);" />
-  View on GitHub
-</a>
-</div>
-<div class="flex flex-col gap-4">
-<!-- Selfie Timelapse Creator -->
-<div class="p-4 @container">
-<div class="flex flex-col items-stretch justify-start rounded-lg @xl:flex-row @xl:items-start bg-black/5 dark:bg-white/5 p-4 sm:p-6 transition-all hover:shadow-lg hover:shadow-primary/10">
-<div class="w-full @xl:w-2/5 flex-shrink-0 bg-center bg-no-repeat aspect-video bg-cover rounded-lg" data-alt="Selfie Timelapse Creator desktop application" style='background-image: url("images/selfietimelapse.png");'></div>
-<div class="flex w-full min-w-72 grow flex-col items-stretch justify-center gap-4 py-4 @xl:px-6">
-<p class="text-black dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">Selfie Timelapse Creator</p>
-<p class="text-black/60 dark:text-[#90adcb] text-sm font-semibold leading-normal">Offline-First Desktop Timelapse Application</p>
-<p class="text-black/60 dark:text-[#90adcb] text-base font-normal leading-relaxed">
-                        A fully offline, privacy-first desktop application built with Python and PySide6 that automatically aligns and renders selfie timelapse videos. It eliminates manual face-alignment drudgery by leveraging MediaPipe face detection, supports custom text/date/age overlays, a user-controlled zoom slider with face centering, and exports directly through an FFmpeg pipe pipeline for maximum speed.
-                      </p>
-<div class="flex flex-wrap gap-2">
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">Python</span>
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">PySide6</span>
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">MediaPipe</span>
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">FFmpeg</span>
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">Desktop</span>
-</div>
-<div class="flex items-center gap-3 justify-start mt-2">
-<a href="https://github.com/dzakisalman/selfie-timelapse-creator" target="_blank" rel="noopener noreferrer" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-5 bg-primary text-white text-sm font-medium leading-normal hover:bg-primary/90 transition-colors">
-<span class="truncate">View on GitHub</span>
-</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- All Projects Section -->
-<section class="flex flex-col gap-4">
-<h2 class="text-black dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5 border-b border-white/10 dark:border-[#223649]">All Projects</h2>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-<!-- NantiFit -->
-<div class="p-4 @container">
-<div class="flex h-full flex-col items-stretch justify-start rounded-xl bg-black/5 dark:bg-white/5 p-4 transition-all hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1">
-<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg mb-4" data-alt="NantiFit AI-Powered Health Ecosystem Flutter Application" style='background-image: url("images/nantifit.png");'></div>
-<div class="flex h-full flex-col items-start justify-between gap-4">
-<div class="flex flex-col gap-2">
-<p class="text-black dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">NantiFit</p>
-<p class="text-black/60 dark:text-[#90adcb] text-sm font-normal leading-normal">
-                          NantiFit merupakan pengembangan lanjutan dari FitMate yang menghadirkan ekosistem kesehatan berbasis AI dengan fitur AI Nutrition Tracking, Pose Detection, Workout Recommendation, Activity Tracking, dan Fitness Shorts. Berhasil meraih 🏆 1st Place pada Flutter Fusion Competition 2026.
-                        </p>
-<div class="flex flex-wrap gap-2 pt-1">
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">Flutter</span>
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">Node.js</span>
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">Google ML Kit</span>
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">Gemini AI</span>
-</div>
-</div>
-<a href="https://github.com/erixiey/NantiFit" target="_blank" rel="noopener noreferrer" class="flex mt-2 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary text-white text-sm font-medium leading-normal hover:bg-primary/90 transition-colors">
-<span class="truncate">View on GitHub</span>
-</a>
-</div>
-</div>
-</div>
-<!-- FitMate -->
-<div class="p-4 @container">
-<div class="flex h-full flex-col items-stretch justify-start rounded-xl bg-black/5 dark:bg-white/5 p-4 transition-all hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1">
-<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg mb-4" data-alt="FitMate AI-Powered Health & Fitness Flutter Application" style='background-image: url("images/fitmate.png");'></div>
-<div class="flex h-full flex-col items-start justify-between gap-4">
-<div class="flex flex-col gap-2">
-<p class="text-black dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">FitMate</p>
-<p class="text-black/60 dark:text-[#90adcb] text-sm font-normal leading-normal">
-                          FitMate adalah aplikasi kesehatan berbasis Flutter dengan fitur food scanning, GPS run tracking, AI chat, dan nearby gyms finder. Berperan sebagai UI/UX Designer dan Front-End Mobile Developer.
-                        </p>
-<div class="flex flex-wrap gap-2 pt-1">
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">Flutter</span>
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">Firebase</span>
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">TensorFlow Lite</span>
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">Gemini API</span>
-</div>
-</div>
-<a href="https://github.com/fitmate-unesa" target="_blank" rel="noopener noreferrer" class="flex mt-2 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary text-white text-sm font-medium leading-normal hover:bg-primary/90 transition-colors">
-<span class="truncate">View on GitHub</span>
-</a>
-</div>
-</div>
-</div>
-<!-- Letterboxd-App -->
-<div class="p-4 @container">
-<div class="flex h-full flex-col items-stretch justify-start rounded-xl bg-black/5 dark:bg-white/5 p-4 transition-all hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1">
-<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg mb-4" data-alt="Letterboxd-App Flutter mobile application" style='background-image: url("images/letterboxd.jpg");'></div>
-<div class="flex h-full flex-col items-start justify-between gap-4">
-<div class="flex flex-col gap-2">
-<p class="text-black dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Letterboxd-App</p>
-<p class="text-black/60 dark:text-[#90adcb] text-sm font-normal leading-normal">
-                          A Flutter mobile app redesign of Letterboxd based on a Figma design, featuring movie tracking, reviews, and ratings with a modern, refreshed user interface for both Android and iOS.
-                        </p>
-<div class="flex flex-wrap gap-2 pt-1">
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">Flutter</span>
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">Dart</span>
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">Cross-platform</span>
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">UI/UX</span>
-</div>
-</div>
-<a href="https://github.com/dzakisalman/letterboxd-app" target="_blank" rel="noopener noreferrer" class="flex mt-2 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary text-white text-sm font-medium leading-normal hover:bg-primary/90 transition-colors">
-<span class="truncate">View on GitHub</span>
-</a>
-</div>
-</div>
-</div>
-<!-- Mebel Jati Redesign -->
-<div class="p-4 @container">
-<div class="flex h-full flex-col items-stretch justify-start rounded-xl bg-black/5 dark:bg-white/5 p-4 transition-all hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1">
-<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg mb-4" data-alt="Mebel Jati Redesign website" style='background-image: url("images/mebeljati.png");'></div>
-<div class="flex h-full flex-col items-start justify-between gap-4">
-<div class="flex flex-col gap-2">
-<p class="text-black dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Mebel Jati Redesign</p>
-<p class="text-black/60 dark:text-[#90adcb] text-sm font-normal leading-normal">
-                          A website redesign project for the Human-Computer Interaction course Midterm Exam. The team chose the "Mebel Jati" website as the project subject and worked on a redesign using HTML and CSS to improve the site's user interface and user experience, focusing on a modern, user-friendly layout.
-                        </p>
-<div class="flex flex-wrap gap-2 pt-1">
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">HTML</span>
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">CSS</span>
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">UI/UX</span>
-</div>
-</div>
-<a href="https://github.com/dzakisalman/UTSMebelJati" target="_blank" rel="noopener noreferrer" class="flex mt-2 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary text-white text-sm font-medium leading-normal hover:bg-primary/90 transition-colors">
-<span class="truncate">View on GitHub</span>
-</a>
-</div>
-</div>
-</div>
-<!-- FoodTopia -->
-<div class="p-4 @container">
-<div class="flex h-full flex-col items-stretch justify-start rounded-xl bg-black/5 dark:bg-white/5 p-4 transition-all hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1">
-<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg mb-4" data-alt="FoodTopia Android mobile application" style='background-image: url("images/foodtopia.png");'></div>
-<div class="flex h-full flex-col items-start justify-between gap-4">
-<div class="flex flex-col gap-2">
-<p class="text-black dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">FoodTopia</p>
-<p class="text-black/60 dark:text-[#90adcb] text-sm font-normal leading-normal">
-                          A comprehensive Android mobile application created as the Capstone Project within the Bangkit Academy program, designed to empower users in managing their nutrition and recipe choices. The app integrates a recipe browsing and management system with machine-learning models that predict diet categories based on user input of nutritional data.
-                        </p>
-<div class="flex flex-wrap gap-2 pt-1">
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">Kotlin</span>
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">MVVM</span>
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">Firestore</span>
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">TensorFlow</span>
-</div>
-</div>
-<a href="https://github.com/dzakisalman/Bangkit_Project_Capstone_FoodTopia" target="_blank" rel="noopener noreferrer" class="flex mt-2 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary text-white text-sm font-medium leading-normal hover:bg-primary/90 transition-colors">
-<span class="truncate">View on GitHub</span>
-</a>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- All Projects Section -->
-<section class="flex flex-col gap-4">
-<h2 class="text-black dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5 border-b border-white/10 dark:border-[#223649]">All Projects</h2>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-<!-- NantiFit -->
-<div class="p-4 @container">
-<div class="flex h-full flex-col items-stretch justify-start rounded-xl bg-black/5 dark:bg-white/5 p-4 transition-all hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1">
-<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg mb-4" data-alt="NantiFit AI-Powered Health Ecosystem Flutter Application" style='background-image: url("images/nantifit.png");'></div>
-<div class="flex h-full flex-col items-start justify-between gap-4">
-<div class="flex flex-col gap-2">
-<p class="text-black dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">NantiFit</p>
-<p class="text-black/60 dark:text-[#90adcb] text-sm font-normal leading-normal">
-                          NantiFit merupakan pengembangan lanjutan dari FitMate yang menghadirkan ekosistem kesehatan berbasis AI dengan fitur AI Nutrition Tracking, Pose Detection, Workout Recommendation, Activity Tracking, dan Fitness Shorts. Berhasil meraih 🏆 1st Place pada Flutter Fusion Competition 2026.
-                        </p>
-<div class="flex flex-wrap gap-2 pt-1">
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">Flutter</span>
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">Node.js</span>
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">Google ML Kit</span>
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">Gemini AI</span>
-</div>
-</div>
-<a href="https://github.com/erixiey/NantiFit" target="_blank" rel="noopener noreferrer" class="flex mt-2 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary text-white text-sm font-medium leading-normal hover:bg-primary/90 transition-colors">
-<span class="truncate">View on GitHub</span>
-</a>
-</div>
-</div>
-</div>
-<!-- Selfie Timelapse Creator -->
-<div class="p-4 @container">
-<div class="flex h-full flex-col items-stretch justify-start rounded-xl bg-black/5 dark:bg-white/5 p-4 transition-all hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1">
-<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg mb-4" data-alt="Selfie Timelapse Creator desktop application" style='background-image: url("images/selfietimelapse.png");'></div>
-<div class="flex h-full flex-col items-start justify-between gap-4">
-<div class="flex flex-col gap-2">
-<p class="text-black dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Selfie Timelapse Creator</p>
-<p class="text-black/60 dark:text-[#90adcb] text-sm font-normal leading-normal">
-                          A fully offline, privacy-first desktop application built with Python and PySide6 that automatically aligns and renders selfie timelapse videos using MediaPipe face detection, with custom text overlays and a fast FFmpeg export pipeline.
-                        </p>
-<div class="flex flex-wrap gap-2 pt-1">
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">Python</span>
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">PySide6</span>
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">MediaPipe</span>
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">FFmpeg</span>
-</div>
-</div>
-<a href="https://github.com/dzakisalman/selfie-timelapse-creator" target="_blank" rel="noopener noreferrer" class="flex mt-2 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary text-white text-sm font-medium leading-normal hover:bg-primary/90 transition-colors">
-<span class="truncate">View on GitHub</span>
-</a>
-</div>
-</div>
-</div>
-<!-- Mebel Jati Redesign -->
-<div class="p-4 @container">
-<div class="flex h-full flex-col items-stretch justify-start rounded-xl bg-black/5 dark:bg-white/5 p-4 transition-all hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1">
-<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg mb-4" data-alt="Mebel Jati Redesign website" style='background-image: url("images/mebeljati.png");'></div>
-<div class="flex h-full flex-col items-start justify-between gap-4">
-<div class="flex flex-col gap-2">
-<p class="text-black dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Mebel Jati Redesign</p>
-<p class="text-black/60 dark:text-[#90adcb] text-sm font-normal leading-normal">
-                          A website redesign project for the Human-Computer Interaction course Midterm Exam. The team chose the "Mebel Jati" website as the project subject and worked on a redesign using HTML and CSS to improve the site's user interface and user experience, focusing on a modern, user-friendly layout.
-                        </p>
-<div class="flex flex-wrap gap-2 pt-1">
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">HTML</span>
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">CSS</span>
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">UI/UX</span>
-</div>
-</div>
-<a href="https://github.com/dzakisalman/UTSMebelJati" target="_blank" rel="noopener noreferrer" class="flex mt-2 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary text-white text-sm font-medium leading-normal hover:bg-primary/90 transition-colors">
-<span class="truncate">View on GitHub</span>
-</a>
-</div>
-</div>
-</div>
-<!-- FoodTopia -->
-<div class="p-4 @container">
-<div class="flex h-full flex-col items-stretch justify-start rounded-xl bg-black/5 dark:bg-white/5 p-4 transition-all hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1">
-<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg mb-4" data-alt="FoodTopia Android mobile application" style='background-image: url("images/foodtopia.png");'></div>
-<div class="flex h-full flex-col items-start justify-between gap-4">
-<div class="flex flex-col gap-2">
-<p class="text-black dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">FoodTopia</p>
-<p class="text-black/60 dark:text-[#90adcb] text-sm font-normal leading-normal">
-                          A comprehensive Android mobile application created as the Capstone Project within the Bangkit Academy program, designed to empower users in managing their nutrition and recipe choices. The app integrates a recipe browsing and management system with machine-learning models that predict diet categories based on user input of nutritional data.
-                        </p>
-<div class="flex flex-wrap gap-2 pt-1">
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">Kotlin</span>
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">MVVM</span>
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">Firestore</span>
-<span class="text-xs font-medium bg-primary/20 text-primary px-2.5 py-1 rounded-full">TensorFlow</span>
-</div>
-</div>
-<a href="https://github.com/dzakisalman/Bangkit_Project_Capstone_FoodTopia" target="_blank" rel="noopener noreferrer" class="flex mt-2 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary text-white text-sm font-medium leading-normal hover:bg-primary/90 transition-colors">
-<span class="truncate">View on GitHub</span>
-</a>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Footer Section -->
-<div id="footer-container"></div>
-</main>
-</div>
-</div>
-</div>
-</div>
-<script src="components/load-components.js"></script>
-<script>
-  // Load header and footer components
-  loadComponents('Projects', 'project');
-</script>
-</body></html>
+<body class="font-sans bg-background-dark text-slate-100 min-h-screen flex flex-col antialiased selection:bg-primary/30 selection:text-white">
+
+  <!-- Header Container -->
+  <div id="header-container"></div>
+
+  <!-- Main Content -->
+  <main class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex flex-col gap-12">
+
+    <!-- Page Header & GitHub Link -->
+    <section class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-[#22374c]">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#162332] border border-[#22374c] text-xs font-semibold text-primary mb-3">
+          <span>PORTFOLIO & WORK</span>
+        </div>
+        <h1 class="text-white text-3xl sm:text-5xl font-extrabold tracking-tight">
+          Projects & Engineering
+        </h1>
+        <p class="text-slate-400 text-base sm:text-lg mt-2 max-w-2xl leading-relaxed">
+          Production mobile applications, machine learning solutions, and responsive software built with modern engineering standards.
+        </p>
+      </div>
+
+      <a href="https://github.com/dzakisalman" target="_blank" rel="noopener noreferrer" class="self-start md:self-auto inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#162332] hover:bg-[#1e2f42] border border-[#22374c] hover:border-primary text-white font-semibold text-sm transition-all duration-200 shadow-sm">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" class="w-4 h-4 brightness-0 invert" />
+        <span>View all on GitHub</span>
+        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+      </a>
+    </section>
+
+    <!-- Filter Buttons -->
+    <div class="flex flex-wrap items-center gap-2">
+      <button type="button" class="filter-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-[#162332] border border-[#22374c] text-slate-300 hover:text-white transition-colors" data-filter="all">
+        All Projects (6)
+      </button>
+      <button type="button" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-[#162332] border border-[#22374c] text-slate-300 hover:text-white transition-colors" data-filter="mobile">
+        Mobile (Flutter & Kotlin)
+      </button>
+      <button type="button" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-[#162332] border border-[#22374c] text-slate-300 hover:text-white transition-colors" data-filter="ai">
+        AI & Machine Learning
+      </button>
+      <button type="button" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-[#162332] border border-[#22374c] text-slate-300 hover:text-white transition-colors" data-filter="desktop">
+        Desktop & Utilities
+      </button>
+    </div>
+
+    <!-- Spotlight Project 1: Selfie Timelapse Creator -->
+    <section class="project-item flex flex-col" data-category="desktop ai">
+      <div class="flex items-center gap-2 mb-3">
+        <span class="w-2 h-2 rounded-full bg-primary"></span>
+        <h2 class="text-xs font-bold uppercase tracking-wider text-primary">Featured Spotlight</h2>
+      </div>
+
+      <div class="card-glow flex flex-col lg:flex-row rounded-2xl bg-[#162332] border border-[#22374c] overflow-hidden group">
+        <div class="w-full lg:w-1/2 aspect-video bg-[#0c131c] overflow-hidden flex-shrink-0">
+          <img src="images/selfietimelapse.png" alt="Selfie Timelapse Creator" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+        </div>
+        <div class="p-6 sm:p-8 flex flex-col justify-between flex-1">
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20">Python & PySide6</span>
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700">Offline Desktop</span>
+            </div>
+            <h3 class="text-white text-2xl font-bold">Selfie Timelapse Creator</h3>
+            <p class="text-slate-300 text-sm sm:text-base mt-3 leading-relaxed">
+              A fully offline, privacy-first desktop application built with Python and PySide6 that automatically aligns and renders selfie timelapse videos. Eliminates manual face-alignment drudgery by leveraging MediaPipe face detection, supports custom text/date/age overlays, interactive face-centering zoom, and exports directly through an FFmpeg pipe pipeline for lightning-fast rendering.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-5">
+              <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-[#121d2a] text-slate-300 border border-[#22374c]">Python</span>
+              <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-[#121d2a] text-slate-300 border border-[#22374c]">PySide6</span>
+              <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-[#121d2a] text-slate-300 border border-[#22374c]">MediaPipe</span>
+              <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-[#121d2a] text-slate-300 border border-[#22374c]">FFmpeg</span>
+              <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-[#121d2a] text-slate-300 border border-[#22374c]">Computer Vision</span>
+            </div>
+          </div>
+          <div class="mt-6 pt-4 border-t border-[#22374c] flex items-center justify-between">
+            <a href="https://github.com/dzakisalman/selfie-timelapse-creator" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary hover:bg-primary-hover text-white font-bold text-sm shadow-md shadow-primary/20 transition-all duration-200">
+              <span>View on GitHub</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+            <span class="text-xs text-slate-400">Open Source</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Grid of All Projects -->
+    <section class="flex flex-col gap-6">
+      <div class="flex items-center justify-between pb-3 border-b border-[#22374c]">
+        <h2 class="text-white text-xl font-bold">All Engineered Applications</h2>
+        <span id="project-count" class="text-xs text-slate-400">Showing 6 projects</span>
+      </div>
+
+      <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- NantiFit -->
+        <article class="project-item card-glow flex flex-col rounded-2xl bg-[#162332] border border-[#22374c] overflow-hidden group" data-category="mobile ai">
+          <div class="relative w-full aspect-video bg-[#0c131c] overflow-hidden">
+            <img src="images/nantifit.png" alt="NantiFit" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+            <div class="absolute top-3 right-3 bg-amber-500/20 backdrop-blur-md border border-amber-500/40 px-2.5 py-1 rounded-full text-[11px] font-bold text-amber-300">
+              🏆 1st Winner
+            </div>
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <h3 class="text-white text-lg font-bold group-hover:text-primary transition-colors">NantiFit</h3>
+            <p class="text-slate-400 text-sm mt-2 flex-1 leading-relaxed">
+              An advanced AI health ecosystem evolved from FitMate. Features pose detection, smart AI nutrition tracking, workout recommendations, and fitness shorts. Won 🏆 1st Place at the Flutter Fusion Competition 2026.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-[#22374c]/70">
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">Flutter</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Google ML Kit</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Gemini AI</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Node.js</span>
+            </div>
+            <div class="mt-5 pt-2">
+              <a href="https://github.com/erixiey/NantiFit" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline">
+                <span>View Repository</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- FitMate -->
+        <article class="project-item card-glow flex flex-col rounded-2xl bg-[#162332] border border-[#22374c] overflow-hidden group" data-category="mobile ai">
+          <div class="relative w-full aspect-video bg-[#0c131c] overflow-hidden">
+            <img src="images/fitmate.png" alt="FitMate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+            <div class="absolute top-3 right-3 bg-primary/20 backdrop-blur-md border border-primary/30 px-2.5 py-1 rounded-full text-[11px] font-semibold text-primary">
+              Flutter & TFLite
+            </div>
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <h3 class="text-white text-lg font-bold group-hover:text-primary transition-colors">FitMate</h3>
+            <p class="text-slate-400 text-sm mt-2 flex-1 leading-relaxed">
+              AI-driven health & fitness mobile application built with Flutter. Integrates camera food calorie scanning, GPS run tracking, interactive AI chat coaching, and nearby gym locator.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-[#22374c]/70">
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">Flutter</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Firebase</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">TensorFlow Lite</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Gemini API</span>
+            </div>
+            <div class="mt-5 pt-2">
+              <a href="https://github.com/fitmate-unesa" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline">
+                <span>View Repository</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Letterboxd-App -->
+        <article class="project-item card-glow flex flex-col rounded-2xl bg-[#162332] border border-[#22374c] overflow-hidden group" data-category="mobile">
+          <div class="relative w-full aspect-video bg-[#0c131c] overflow-hidden">
+            <img src="images/letterboxd.jpg" alt="Letterboxd-App" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+            <div class="absolute top-3 right-3 bg-[#0c131c]/80 backdrop-blur-md border border-[#22374c] px-2.5 py-1 rounded-full text-[11px] font-semibold text-slate-300">
+              UI/UX Concept
+            </div>
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <h3 class="text-white text-lg font-bold group-hover:text-primary transition-colors">Letterboxd-App</h3>
+            <p class="text-slate-400 text-sm mt-2 flex-1 leading-relaxed">
+              A Flutter mobile redesign of Letterboxd based on custom Figma specifications. Implements film logging, reviews, watchlist sorting, and an elevated cinema dark aesthetic.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-[#22374c]/70">
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">Flutter</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">Dart</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Cross-Platform</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">UI/UX</span>
+            </div>
+            <div class="mt-5 pt-2">
+              <a href="https://github.com/dzakisalman/letterboxd-app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline">
+                <span>View Repository</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- FoodTopia -->
+        <article class="project-item card-glow flex flex-col rounded-2xl bg-[#162332] border border-[#22374c] overflow-hidden group" data-category="mobile ai">
+          <div class="relative w-full aspect-video bg-[#0c131c] overflow-hidden">
+            <img src="images/foodtopia.png" alt="FoodTopia" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+            <div class="absolute top-3 right-3 bg-emerald-500/20 backdrop-blur-md border border-emerald-500/30 px-2.5 py-1 rounded-full text-[11px] font-semibold text-emerald-300">
+              Bangkit Capstone
+            </div>
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <h3 class="text-white text-lg font-bold group-hover:text-primary transition-colors">FoodTopia</h3>
+            <p class="text-slate-400 text-sm mt-2 flex-1 leading-relaxed">
+              Native Android mobile application built as a Bangkit Academy Capstone project. Features recipe discovery, nutrition management, and ML-powered diet recommendation.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-[#22374c]/70">
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">Kotlin</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">MVVM</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Firestore</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">TensorFlow</span>
+            </div>
+            <div class="mt-5 pt-2">
+              <a href="https://github.com/dzakisalman/Bangkit_Project_Capstone_FoodTopia" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline">
+                <span>View Repository</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Mebel Jati Redesign -->
+        <article class="project-item card-glow flex flex-col rounded-2xl bg-[#162332] border border-[#22374c] overflow-hidden group" data-category="web">
+          <div class="relative w-full aspect-video bg-[#0c131c] overflow-hidden">
+            <img src="images/mebeljati.png" alt="Mebel Jati Redesign" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+            <div class="absolute top-3 right-3 bg-[#0c131c]/80 backdrop-blur-md border border-[#22374c] px-2.5 py-1 rounded-full text-[11px] font-semibold text-slate-300">
+              Web & HCI
+            </div>
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <h3 class="text-white text-lg font-bold group-hover:text-primary transition-colors">Mebel Jati Redesign</h3>
+            <p class="text-slate-400 text-sm mt-2 flex-1 leading-relaxed">
+              Human-Computer Interaction (HCI) web redesign project improving navigation ease, modern e-commerce visual hierarchy, and responsive product displays with HTML & CSS.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-[#22374c]/70">
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">HTML5</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">CSS3</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">UI/UX Design</span>
+            </div>
+            <div class="mt-5 pt-2">
+              <a href="https://github.com/dzakisalman/UTSMebelJati" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline">
+                <span>View Repository</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer Container -->
+  <div id="footer-container"></div>
+
+  <!-- Scripts -->
+  <script src="components/load-components.js"></script>
+  <script>
+    // Load header & footer with active nav 'project'
+    loadComponents('Projects', 'project');
+
+    // Interactive category filtering
+    document.addEventListener('DOMContentLoaded', () => {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const projectItems = document.querySelectorAll('.project-item');
+      const countLabel = document.getElementById('project-count');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const filterValue = btn.dataset.filter;
+          let visibleCount = 0;
+
+          projectItems.forEach(item => {
+            const categories = (item.dataset.category || '').split(' ');
+            if (filterValue === 'all' || categories.includes(filterValue)) {
+              item.style.display = '';
+              visibleCount++;
+            } else {
+              item.style.display = 'none';
+            }
+          });
+
+          if (countLabel) {
+            countLabel.textContent = `Showing ${visibleCount} project${visibleCount === 1 ? '' : 's'}`;
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

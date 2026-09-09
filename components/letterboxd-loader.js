@@ -558,12 +558,12 @@ function renderFilmCard(film) {
   const ratingText = rating > 0 ? rating.toFixed(1) : 'N/A';
   const year = film.year || (film.releaseDate ? film.releaseDate.split('-')[0] : '');
   const genres = film.genres && film.genres.length > 0
-    ? film.genres.slice(0, 2).map(g => `<span class="text-xs bg-white/10 text-white/80 px-2 py-0.5 rounded-full">${g}</span>`).join('')
+    ? film.genres.slice(0, 2).map(g => `<span class="text-[10px] bg-white/10 text-white/90 px-2 py-0.5 rounded-full backdrop-blur-sm">${g}</span>`).join('')
     : '';
   const letterboxdLink = film.link || '#';
 
   return `
-    <a href="${letterboxdLink}" target="_blank" rel="noopener noreferrer" class="group block relative rounded-lg overflow-hidden" style="aspect-ratio: 2/3;">
+    <a href="${letterboxdLink}" target="_blank" rel="noopener noreferrer" class="group block relative rounded-xl border border-[#22374c] hover:border-primary transition-all duration-300 shadow-md hover:shadow-primary/20 hover:-translate-y-1 overflow-hidden bg-[#162332]" style="aspect-ratio: 2/3;">
       <img
         src="${posterUrl}"
         alt="${film.title}"
@@ -571,19 +571,20 @@ function renderFilmCard(film) {
         onerror="this.onerror=null; this.src='https://via.placeholder.com/500x750?text=No+Poster';"
       />
       <!-- Hover overlay -->
-      <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3">
-        <h3 class="text-white font-bold text-sm leading-tight mb-1">${film.title}</h3>
-        ${year ? `<p class="text-gray-300 text-xs mb-2">${year}</p>` : ''}
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0c131c] via-[#0c131c]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3">
+        <h3 class="text-white font-bold text-sm leading-tight mb-1 line-clamp-2">${film.title}</h3>
+        ${year ? `<p class="text-slate-300 text-xs mb-1.5">${year}</p>` : ''}
         <div class="flex flex-wrap gap-1 mb-2">${genres}</div>
-        <div class="flex items-center gap-1">
-          <span class="material-symbols-outlined text-primary" style="font-size:14px;">play_circle</span>
-          <span class="text-primary text-xs font-semibold">View on Letterboxd</span>
+        <div class="flex items-center gap-1 text-primary text-xs font-semibold">
+          <span>Letterboxd</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
         </div>
       </div>
       <!-- Rating badge -->
       ${rating > 0 ? `
-      <div class="absolute top-2 right-2 bg-black/70 backdrop-blur-sm text-primary font-bold text-xs px-1.5 py-0.5 rounded">
-        ${ratingText}
+      <div class="absolute top-2 right-2 bg-[#0c131c]/85 border border-[#22374c] backdrop-blur-md text-amber-400 font-bold text-xs px-2 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
+        <span>★</span>
+        <span>${ratingText}</span>
       </div>` : ''}
     </a>
   `;

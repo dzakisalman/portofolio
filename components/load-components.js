@@ -8,21 +8,18 @@ async function loadComponents(pageName, activeNav) {
     if (headerContainer) {
       headerContainer.innerHTML = headerHtml;
       
-      // Set page title
-      const pageTitle = document.getElementById('page-title');
-      if (pageTitle) {
-        pageTitle.textContent = pageName;
-      }
-      
       // Set active navigation (desktop and mobile)
       if (activeNav) {
         const activeNavElement = document.getElementById(`nav-${activeNav}`);
         if (activeNavElement) {
-          activeNavElement.classList.add('text-primary');
+          activeNavElement.classList.remove('text-slate-300', 'hover:bg-white/5');
+          activeNavElement.classList.add('bg-primary', 'text-white', 'shadow-sm', 'shadow-primary/30');
+          activeNavElement.setAttribute('aria-current', 'page');
         }
         const mobileNavElement = document.getElementById(`mobile-nav-${activeNav}`);
         if (mobileNavElement) {
-          mobileNavElement.classList.add('text-primary');
+          mobileNavElement.classList.add('text-primary', 'bg-[#182737]', 'font-bold');
+          mobileNavElement.setAttribute('aria-current', 'page');
         }
       }
     }
@@ -42,4 +39,3 @@ async function loadComponents(pageName, activeNav) {
     console.error('Error loading footer:', error);
   }
 }
-

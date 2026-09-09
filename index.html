@@ -1,330 +1,682 @@
 <!DOCTYPE html>
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Muhammad Dzaki Salman - Mobile Developer Portfolio</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-<script>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Muhammad Dzaki Salman Portfolio</title>
+  <meta name="description" content="Personal portfolio website of Muhammad Dzaki Salman, a front-end mobile developer featuring projects, skills, and profiles."/>
+  <meta property="og:title" content="Muhammad Dzaki Salman Portfolio"/>
+  <meta property="og:description" content="Personal portfolio website of Muhammad Dzaki Salman, a front-end mobile developer featuring projects, skills, and profiles."/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+  <script>
     tailwind.config = {
       darkMode: "class",
       theme: {
         extend: {
           colors: {
             "primary": "#0d7ff2",
-            "background-light": "#f5f7f8",
-            "background-dark": "#101922",
+            "primary-hover": "#0a6bd1",
+            "background-dark": "#0c131c",
+            "surface-dark": "#121d2a",
+            "surface-card": "#162332",
+            "surface-border": "#22374c",
+            "surface-border-hover": "#355474",
           },
           fontFamily: {
-            "display": ["Inter", "sans-serif"]
-          },
-          borderRadius: {
-            "DEFAULT": "0.25rem",
-            "lg": "0.5rem",
-            "xl": "0.75rem",
-            "full": "9999px"
+            "sans": ["Plus Jakarta Sans", "Inter", "sans-serif"],
+            "display": ["Plus Jakarta Sans", "Inter", "sans-serif"]
           },
         },
       },
     }
   </script>
-<style>
-    .glassmorphism {
-      background: rgba(16, 26, 35, 0.6);
-      -webkit-backdrop-filter: blur(10px);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(34, 54, 73, 0.5);
-    }
+  <style>
     html {
       scroll-behavior: smooth;
     }
+    .card-glow {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .card-glow:hover {
+      transform: translateY(-3px);
+      border-color: #0d7ff2;
+      box-shadow: 0 12px 30px -10px rgba(13, 127, 242, 0.2);
+    }
   </style>
 </head>
-<body class="font-display">
-<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden">
-<div class="layout-container flex h-full grow flex-col">
-<div class="px-4 sm:px-10 md:px-20 lg:px-40 flex flex-1 justify-center py-5">
-<div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-<div id="header-container"></div>
-<main class="flex flex-col gap-8 sm:gap-12 mt-4 sm:mt-8">
-<section id="home" class="py-0">
-<div class="@container">
-<div class="flex flex-col gap-4 px-4 py-4 @[864px]:flex-row-reverse @[864px]:items-center">
-<div class="w-full flex justify-center @[864px]:w-1/3">
-<img src="images/profile.jpeg" alt="Muhammad Dzaki Salman - Instagram Profile" class="w-64 h-64 rounded-full object-cover border-2 border-primary" onerror="this.onerror=null; this.src='https://www.instagram.com/dzakisalman_/media/?size=l'" />
-</div>
-<div class="flex flex-col gap-4 @[864px]:w-2/3">
-<div class="flex flex-col gap-2 text-left">
-<h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl">Muhammad Dzaki Salman</h1>
-<h2 class="text-primary text-xl font-bold">Front-End Mobile Developer</h2>
-</div>
-<div class="flex-wrap gap-3 flex">
-<a href="projects.html" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
-<span class="truncate">View Projects</span>
-</a>
-<a href="about.html" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-[#223649] text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-[#314d68] transition-colors">
-<span class="truncate">Contact Me</span>
-</a>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Social Profiles (added) -->
-<section class="py-0">
-  <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-0 pt-0 text-center md:text-left">Social Profiles</h2>
-  <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
-    <button type="button" class="flex flex-1 gap-3 rounded-lg border border-[#314d68] bg-[#182634] p-4 items-center hover:border-primary transition-colors social-card" data-link="https://www.linkedin.com/in/dzakisalman/" data-title="LinkedIn">
-      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn" class="w-8 h-8" style="filter: brightness(0) invert(1);" />
-      <h3 class="text-white text-base font-bold leading-tight">LinkedIn</h3>
-    </button>
-    <button type="button" class="flex flex-1 gap-3 rounded-lg border border-[#314d68] bg-[#182634] p-4 items-center hover:border-primary transition-colors social-card" data-link="https://www.instagram.com/dzakisalman_/" data-title="Instagram">
-      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram" class="w-8 h-8" style="filter: brightness(0) invert(1);" />
-      <h3 class="text-white text-base font-bold leading-tight">Instagram</h3>
-    </button>
-    <button type="button" class="flex flex-1 gap-3 rounded-lg border border-[#314d68] bg-[#182634] p-4 items-center hover:border-primary transition-colors social-card" data-link="https://github.com/dzakisalman" data-title="GitHub">
-      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" class="w-8 h-8" style="filter: brightness(0) invert(1);" />
-      <h3 class="text-white text-base font-bold leading-tight">GitHub</h3>
-    </button>
-    <button type="button" class="flex flex-1 gap-3 rounded-lg border border-[#314d68] bg-[#182634] p-4 items-center hover:border-primary transition-colors social-card" data-link="https://letterboxd.com/AncientPrime" data-title="Letterboxd">
-      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/letterboxd.svg" alt="Letterboxd" class="w-8 h-8" style="filter: brightness(0) invert(1);" />
-      <h3 class="text-white text-base font-bold leading-tight">Letterboxd</h3>
-    </button>
-    <button type="button" class="flex flex-1 gap-3 rounded-lg border border-[#314d68] bg-[#182634] p-4 items-center hover:border-primary transition-colors social-card" data-link="https://open.spotify.com/user/sda8qn2r3um9ot9o3ecxtzbue?si=X8N2RzmKT9O1MF-eFlHX4w" data-title="Spotify">
-      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/spotify.svg" alt="Spotify" class="w-8 h-8" style="filter: brightness(0) invert(1);" />
-      <h3 class="text-white text-base font-bold leading-tight">Spotify</h3>
-    </button>
-    <button type="button" class="flex flex-1 gap-3 rounded-lg border border-[#314d68] bg-[#182634] p-4 items-center hover:border-primary transition-colors social-card" data-link="https://www.serializd.com/user/CrescentCrusader/profile" data-title="Serializd">
-      <img src="images/serializd.svg" alt="Serializd" class="w-8 h-8" style="filter: brightness(0) invert(1);" />
-      <h3 class="text-white text-base font-bold leading-tight">Serializd</h3>
-    </button>
-  </div>
-</section>
+<body class="font-sans bg-background-dark text-slate-100 min-h-screen flex flex-col antialiased selection:bg-primary/30 selection:text-white">
 
-<!-- Modal for profiles -->
-<div id="profile-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
-  <div class="absolute inset-0 bg-black/50" onclick="closeProfileModal()"></div>
-  <div class="relative bg-[#182634] border border-[#314d68] rounded-lg max-w-lg w-full p-6">
-    <div class="flex items-start justify-between">
-      <h3 id="modal-title" class="text-white text-lg font-bold"></h3>
-      <button id="modal-close" class="text-white rounded-md p-2" aria-label="Close">✕</button>
-    </div>
-    <p id="modal-body" class="text-gray-300 mt-4">Open this profile in a new tab?</p>
-    <div class="flex gap-2 mt-6">
-      <a id="modal-open" class="ml-auto inline-flex items-center gap-2 rounded-lg bg-primary px-3 py-2 text-sm font-semibold text-white" target="_blank" rel="noopener noreferrer">Open Profile</a>
-      <button onclick="closeProfileModal()" class="rounded-lg px-3 py-2 bg-[#223649] text-white">Cancel</button>
-    </div>
-  </div>
-</div>
+  <!-- Header -->
+  <div id="header-container"></div>
 
-<section class="py-0">
-<h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-0 pt-0 text-center md:text-left">My Tech Stack</h2>
-<div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
-<div class="flex flex-1 gap-3 rounded-lg border border-[#314d68] bg-[#182634] p-4 items-center hover:border-primary transition-colors">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter" class="w-8 h-8" />
-<h3 class="text-white text-base font-bold leading-tight">Flutter</h3>
-</div>
-<div class="flex flex-1 gap-3 rounded-lg border border-[#314d68] bg-[#182634] p-4 items-center hover:border-primary transition-colors">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" alt="Kotlin" class="w-8 h-8" />
-<h3 class="text-white text-base font-bold leading-tight">Kotlin</h3>
-</div>
-<div class="flex flex-1 gap-3 rounded-lg border border-[#314d68] bg-[#182634] p-4 items-center hover:border-primary transition-colors">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg" alt="Android Studio" class="w-8 h-8" />
-<h3 class="text-white text-base font-bold leading-tight">Android Studio</h3>
-</div>
-<div class="flex flex-1 gap-3 rounded-lg border border-[#314d68] bg-[#182634] p-4 items-center hover:border-primary transition-colors">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase" class="w-8 h-8" />
-<h3 class="text-white text-base font-bold leading-tight">Firebase</h3>
-</div>
-<div class="flex flex-1 gap-3 rounded-lg border border-[#314d68] bg-[#182634] p-4 items-center hover:border-primary transition-colors">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" class="w-8 h-8" />
-<h3 class="text-white text-base font-bold leading-tight">HTML</h3>
-</div>
-<div class="flex flex-1 gap-3 rounded-lg border border-[#314d68] bg-[#182634] p-4 items-center hover:border-primary transition-colors">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" class="w-8 h-8" />
-<h3 class="text-white text-base font-bold leading-tight">CSS</h3>
-</div>
-<div class="flex flex-1 gap-3 rounded-lg border border-[#314d68] bg-[#182634] p-4 items-center hover:border-primary transition-colors">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="w-8 h-8" />
-<h3 class="text-white text-base font-bold leading-tight">JavaScript</h3>
-</div>
-<div class="flex flex-1 gap-3 rounded-lg border border-[#314d68] bg-[#182634] p-4 items-center hover:border-primary transition-colors">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" class="w-8 h-8" />
-<h3 class="text-white text-base font-bold leading-tight">Bootstrap</h3>
-</div>
-<div class="flex flex-1 gap-3 rounded-lg border border-[#314d68] bg-[#182634] p-4 items-center hover:border-primary transition-colors">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-8 h-8" />
-<h3 class="text-white text-base font-bold leading-tight">Python</h3>
-</div>
-<div class="flex flex-1 gap-3 rounded-lg border border-[#314d68] bg-[#182634] p-4 items-center hover:border-primary transition-colors">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" class="w-8 h-8" />
-<h3 class="text-white text-base font-bold leading-tight">TensorFlow</h3>
-</div>
-</div>
-</section>
-<section id="projects" class="py-0">
-<h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-0 pt-0 text-center md:text-left">Featured Projects</h2>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
-<!-- Selfie Timelapse Creator (newest) -->
-<div class="flex flex-col rounded-lg border border-[#314d68] bg-[#182634] overflow-hidden group">
-<div class="w-full h-40 bg-cover bg-center" data-alt="Selfie Timelapse Creator desktop application" style="background-image: url('images/selfietimelapse.png');"></div>
-<div class="p-4 flex flex-col flex-grow">
-<h3 class="text-white text-lg font-bold">Selfie Timelapse Creator</h3>
-<p class="text-gray-400 text-sm mt-1 flex-grow">Offline desktop app (Python + PySide6) that auto-aligns selfies using MediaPipe face detection and exports timelapse videos via FFmpeg with custom overlays.</p>
-<a class="text-primary mt-4 font-semibold text-sm self-start hover:underline" href="https://github.com/dzakisalman/selfie-timelapse-creator" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
-</div>
-</div>
-<!-- NantiFit -->
-<div class="flex flex-col rounded-lg border border-[#314d68] bg-[#182634] overflow-hidden group">
-<div class="w-full h-40 bg-cover bg-center" data-alt="NantiFit AI-Powered Health Ecosystem Flutter Application" style="background-image: url('images/nantifit.png');"></div>
-<div class="p-4 flex flex-col flex-grow">
-<h3 class="text-white text-lg font-bold">NantiFit</h3>
-<p class="text-gray-400 text-sm mt-1 flex-grow">AI health ecosystem evolved from FitMate with pose detection, smart nutrition, and fitness shorts. 🏆 1st Place – Flutter Fusion Competition 2026.</p>
-<a class="text-primary mt-4 font-semibold text-sm self-start hover:underline" href="https://github.com/erixiey/NantiFit" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
-</div>
-</div>
-<!-- FitMate -->
-<div class="flex flex-col rounded-lg border border-[#314d68] bg-[#182634] overflow-hidden group">
-<div class="w-full h-40 bg-cover bg-center" data-alt="FitMate AI-Powered Health & Fitness Flutter Application" style="background-image: url('images/fitmate.png');"></div>
-<div class="p-4 flex flex-col flex-grow">
-<h3 class="text-white text-lg font-bold">FitMate</h3>
-<p class="text-gray-400 text-sm mt-1 flex-grow">AI-powered Flutter health app with nutrition tracking, GPS run tracking, AI chat, and nearby gym finder. Role: UI/UX Designer & Front-End Mobile Developer.</p>
-<a class="text-primary mt-4 font-semibold text-sm self-start hover:underline" href="https://github.com/fitmate-unesa" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
-</div>
-</div>
-<!-- Letterboxd-App -->
-<div class="flex flex-col rounded-lg border border-[#314d68] bg-[#182634] overflow-hidden group">
-<div class="w-full h-40 bg-cover bg-center" data-alt="Letterboxd-App Flutter mobile application" style="background-image: url('images/letterboxd.jpg');"></div>
-<div class="p-4 flex flex-col flex-grow">
-<h3 class="text-white text-lg font-bold">Letterboxd-App</h3>
-<p class="text-gray-400 text-sm mt-1 flex-grow">A Flutter mobile app redesign of Letterboxd based on a Figma design, featuring movie tracking, reviews, and ratings with a modern UI.</p>
-<a class="text-primary mt-4 font-semibold text-sm self-start hover:underline" href="https://github.com/dzakisalman/letterboxd-app" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
-</div>
-</div>
-<!-- FoodTopia -->
-<div class="flex flex-col rounded-lg border border-[#314d68] bg-[#182634] overflow-hidden group">
-<div class="w-full h-40 bg-cover bg-center" data-alt="FoodTopia Android mobile application" style="background-image: url('images/foodtopia.png');"></div>
-<div class="p-4 flex flex-col flex-grow">
-<h3 class="text-white text-lg font-bold">FoodTopia</h3>
-<p class="text-gray-400 text-sm mt-1 flex-grow">An Android app for nutrition and recipe management with ML-powered diet category prediction, built with Kotlin and MVVM architecture.</p>
-<a class="text-primary mt-4 font-semibold text-sm self-start hover:underline" href="https://github.com/dzakisalman/Bangkit_Project_Capstone_FoodTopia" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
-</div>
-</div>
-<!-- Mebel Jati Redesign -->
-<div class="flex flex-col rounded-lg border border-[#314d68] bg-[#182634] overflow-hidden group">
-<div class="w-full h-40 bg-cover bg-center" data-alt="Mebel Jati Redesign website" style="background-image: url('images/mebeljati.png');"></div>
-<div class="p-4 flex flex-col flex-grow">
-<h3 class="text-white text-lg font-bold">Mebel Jati Redesign</h3>
-<p class="text-gray-400 text-sm mt-1 flex-grow">A website redesign project for the Human-Computer Interaction course, improving UI/UX using HTML and CSS with a modern, user-friendly layout.</p>
-<a class="text-primary mt-4 font-semibold text-sm self-start hover:underline" href="https://github.com/dzakisalman/UTSMebelJati" target="_blank" rel="noopener noreferrer">View on GitHub →</a>
-</div>
-</div>
-</div>
-</section>
-<section class="py-0">
-<h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-0 pt-0 text-center md:text-left">Beyond the Code</h2>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
-<a href="film.html" class="flex flex-col rounded-lg border border-[#314d68] bg-[#182634] overflow-hidden group hover:border-primary transition-colors cursor-pointer">
-<div class="w-full h-48 bg-cover bg-center" data-alt="Placeholder image representing Films hobby" style="background-image: url('images/film.jpg');"></div>
-<div class="p-4">
-<h3 class="text-white text-lg font-bold">Films</h3>
-<p class="text-gray-400 text-sm mt-1">Exploring narratives and cinematography from around the world.</p>
-</div>
-</a>
-<div class="flex flex-col rounded-lg border border-[#314d68] bg-[#182634] overflow-hidden group">
-<div class="w-full h-48 bg-cover bg-center" data-alt="Placeholder image representing photography hobby" style="background-image: url('images/photography.jpg');"></div>
-<div class="p-4">
-<h3 class="text-white text-lg font-bold">Photography</h3>
-<p class="text-gray-400 text-sm mt-1">Capturing moments and stories through the lens.</p>
-</div>
-</div>
-<div class="flex flex-col rounded-lg border border-[#314d68] bg-[#182634] overflow-hidden group">
-<div class="w-full h-48 bg-cover bg-center" data-alt="Placeholder image representing comic hobby" style="background-image: url('images/comic.jpg');"></div>
-<div class="p-4">
-<h3 class="text-white text-lg font-bold">Comics</h3>
-<p class="text-gray-400 text-sm mt-1">Diving into graphic novels and sequential art from various genres.</p>
-</div>
-</div>
-<div class="flex flex-col rounded-lg border border-[#314d68] bg-[#182634] overflow-hidden group">
-<div class="w-full h-48 bg-cover bg-center" data-alt="Placeholder image representing TV Shows hobby" style="background-image: url('images/show.jpg');"></div>
-<div class="p-4">
-<h3 class="text-white text-lg font-bold">Shows</h3>
-<p class="text-gray-400 text-sm mt-1">Following compelling characters and plots in serialized television.</p>
-</div>
-</div>
-</div>
-</section>
-</main>
-<div id="footer-container"></div>
-</div>
-</div>
-</div>
-</div>
-<script src="components/load-components.js"></script>
-<script>
-  // Load header and footer components
-  loadComponents('Home', 'home');
-  
-  // Function to load Instagram profile picture with fallback methods
-  function loadInstagramProfile() {
-    const img = document.querySelector('img[alt*="Instagram Profile"]');
-    if (!img) return;
-    
-    const username = 'dzakisalman_';
-    const fallbackUrls = [
-      `https://www.instagram.com/${username}/media/?size=l`,
-      `https://instadp.com/api/v1/${username}`,
-      `https://www.instagram.com/${username}/?__a=1&__d=dis`,
-      `https://picuki.com/profile/${username}`
-    ];
-    
-    let currentIndex = 0;
-    
-    function tryNextUrl() {
-      if (currentIndex < fallbackUrls.length) {
-        img.src = fallbackUrls[currentIndex];
-        currentIndex++;
+  <!-- Main Container -->
+  <main class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex flex-col gap-16 sm:gap-20">
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative pt-4 sm:pt-6">
+      <div class="flex flex-col-reverse lg:flex-row items-center justify-between gap-10 lg:gap-14">
+        
+        <!-- Bio & CTAs -->
+        <div class="w-full lg:w-3/5 flex flex-col items-center lg:items-start text-center lg:text-left">
+          
+          <!-- Status Pill -->
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#162332] border border-[#22374c] mb-5 shadow-sm">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span class="text-xs font-medium text-slate-300">Open for Collaborations & Mobile Projects</span>
+          </div>
+
+          <!-- Name & Headline -->
+          <h1 class="text-white text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15]">
+            Muhammad <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-sky-400">Dzaki Salman</span>
+          </h1>
+
+          <p class="text-lg sm:text-xl font-semibold text-primary mt-3 flex items-center justify-center lg:justify-start gap-2">
+            Front-End Mobile Developer
+            <span class="text-slate-600 hidden sm:inline">•</span>
+            <span class="text-slate-400 text-base font-normal hidden sm:inline">UI/UX Enthusiast</span>
+          </p>
+
+          <p class="text-slate-300 text-base sm:text-lg leading-relaxed mt-4 max-w-xl">
+            Passionate Computer Science student at <span class="text-white font-medium">UNESA</span> specializing in <span class="text-white font-medium">Flutter</span> and <span class="text-white font-medium">Kotlin</span>. Crafting fluid mobile experiences, integrating AI & vision models, and building privacy-first offline utilities.
+          </p>
+
+          <!-- Buttons -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 mt-8 w-full sm:w-auto">
+            <a href="projects.html" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-primary hover:bg-primary-hover text-white font-bold text-sm shadow-lg shadow-primary/25 transition-all duration-200 hover:-translate-y-0.5">
+              <span>View Projects</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+            <a href="about.html" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#162332] hover:bg-[#1e2f42] border border-[#22374c] hover:border-[#355474] text-white font-bold text-sm transition-all duration-200 hover:-translate-y-0.5">
+              <span>About & Contact</span>
+            </a>
+            <a href="https://github.com/dzakisalman" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center p-3.5 rounded-xl bg-[#162332] hover:bg-[#1e2f42] border border-[#22374c] hover:border-primary/50 text-slate-300 hover:text-white transition-all duration-200" aria-label="GitHub Profile" title="GitHub">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+            </a>
+          </div>
+
+          <!-- Highlight Badges Row -->
+          <div class="mt-8 pt-6 border-t border-[#22374c]/70 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs text-slate-400">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#121d2a] border border-[#22374c]">
+              <span class="text-amber-400">🏆</span> 1st Place Flutter Fusion 2026
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#121d2a] border border-[#22374c]">
+              <span class="text-primary">⚡</span> Bangkit Academy 2024
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#121d2a] border border-[#22374c]">
+              <span class="text-emerald-400">🎓</span> UNESA CS Student
+            </span>
+          </div>
+
+        </div>
+
+        <!-- Avatar Presentation -->
+        <div class="w-full lg:w-2/5 flex justify-center">
+          <div class="relative group">
+            <!-- Glow effect behind profile -->
+            <div class="absolute -inset-1.5 bg-gradient-to-tr from-primary via-blue-500 to-cyan-400 rounded-full blur-lg opacity-40 group-hover:opacity-75 transition duration-500"></div>
+            
+            <div class="relative w-56 h-56 sm:w-64 sm:h-64 rounded-full p-1 bg-gradient-to-b from-[#355474] to-[#121d2a] shadow-2xl">
+              <img 
+                src="images/profile.jpeg" 
+                alt="Muhammad Dzaki Salman" 
+                class="w-full h-full object-cover rounded-full shadow-inner" 
+                onerror="this.onerror=null; this.src='https://www.instagram.com/dzakisalman_/media/?size=l'" 
+              />
+            </div>
+
+            <!-- Floating Mini Badge -->
+            <div class="absolute bottom-2 right-2 bg-[#121d2a] border border-[#22374c] rounded-full px-3 py-1.5 flex items-center gap-2 shadow-lg">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter" class="w-4 h-4" />
+              <span class="text-xs font-bold text-white">Flutter Dev</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SOCIAL PROFILES -->
+    <section class="flex flex-col gap-5">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 pb-3 border-b border-[#22374c]">
+        <div>
+          <h2 class="text-white text-2xl font-bold tracking-tight">Social Profiles & Channels</h2>
+          <p class="text-slate-400 text-sm mt-1">Connect with me across developer networks and media logs</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+        <!-- LinkedIn -->
+        <button type="button" class="social-card card-glow flex flex-col items-center justify-center p-4 rounded-xl bg-[#162332] border border-[#22374c] text-center group cursor-pointer focus:outline-none" data-link="https://www.linkedin.com/in/dzakisalman/" data-title="LinkedIn">
+          <div class="w-11 h-11 rounded-lg bg-[#121d2a] flex items-center justify-center border border-[#22374c] group-hover:border-primary/50 group-hover:bg-[#182737] transition-all mb-2.5">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn" class="w-5 h-5 brightness-0 invert" />
+          </div>
+          <span class="text-white font-semibold text-sm group-hover:text-primary transition-colors">LinkedIn</span>
+          <span class="text-[11px] text-slate-400 mt-0.5">Professional</span>
+        </button>
+
+        <!-- GitHub -->
+        <button type="button" class="social-card card-glow flex flex-col items-center justify-center p-4 rounded-xl bg-[#162332] border border-[#22374c] text-center group cursor-pointer focus:outline-none" data-link="https://github.com/dzakisalman" data-title="GitHub">
+          <div class="w-11 h-11 rounded-lg bg-[#121d2a] flex items-center justify-center border border-[#22374c] group-hover:border-primary/50 group-hover:bg-[#182737] transition-all mb-2.5">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" class="w-5 h-5 brightness-0 invert" />
+          </div>
+          <span class="text-white font-semibold text-sm group-hover:text-primary transition-colors">GitHub</span>
+          <span class="text-[11px] text-slate-400 mt-0.5">Code Repos</span>
+        </button>
+
+        <!-- Instagram -->
+        <button type="button" class="social-card card-glow flex flex-col items-center justify-center p-4 rounded-xl bg-[#162332] border border-[#22374c] text-center group cursor-pointer focus:outline-none" data-link="https://www.instagram.com/dzakisalman_/" data-title="Instagram">
+          <div class="w-11 h-11 rounded-lg bg-[#121d2a] flex items-center justify-center border border-[#22374c] group-hover:border-primary/50 group-hover:bg-[#182737] transition-all mb-2.5">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram" class="w-5 h-5 brightness-0 invert" />
+          </div>
+          <span class="text-white font-semibold text-sm group-hover:text-primary transition-colors">Instagram</span>
+          <span class="text-[11px] text-slate-400 mt-0.5">Personal</span>
+        </button>
+
+        <!-- Letterboxd -->
+        <button type="button" class="social-card card-glow flex flex-col items-center justify-center p-4 rounded-xl bg-[#162332] border border-[#22374c] text-center group cursor-pointer focus:outline-none" data-link="https://letterboxd.com/AncientPrime" data-title="Letterboxd">
+          <div class="w-11 h-11 rounded-lg bg-[#121d2a] flex items-center justify-center border border-[#22374c] group-hover:border-primary/50 group-hover:bg-[#182737] transition-all mb-2.5">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/letterboxd.svg" alt="Letterboxd" class="w-5 h-5 brightness-0 invert" />
+          </div>
+          <span class="text-white font-semibold text-sm group-hover:text-primary transition-colors">Letterboxd</span>
+          <span class="text-[11px] text-slate-400 mt-0.5">Film Diary</span>
+        </button>
+
+        <!-- Spotify -->
+        <button type="button" class="social-card card-glow flex flex-col items-center justify-center p-4 rounded-xl bg-[#162332] border border-[#22374c] text-center group cursor-pointer focus:outline-none" data-link="https://open.spotify.com/user/sda8qn2r3um9ot9o3ecxtzbue?si=X8N2RzmKT9O1MF-eFlHX4w" data-title="Spotify">
+          <div class="w-11 h-11 rounded-lg bg-[#121d2a] flex items-center justify-center border border-[#22374c] group-hover:border-primary/50 group-hover:bg-[#182737] transition-all mb-2.5">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/spotify.svg" alt="Spotify" class="w-5 h-5 brightness-0 invert" />
+          </div>
+          <span class="text-white font-semibold text-sm group-hover:text-primary transition-colors">Spotify</span>
+          <span class="text-[11px] text-slate-400 mt-0.5">Music & OSTs</span>
+        </button>
+
+        <!-- Serializd -->
+        <button type="button" class="social-card card-glow flex flex-col items-center justify-center p-4 rounded-xl bg-[#162332] border border-[#22374c] text-center group cursor-pointer focus:outline-none" data-link="https://www.serializd.com/user/CrescentCrusader/profile" data-title="Serializd">
+          <div class="w-11 h-11 rounded-lg bg-[#121d2a] flex items-center justify-center border border-[#22374c] group-hover:border-primary/50 group-hover:bg-[#182737] transition-all mb-2.5">
+            <img src="images/serializd.svg" alt="Serializd" class="w-5 h-5 brightness-0 invert" />
+          </div>
+          <span class="text-white font-semibold text-sm group-hover:text-primary transition-colors">Serializd</span>
+          <span class="text-[11px] text-slate-400 mt-0.5">TV Shows</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Modal for External Profiles -->
+    <div id="profile-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+      <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" onclick="closeProfileModal()"></div>
+      <div class="relative bg-[#162332] border border-[#22374c] rounded-2xl max-w-md w-full p-6 shadow-2xl z-10 animate-in fade-in zoom-in duration-200">
+        <div class="flex items-center justify-between pb-3 border-b border-[#22374c]">
+          <h3 id="modal-title" class="text-white text-lg font-bold">External Profile</h3>
+          <button id="modal-close" class="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-[#22374c] transition-colors" aria-label="Close">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          </button>
+        </div>
+        <p id="modal-body" class="text-slate-300 text-sm mt-4">
+          You are about to visit Muhammad Dzaki Salman's profile in a new tab.
+        </p>
+        <div class="flex items-center justify-end gap-3 mt-6">
+          <button onclick="closeProfileModal()" class="px-4 py-2 rounded-lg bg-[#121d2a] hover:bg-[#1c2c3e] text-slate-300 text-sm font-medium border border-[#22374c] transition-colors">
+            Cancel
+          </button>
+          <a id="modal-open" class="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-primary hover:bg-primary-hover text-white text-sm font-bold shadow-md shadow-primary/20 transition-all" target="_blank" rel="noopener noreferrer">
+            <span>Open Profile</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- TECH STACK -->
+    <section class="flex flex-col gap-6">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 pb-3 border-b border-[#22374c]">
+        <div>
+          <h2 class="text-white text-2xl font-bold tracking-tight">Technical Toolbelt</h2>
+          <p class="text-slate-400 text-sm mt-1">Languages, frameworks, and SDKs I use for development</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4">
+        <!-- Flutter -->
+        <div class="card-glow flex items-center gap-3.5 p-3.5 rounded-xl bg-[#162332] border border-[#22374c]">
+          <div class="w-10 h-10 rounded-lg bg-[#121d2a] p-2 flex items-center justify-center flex-shrink-0">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter" class="w-6 h-6" />
+          </div>
+          <div>
+            <h3 class="text-white font-bold text-sm leading-tight">Flutter</h3>
+            <span class="text-[11px] text-primary font-medium">Cross-Platform</span>
+          </div>
+        </div>
+
+        <!-- Kotlin -->
+        <div class="card-glow flex items-center gap-3.5 p-3.5 rounded-xl bg-[#162332] border border-[#22374c]">
+          <div class="w-10 h-10 rounded-lg bg-[#121d2a] p-2 flex items-center justify-center flex-shrink-0">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" alt="Kotlin" class="w-6 h-6" />
+          </div>
+          <div>
+            <h3 class="text-white font-bold text-sm leading-tight">Kotlin</h3>
+            <span class="text-[11px] text-slate-400 font-medium">Native Android</span>
+          </div>
+        </div>
+
+        <!-- Android Studio -->
+        <div class="card-glow flex items-center gap-3.5 p-3.5 rounded-xl bg-[#162332] border border-[#22374c]">
+          <div class="w-10 h-10 rounded-lg bg-[#121d2a] p-2 flex items-center justify-center flex-shrink-0">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg" alt="Android Studio" class="w-6 h-6" />
+          </div>
+          <div>
+            <h3 class="text-white font-bold text-sm leading-tight">Android Studio</h3>
+            <span class="text-[11px] text-slate-400 font-medium">IDE & Tools</span>
+          </div>
+        </div>
+
+        <!-- Firebase -->
+        <div class="card-glow flex items-center gap-3.5 p-3.5 rounded-xl bg-[#162332] border border-[#22374c]">
+          <div class="w-10 h-10 rounded-lg bg-[#121d2a] p-2 flex items-center justify-center flex-shrink-0">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase" class="w-6 h-6" />
+          </div>
+          <div>
+            <h3 class="text-white font-bold text-sm leading-tight">Firebase</h3>
+            <span class="text-[11px] text-amber-400 font-medium">Auth & DB</span>
+          </div>
+        </div>
+
+        <!-- Python -->
+        <div class="card-glow flex items-center gap-3.5 p-3.5 rounded-xl bg-[#162332] border border-[#22374c]">
+          <div class="w-10 h-10 rounded-lg bg-[#121d2a] p-2 flex items-center justify-center flex-shrink-0">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-6 h-6" />
+          </div>
+          <div>
+            <h3 class="text-white font-bold text-sm leading-tight">Python</h3>
+            <span class="text-[11px] text-slate-400 font-medium">Desktop & Script</span>
+          </div>
+        </div>
+
+        <!-- TensorFlow -->
+        <div class="card-glow flex items-center gap-3.5 p-3.5 rounded-xl bg-[#162332] border border-[#22374c]">
+          <div class="w-10 h-10 rounded-lg bg-[#121d2a] p-2 flex items-center justify-center flex-shrink-0">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" class="w-6 h-6" />
+          </div>
+          <div>
+            <h3 class="text-white font-bold text-sm leading-tight">TensorFlow</h3>
+            <span class="text-[11px] text-orange-400 font-medium">ML & Vision</span>
+          </div>
+        </div>
+
+        <!-- JavaScript -->
+        <div class="card-glow flex items-center gap-3.5 p-3.5 rounded-xl bg-[#162332] border border-[#22374c]">
+          <div class="w-10 h-10 rounded-lg bg-[#121d2a] p-2 flex items-center justify-center flex-shrink-0">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="w-6 h-6" />
+          </div>
+          <div>
+            <h3 class="text-white font-bold text-sm leading-tight">JavaScript</h3>
+            <span class="text-[11px] text-yellow-400 font-medium">Web Frontend</span>
+          </div>
+        </div>
+
+        <!-- HTML5 -->
+        <div class="card-glow flex items-center gap-3.5 p-3.5 rounded-xl bg-[#162332] border border-[#22374c]">
+          <div class="w-10 h-10 rounded-lg bg-[#121d2a] p-2 flex items-center justify-center flex-shrink-0">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="w-6 h-6" />
+          </div>
+          <div>
+            <h3 class="text-white font-bold text-sm leading-tight">HTML5</h3>
+            <span class="text-[11px] text-slate-400 font-medium">Semantics</span>
+          </div>
+        </div>
+
+        <!-- CSS3 -->
+        <div class="card-glow flex items-center gap-3.5 p-3.5 rounded-xl bg-[#162332] border border-[#22374c]">
+          <div class="w-10 h-10 rounded-lg bg-[#121d2a] p-2 flex items-center justify-center flex-shrink-0">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="w-6 h-6" />
+          </div>
+          <div>
+            <h3 class="text-white font-bold text-sm leading-tight">CSS3</h3>
+            <span class="text-[11px] text-sky-400 font-medium">Styles & Layout</span>
+          </div>
+        </div>
+
+        <!-- Bootstrap -->
+        <div class="card-glow flex items-center gap-3.5 p-3.5 rounded-xl bg-[#162332] border border-[#22374c]">
+          <div class="w-10 h-10 rounded-lg bg-[#121d2a] p-2 flex items-center justify-center flex-shrink-0">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" class="w-6 h-6" />
+          </div>
+          <div>
+            <h3 class="text-white font-bold text-sm leading-tight">Bootstrap</h3>
+            <span class="text-[11px] text-purple-400 font-medium">UI Framework</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS -->
+    <section id="projects" class="flex flex-col gap-6">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 pb-3 border-b border-[#22374c]">
+        <div>
+          <h2 class="text-white text-2xl font-bold tracking-tight">Featured Projects</h2>
+          <p class="text-slate-400 text-sm mt-1">Highlighted mobile apps, desktop utilities, and award-winning work</p>
+        </div>
+        <a href="projects.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-sky-300 transition-colors">
+          <span>View All Projects</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+        
+        <!-- Selfie Timelapse Creator -->
+        <article class="card-glow flex flex-col rounded-2xl bg-[#162332] border border-[#22374c] overflow-hidden group">
+          <div class="relative w-full aspect-video bg-[#0c131c] overflow-hidden">
+            <img src="images/selfietimelapse.png" alt="Selfie Timelapse Creator" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" />
+            <div class="absolute top-3 right-3 bg-[#0c131c]/80 backdrop-blur-md border border-[#22374c] px-2.5 py-1 rounded-full text-[11px] font-semibold text-primary">
+              Desktop App
+            </div>
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <h3 class="text-white font-bold text-lg group-hover:text-primary transition-colors">Selfie Timelapse Creator</h3>
+            <p class="text-slate-400 text-sm mt-2 flex-1 leading-relaxed">
+              Offline Python & PySide6 desktop app auto-aligning selfie timelapses using MediaPipe face detection and FFmpeg pipeline.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-[#22374c]/70">
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">Python</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">PySide6</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">MediaPipe</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">FFmpeg</span>
+            </div>
+            <div class="mt-4 pt-2">
+              <a href="https://github.com/dzakisalman/selfie-timelapse-creator" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline">
+                <span>View on GitHub</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- NantiFit -->
+        <article class="card-glow flex flex-col rounded-2xl bg-[#162332] border border-[#22374c] overflow-hidden group">
+          <div class="relative w-full aspect-video bg-[#0c131c] overflow-hidden">
+            <img src="images/nantifit.png" alt="NantiFit AI Health Ecosystem" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" />
+            <div class="absolute top-3 right-3 bg-amber-500/20 backdrop-blur-md border border-amber-500/40 px-2.5 py-1 rounded-full text-[11px] font-bold text-amber-300 flex items-center gap-1">
+              <span>🏆 1st Winner</span>
+            </div>
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <h3 class="text-white font-bold text-lg group-hover:text-primary transition-colors">NantiFit</h3>
+            <p class="text-slate-400 text-sm mt-2 flex-1 leading-relaxed">
+              AI health ecosystem with pose detection, smart nutrition scanning, and workout coaching. 🏆 1st Place at Flutter Fusion 2026.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-[#22374c]/70">
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">Flutter</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">ML Kit</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Gemini AI</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Node.js</span>
+            </div>
+            <div class="mt-4 pt-2">
+              <a href="https://github.com/erixiey/NantiFit" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline">
+                <span>View on GitHub</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- FitMate -->
+        <article class="card-glow flex flex-col rounded-2xl bg-[#162332] border border-[#22374c] overflow-hidden group">
+          <div class="relative w-full aspect-video bg-[#0c131c] overflow-hidden">
+            <img src="images/fitmate.png" alt="FitMate Health & Fitness" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" />
+            <div class="absolute top-3 right-3 bg-[#0c131c]/80 backdrop-blur-md border border-[#22374c] px-2.5 py-1 rounded-full text-[11px] font-semibold text-primary">
+              Flutter App
+            </div>
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <h3 class="text-white font-bold text-lg group-hover:text-primary transition-colors">FitMate</h3>
+            <p class="text-slate-400 text-sm mt-2 flex-1 leading-relaxed">
+              AI-powered Flutter health app with food calorie scanning, GPS run tracking, and nearby gym discovery. Role: UI/UX & Mobile Dev.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-[#22374c]/70">
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">Flutter</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Firebase</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">TFLite</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Gemini</span>
+            </div>
+            <div class="mt-4 pt-2">
+              <a href="https://github.com/fitmate-unesa" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline">
+                <span>View on GitHub</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Letterboxd-App -->
+        <article class="card-glow flex flex-col rounded-2xl bg-[#162332] border border-[#22374c] overflow-hidden group">
+          <div class="relative w-full aspect-video bg-[#0c131c] overflow-hidden">
+            <img src="images/letterboxd.jpg" alt="Letterboxd Flutter App Redesign" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" />
+            <div class="absolute top-3 right-3 bg-[#0c131c]/80 backdrop-blur-md border border-[#22374c] px-2.5 py-1 rounded-full text-[11px] font-semibold text-primary">
+              UI/UX & Flutter
+            </div>
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <h3 class="text-white font-bold text-lg group-hover:text-primary transition-colors">Letterboxd-App</h3>
+            <p class="text-slate-400 text-sm mt-2 flex-1 leading-relaxed">
+              Mobile redesign of Letterboxd built in Flutter from custom Figma specs, featuring film tracking, reviews, and film discovery.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-[#22374c]/70">
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">Flutter</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">Dart</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Cross-platform</span>
+            </div>
+            <div class="mt-4 pt-2">
+              <a href="https://github.com/dzakisalman/letterboxd-app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline">
+                <span>View on GitHub</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- FoodTopia -->
+        <article class="card-glow flex flex-col rounded-2xl bg-[#162332] border border-[#22374c] overflow-hidden group">
+          <div class="relative w-full aspect-video bg-[#0c131c] overflow-hidden">
+            <img src="images/foodtopia.png" alt="FoodTopia Android App" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" />
+            <div class="absolute top-3 right-3 bg-[#0c131c]/80 backdrop-blur-md border border-[#22374c] px-2.5 py-1 rounded-full text-[11px] font-semibold text-emerald-400">
+              Bangkit Capstone
+            </div>
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <h3 class="text-white font-bold text-lg group-hover:text-primary transition-colors">FoodTopia</h3>
+            <p class="text-slate-400 text-sm mt-2 flex-1 leading-relaxed">
+              Native Android app built with Kotlin & MVVM for nutrition management with ML-powered diet category prediction.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-[#22374c]/70">
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">Kotlin</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">MVVM</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">TensorFlow</span>
+            </div>
+            <div class="mt-4 pt-2">
+              <a href="https://github.com/dzakisalman/Bangkit_Project_Capstone_FoodTopia" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline">
+                <span>View on GitHub</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Mebel Jati Redesign -->
+        <article class="card-glow flex flex-col rounded-2xl bg-[#162332] border border-[#22374c] overflow-hidden group">
+          <div class="relative w-full aspect-video bg-[#0c131c] overflow-hidden">
+            <img src="images/mebeljati.png" alt="Mebel Jati Website Redesign" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" />
+            <div class="absolute top-3 right-3 bg-[#0c131c]/80 backdrop-blur-md border border-[#22374c] px-2.5 py-1 rounded-full text-[11px] font-semibold text-slate-300">
+              Web & HCI
+            </div>
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <h3 class="text-white font-bold text-lg group-hover:text-primary transition-colors">Mebel Jati Redesign</h3>
+            <p class="text-slate-400 text-sm mt-2 flex-1 leading-relaxed">
+              Human-Computer Interaction (HCI) web redesign improving UX, modern layout ergonomics, and responsive user interfaces.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-[#22374c]/70">
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">HTML</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">CSS</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">UI/UX</span>
+            </div>
+            <div class="mt-4 pt-2">
+              <a href="https://github.com/dzakisalman/UTSMebelJati" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline">
+                <span>View on GitHub</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- BEYOND THE CODE -->
+    <section class="flex flex-col gap-6">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 pb-3 border-b border-[#22374c]">
+        <div>
+          <h2 class="text-white text-2xl font-bold tracking-tight">Beyond the Code</h2>
+          <p class="text-slate-400 text-sm mt-1">Creative hobbies, visual storytelling, and passions that fuel my design thinking</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+        
+        <!-- Films (links to film.html) -->
+        <a href="film.html" class="card-glow group block rounded-2xl bg-[#162332] border border-[#22374c] overflow-hidden cursor-pointer">
+          <div class="relative w-full aspect-[4/3] overflow-hidden bg-[#0c131c]">
+            <img src="images/film.jpg" alt="Films" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#162332] via-transparent to-transparent"></div>
+            <div class="absolute top-3 left-3 bg-[#0c131c]/80 backdrop-blur-md px-2.5 py-1 rounded-md text-[11px] font-bold text-primary border border-[#22374c]">
+              Interactive Page →
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="text-white font-bold text-base group-hover:text-primary transition-colors flex items-center justify-between">
+              <span>Films</span>
+              <svg class="w-4 h-4 text-slate-500 group-hover:text-primary group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </h3>
+            <p class="text-slate-400 text-xs mt-1.5 leading-relaxed">
+              Exploring cinema narratives, superhero epics, and world-building that inspire UI aesthetics.
+            </p>
+          </div>
+        </a>
+
+        <!-- Photography -->
+        <div class="card-glow group rounded-2xl bg-[#162332] border border-[#22374c] overflow-hidden">
+          <div class="relative w-full aspect-[4/3] overflow-hidden bg-[#0c131c]">
+            <img src="images/photography.jpg" alt="Photography" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#162332] via-transparent to-transparent"></div>
+          </div>
+          <div class="p-4">
+            <h3 class="text-white font-bold text-base">Photography</h3>
+            <p class="text-slate-400 text-xs mt-1.5 leading-relaxed">
+              Capturing candid moments, urban textures, and natural lighting through the lens.
+            </p>
+          </div>
+        </div>
+
+        <!-- Comics -->
+        <div class="card-glow group rounded-2xl bg-[#162332] border border-[#22374c] overflow-hidden">
+          <div class="relative w-full aspect-[4/3] overflow-hidden bg-[#0c131c]">
+            <img src="images/comic.jpg" alt="Comics" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#162332] via-transparent to-transparent"></div>
+          </div>
+          <div class="p-4">
+            <h3 class="text-white font-bold text-base">Comics & Manhwa</h3>
+            <p class="text-slate-400 text-xs mt-1.5 leading-relaxed">
+              Immersed in graphic novels, sequential art, and compelling visual narrative pacing.
+            </p>
+          </div>
+        </div>
+
+        <!-- TV Shows -->
+        <div class="card-glow group rounded-2xl bg-[#162332] border border-[#22374c] overflow-hidden">
+          <div class="relative w-full aspect-[4/3] overflow-hidden bg-[#0c131c]">
+            <img src="images/show.jpg" alt="Shows" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#162332] via-transparent to-transparent"></div>
+          </div>
+          <div class="p-4">
+            <h3 class="text-white font-bold text-base">Serialized Shows</h3>
+            <p class="text-slate-400 text-xs mt-1.5 leading-relaxed">
+              Following intricate multi-arc stories, character arcs, and sci-fi series on Serializd.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <div id="footer-container"></div>
+
+  <!-- Scripts -->
+  <script src="components/load-components.js"></script>
+  <script>
+    // Load header & footer with active nav 'home'
+    loadComponents('Home', 'home');
+
+    // Instagram fallback profile loader
+    function loadInstagramProfile() {
+      const img = document.querySelector('img[alt="Muhammad Dzaki Salman"]');
+      if (!img) return;
+      const username = 'dzakisalman_';
+      const fallbackUrls = [
+        `https://www.instagram.com/${username}/media/?size=l`,
+        `https://instadp.com/api/v1/${username}`,
+        `https://picuki.com/profile/${username}`
+      ];
+      let idx = 0;
+      img.onerror = () => {
+        if (idx < fallbackUrls.length) {
+          img.src = fallbackUrls[idx++];
+        }
+      };
+    }
+    window.addEventListener('load', loadInstagramProfile);
+
+    // Social modal interaction
+    document.addEventListener('DOMContentLoaded', () => {
+      const modal = document.getElementById('profile-modal');
+      const modalTitle = document.getElementById('modal-title');
+      const modalOpen = document.getElementById('modal-open');
+      const modalClose = document.getElementById('modal-close');
+
+      function openProfileModal(title, href) {
+        if (!modal || !modalTitle || !modalOpen) return;
+        modalTitle.textContent = `${title} Profile`;
+        modalOpen.href = href;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        modalOpen.focus();
       }
-    }
-    
-    img.onerror = tryNextUrl;
-  }
-  
-  // Load profile picture when page loads
-  window.addEventListener('load', loadInstagramProfile);
 
-  // Social profile modal handlers
-  document.addEventListener('DOMContentLoaded', () => {
-    const modal = document.getElementById('profile-modal');
-    const modalTitle = document.getElementById('modal-title');
-    const modalOpen = document.getElementById('modal-open');
-    const modalClose = document.getElementById('modal-close');
+      window.closeProfileModal = function() {
+        if (!modal) return;
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      };
 
-    function openProfileModal(title, href) {
-      modalTitle.textContent = title;
-      modalOpen.href = href;
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-      modalOpen.focus();
-    }
+      document.querySelectorAll('.social-card').forEach(btn => {
+        btn.addEventListener('click', () => {
+          openProfileModal(btn.dataset.title, btn.dataset.link);
+        });
+      });
 
-    window.closeProfileModal = function() {
-      if (!modal) return;
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-    }
-
-    document.querySelectorAll('.social-card').forEach(btn => {
-      btn.addEventListener('click', () => {
-        openProfileModal(btn.dataset.title, btn.dataset.link);
+      if (modalClose) modalClose.addEventListener('click', closeProfileModal);
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeProfileModal();
       });
     });
-
-    if (modalClose) modalClose.addEventListener('click', closeProfileModal);
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeProfileModal(); });
-  });
-</script>
-</body></html>
+  </script>
+</body>
+</html>

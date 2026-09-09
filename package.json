@@ -1,0 +1,16 @@
+{
+  "name": "muhammad-dzaki-salman-portfolio",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Personal portfolio website of Muhammad Dzaki Salman",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "build": "echo 'Build complete'",
+    "lint": "node --check server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
