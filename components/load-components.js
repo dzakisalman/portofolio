@@ -6,6 +6,7 @@ async function loadComponents(pageName, activeNav) {
     const headerHtml = await headerResponse.text();
     const headerContainer = document.getElementById('header-container');
     if (headerContainer) {
+      headerContainer.className = 'sticky top-0 z-50 w-full';
       headerContainer.innerHTML = headerHtml;
       
       // Set active navigation (desktop and mobile)

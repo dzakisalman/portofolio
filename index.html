@@ -51,7 +51,7 @@
 <body class="font-sans bg-background-dark text-slate-100 min-h-screen flex flex-col antialiased selection:bg-primary/30 selection:text-white">
 
   <!-- Header -->
-  <div id="header-container"></div>
+  <div id="header-container" class="sticky top-0 z-50 w-full"></div>
 
   <!-- Main Container -->
   <main class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex flex-col gap-16 sm:gap-20">
@@ -402,8 +402,9 @@
         <article class="card-glow flex flex-col rounded-2xl bg-[#162332] border border-[#22374c] overflow-hidden group">
           <div class="relative w-full aspect-video bg-[#0c131c] overflow-hidden">
             <img src="images/nantifit.png" alt="NantiFit AI Health Ecosystem" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" />
-            <div class="absolute top-3 right-3 bg-amber-500/20 backdrop-blur-md border border-amber-500/40 px-2.5 py-1 rounded-full text-[11px] font-bold text-amber-300 flex items-center gap-1">
-              <span>🏆 1st Winner</span>
+            <div class="absolute top-3 right-3 bg-[#0c131c]/95 backdrop-blur-md border border-amber-400/80 shadow-lg px-3 py-1.5 rounded-full flex items-center gap-1.5 z-10">
+              <span class="text-sm leading-none">🏆</span>
+              <span class="text-xs font-black text-amber-300 tracking-wide drop-shadow-sm">1st Winner</span>
             </div>
           </div>
           <div class="p-5 flex flex-col flex-1">
