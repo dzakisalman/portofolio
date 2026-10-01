@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="100%" height="100%">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&amp;display=swap');
+      .paper { font-family: 'Crimson Pro', 'Times New Roman', Times, Georgia, serif; }
+    </style>
+  </defs>
+
+  <!-- Paper background with subtle drop shadow border -->
+  <rect width="1280" height="720" fill="#f8fafc"/>
+  <rect x="140" y="20" width="1000" height="680" rx="3" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" filter="drop-shadow(0 10px 25px rgba(0,0,0,0.08))"/>
+
+  <g class="paper" transform="translate(190, 50)">
+    
+    <!-- HEADER -->
+    <text x="0" y="20" font-size="14.5" font-style="italic" fill="#0f172a">JINACS: Volume 07 Nomor 04, 2026</text>
+    <text x="0" y="38" font-size="13" font-style="italic" fill="#334155">(Journal of Informatics and Computer Science)</text>
+    
+    <text x="900" y="22" font-size="14" fill="#0f172a" text-anchor="end">ISSN : 2686-2220</text>
+    
+    <line x1="0" y1="52" x2="900" y2="52" stroke="#000000" stroke-width="1.2"/>
+
+    <!-- TITLE -->
+    <text x="450" y="105" font-size="28" font-weight="800" fill="#000000" text-anchor="middle" letter-spacing="-0.3">Faster R-CNN-Based Deep Q-Network for Smart Traffic</text>
+    <text x="450" y="142" font-size="28" font-weight="800" fill="#000000" text-anchor="middle" letter-spacing="-0.3">Light Control</text>
+
+    <!-- AUTHORS -->
+    <text x="450" y="182" font-size="16.5" font-weight="600" fill="#000000" text-anchor="middle">Muhammad Dzaki Salman¹, Ervin Yohannes²</text>
+    <text x="450" y="204" font-size="14" font-style="italic" fill="#334155" text-anchor="middle">¹,² Teknik Informatika, Universitas Negeri Surabaya</text>
+    <text x="450" y="224" font-size="13.5" fill="#2563eb" text-decoration="underline" text-anchor="middle">¹muhammaddzaki.22042@mhs.unesa.ac.id</text>
+    <text x="450" y="242" font-size="13.5" fill="#2563eb" text-decoration="underline" text-anchor="middle">²ervinyohannes@unesa.ac.id</text>
+
+    <!-- TWO-COLUMN BODY TEXT -->
+    
+    <!-- LEFT COLUMN -->
+    <g transform="translate(0, 275)" font-size="12.5" fill="#111827">
+      <text x="0" y="0">
+        <tspan font-style="italic" font-weight="700">Abstract</tspan>—<tspan font-weight="700">Conventional fixed-time traffic light control systems</tspan>
+      </text>
+      <text x="0" y="18"><tspan font-weight="700">cannot accommodate real-time fluctuations in vehicle volume,</tspan></text>
+      <text x="0" y="36"><tspan font-weight="700">making adaptive approaches based on reinforcement learning an</tspan></text>
+      <text x="0" y="54"><tspan font-weight="700">increasingly popular alternative. This study implements a Deep Q-</tspan></text>
+      <text x="0" y="72"><tspan font-weight="700">Network (DQN) architecture combined with a Faster R-CNN</tspan></text>
+      <text x="0" y="90"><tspan font-weight="700">ResNet-50 FPN v2 object detection sensor for smart traffic light</tspan></text>
+      <text x="0" y="108"><tspan font-weight="700">control. Traffic data were collected from CCTV recordings of a T-</tspan></text>
+      <text x="0" y="126"><tspan font-weight="700">intersection in the city of Surabaya via the SITS application and</tspan></text>
+      <text x="0" y="144"><tspan font-weight="700">processed into a Discrete Traffic State Encoding (DTSE)</tspan></text>
+      <text x="0" y="162"><tspan font-weight="700">representation sized 4×20×3 as the model input. Evaluation was</tspan></text>
+      <text x="0" y="180"><tspan font-weight="700">carried out under three time conditions (morning, afternoon, and</tspan></text>
+      <text x="0" y="198"><tspan font-weight="700">night) using the average queue length, average reward, and total</tspan></text>
+      <text x="0" y="216"><tspan font-weight="700">departed metrics. The Faster R-CNN detector achieved a recall of</tspan></text>
+      <text x="0" y="234"><tspan font-weight="700">96.21%, outperforming comparable single-stage detection</tspan></text>
+      <text x="0" y="252"><tspan font-weight="700">methods and providing more reliable traffic observations for the</tspan></text>
+      <text x="0" y="270"><tspan font-weight="700">reinforcement learning agent. Among the evaluated checkpoints,</tspan></text>
+      <text x="0" y="288">the combination of DQN Attention with Faster R-CNN demonstrated</text>
+      <text x="0" y="306">the highest overall throughput with an average 24% increase in</text>
+      <text x="0" y="324">total vehicle throughput and robust dynamic phase allocation.</text>
+    </g>
+
+    <!-- RIGHT COLUMN -->
+    <g transform="translate(470, 275)" font-size="12.5" fill="#111827">
+      <text x="0" y="0">Consequently, their reported performance may not fully</text>
+      <text x="0" y="18">represent real-world deployment, where decisions rely on</text>
+      <text x="0" y="36">visual information captured from actual traffic scenes.</text>
+
+      <text x="0" y="66">This study implements a DQN combined with a Faster R-</text>
+      <text x="0" y="84">CNN ResNet-50 FPN v2 object detection sensor [12], [13], [14]</text>
+      <text x="0" y="102">for adaptive traffic light control based on real CCTV data. The</text>
+      <text x="0" y="120">main contributions of this study include: (1) an end-to-end</text>
+      <text x="0" y="138">pipeline implementation from real CCTV video to traffic light</text>
+      <text x="0" y="156">control decisions via DTSE representation, and (2) an analysis</text>
+      <text x="0" y="174">of the effect of object detection sensor quality on DQN</text>
+      <text x="0" y="192">architecture performance.</text>
+
+      <!-- Section Heading -->
+      <text x="215" y="240" font-size="14" font-weight="700" text-anchor="middle">II. LITERATURE REVIEW</text>
+      
+      <text x="0" y="270" font-style="italic" font-weight="600">A. Deep Q-Network (DQN)</text>
+      <text x="0" y="290">Reinforcement learning enables an autonomous agent to learn</text>
+      <text x="0" y="308">optimal behavioral policies through trial-and-error interactions</text>
+      <text x="0" y="326">with an environment modeled as a Markov Decision Process.</text>
+    </g>
+
+  </g>
+</svg>

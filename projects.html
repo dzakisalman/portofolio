@@ -62,13 +62,13 @@
     <section class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-[#22374c]">
       <div>
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#162332] border border-[#22374c] text-xs font-semibold text-primary mb-3">
-          <span>PORTFOLIO & WORK</span>
+          <span>PORTFOLIO, ANALYTICS & RESEARCH</span>
         </div>
         <h1 class="text-white text-3xl sm:text-5xl font-extrabold tracking-tight">
           Projects & Engineering
         </h1>
         <p class="text-slate-400 text-base sm:text-lg mt-2 max-w-2xl leading-relaxed">
-          Production mobile applications, machine learning solutions, and responsive software built with modern engineering standards.
+          Data analytics case studies, published machine learning research, production mobile applications, and software tools.
         </p>
       </div>
 
@@ -82,54 +82,143 @@
     <!-- Filter Buttons -->
     <div class="flex flex-wrap items-center gap-2">
       <button type="button" class="filter-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-[#162332] border border-[#22374c] text-slate-300 hover:text-white transition-colors" data-filter="all">
-        All Projects (6)
+        All Projects (10)
       </button>
-      <button type="button" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-[#162332] border border-[#22374c] text-slate-300 hover:text-white transition-colors" data-filter="mobile">
-        Mobile (Flutter & Kotlin)
+      <button type="button" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-[#162332] border border-[#22374c] text-slate-300 hover:text-white transition-colors" data-filter="data">
+        Data Analytics (3)
       </button>
       <button type="button" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-[#162332] border border-[#22374c] text-slate-300 hover:text-white transition-colors" data-filter="ai">
-        AI & Machine Learning
+        AI & Research (3)
+      </button>
+      <button type="button" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-[#162332] border border-[#22374c] text-slate-300 hover:text-white transition-colors" data-filter="mobile">
+        Mobile (Flutter & Kotlin) (4)
       </button>
       <button type="button" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-[#162332] border border-[#22374c] text-slate-300 hover:text-white transition-colors" data-filter="desktop">
-        Desktop & Utilities
+        Desktop & Utilities (1)
+      </button>
+      <button type="button" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-[#162332] border border-[#22374c] text-slate-300 hover:text-white transition-colors" data-filter="web">
+        Web & Fullstack (2)
       </button>
     </div>
 
-    <!-- Spotlight Project 1: Selfie Timelapse Creator -->
-    <section class="project-item flex flex-col" data-category="desktop ai">
+    <!-- Spotlight 1: AI Scientific Publication (JINACS 2026) -->
+    <section class="project-item flex flex-col" data-category="ai">
       <div class="flex items-center gap-2 mb-3">
-        <span class="w-2 h-2 rounded-full bg-primary"></span>
-        <h2 class="text-xs font-bold uppercase tracking-wider text-primary">Featured Spotlight</h2>
+        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+        <h2 class="text-xs font-bold uppercase tracking-wider text-emerald-400">Published Research Spotlight • JINACS 2026</h2>
       </div>
 
       <div class="card-glow flex flex-col lg:flex-row rounded-2xl bg-[#162332] border border-[#22374c] overflow-hidden group">
-        <div class="w-full lg:w-1/2 aspect-video bg-[#0c131c] overflow-hidden flex-shrink-0">
-          <img src="images/selfietimelapse.png" alt="Selfie Timelapse Creator" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+        <div class="w-full lg:w-1/2 aspect-video bg-[#0c131c] overflow-hidden flex-shrink-0 relative">
+          <img src="images/jurnal_baseline_v2_EN_Page_1.jpg" alt="Smart Traffic Light Control DQN" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='images/smart_traffic_dqn.jpg';" />
+          <div class="absolute top-3 left-3 bg-[#0c131c]/90 backdrop-blur-md border border-emerald-400/40 px-2.5 py-1 rounded-full text-xs font-bold text-emerald-300">
+            JINACS Vol. 7 No. 4 (2026)
+          </div>
         </div>
         <div class="p-6 sm:p-8 flex flex-col justify-between flex-1">
           <div>
-            <div class="flex items-center gap-2 mb-2">
-              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20">Python & PySide6</span>
-              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700">Offline Desktop</span>
+            <div class="flex flex-wrap items-center gap-2 mb-2">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Reinforcement Learning</span>
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20">Computer Vision</span>
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700">Thesis &amp; Publication</span>
             </div>
-            <h3 class="text-white text-2xl font-bold">Selfie Timelapse Creator</h3>
-            <p class="text-slate-300 text-sm sm:text-base mt-3 leading-relaxed">
-              A fully offline, privacy-first desktop application built with Python and PySide6 that automatically aligns and renders selfie timelapse videos. Eliminates manual face-alignment drudgery by leveraging MediaPipe face detection, supports custom text/date/age overlays, interactive face-centering zoom, and exports directly through an FFmpeg pipe pipeline for lightning-fast rendering.
+            <h3 class="text-white text-xl sm:text-2xl font-bold leading-tight">
+              Faster R-CNN-Based Deep Q-Network for Smart Traffic Light Control
+            </h3>
+            <p class="text-slate-300 text-sm mt-3 leading-relaxed">
+              A 2×2 factorial research study analyzing the influence of computer vision sensor precision (Faster R-CNN vs YOLOv8) and Deep Q-Network architectures (Baseline vs SE-Block Attention) on adaptive smart traffic light control at a busy T-intersection in Surabaya. The Faster R-CNN detector achieved 96.21% recall, resulting in a 24% increase in vehicle throughput compared to YOLOv8.
             </p>
-            <div class="flex flex-wrap gap-2 mt-5">
-              <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-[#121d2a] text-slate-300 border border-[#22374c]">Python</span>
-              <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-[#121d2a] text-slate-300 border border-[#22374c]">PySide6</span>
-              <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-[#121d2a] text-slate-300 border border-[#22374c]">MediaPipe</span>
-              <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-[#121d2a] text-slate-300 border border-[#22374c]">FFmpeg</span>
-              <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-[#121d2a] text-slate-300 border border-[#22374c]">Computer Vision</span>
+            
+            <!-- Research Highlights -->
+            <div class="grid grid-cols-3 gap-2 mt-4 p-3 rounded-xl bg-[#121d2a] border border-[#22374c] text-center">
+              <div>
+                <div class="text-emerald-400 font-extrabold text-sm sm:text-base">96.21%</div>
+                <div class="text-[10px] text-slate-400">Sensor Recall</div>
+              </div>
+              <div>
+                <div class="text-sky-400 font-extrabold text-sm sm:text-base">+24%</div>
+                <div class="text-[10px] text-slate-400">Total Departed</div>
+              </div>
+              <div>
+                <div class="text-amber-400 font-extrabold text-sm sm:text-base">DTSE</div>
+                <div class="text-[10px] text-slate-400">4×20×3 State</div>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-1.5 mt-4">
+              <span class="text-xs font-medium px-2.5 py-0.5 rounded-md bg-[#121d2a] text-slate-300 border border-[#22374c]">Deep Q-Network</span>
+              <span class="text-xs font-medium px-2.5 py-0.5 rounded-md bg-[#121d2a] text-slate-300 border border-[#22374c]">Faster R-CNN</span>
+              <span class="text-xs font-medium px-2.5 py-0.5 rounded-md bg-[#121d2a] text-slate-300 border border-[#22374c]">Squeeze-and-Excitation</span>
+              <span class="text-xs font-medium px-2.5 py-0.5 rounded-md bg-[#121d2a] text-slate-300 border border-[#22374c]">PyTorch</span>
             </div>
           </div>
-          <div class="mt-6 pt-4 border-t border-[#22374c] flex items-center justify-between">
-            <a href="https://github.com/dzakisalman/selfie-timelapse-creator" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary hover:bg-primary-hover text-white font-bold text-sm shadow-md shadow-primary/20 transition-all duration-200">
-              <span>View on GitHub</span>
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+
+          <div class="mt-6 pt-4 border-t border-[#22374c] flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-2 sm:gap-3 flex-wrap">
+              <a href="https://ejournal.unesa.ac.id/index.php/jinacs/article/view/80461" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary hover:bg-primary-hover text-white font-bold text-sm shadow-md shadow-primary/20 transition-all duration-200">
+                <span>View on JINACS</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              </a>
+              <button type="button" onclick="openAbstractModal()" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#121d2a] hover:bg-[#1a2b3d] text-slate-300 hover:text-white border border-[#22374c] font-semibold text-sm transition-colors">
+                <span>Read Abstract</span>
+              </button>
+              <a href="https://digilib.unesa.ac.id/detail/OGZmY2JmODAtODRkMi0xMWYxLWIwZDktOGZiOTdhMDZjMDY3" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-[#121d2a] hover:bg-[#1a2b3d] text-slate-300 hover:text-white border border-[#22374c] font-semibold text-sm transition-colors">
+                <span>UNESA Digilib ↗</span>
+              </a>
+            </div>
+            <span class="text-xs text-slate-400">Peer-Reviewed Paper &amp; Skripsi</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Spotlight 2: Data Analytics (Looker Studio & Canva) -->
+    <section class="project-item flex flex-col" data-category="data">
+      <div class="flex items-center gap-2 mb-3">
+        <span class="w-2 h-2 rounded-full bg-sky-400"></span>
+        <h2 class="text-xs font-bold uppercase tracking-wider text-sky-400">Data Analytics Spotlight • MySkill Bootcamp</h2>
+      </div>
+
+      <div class="card-glow flex flex-col lg:flex-row rounded-2xl bg-[#162332] border border-[#22374c] overflow-hidden group">
+        <div class="w-full lg:w-1/2 aspect-video bg-[#0c131c] overflow-hidden flex-shrink-0 relative">
+          <img src="images/looker_dashboard.png" alt="Looker Studio E-Commerce Dashboard" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='images/looker_dashboard.jpg';" />
+          <div class="absolute top-3 left-3 bg-[#0c131c]/90 backdrop-blur-md border border-sky-400/40 px-2.5 py-1 rounded-full text-xs font-bold text-sky-300">
+            Interactive BI Dashboard
+          </div>
+        </div>
+        <div class="p-6 sm:p-8 flex flex-col justify-between flex-1">
+          <div>
+            <div class="flex flex-wrap items-center gap-2 mb-2">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20">Looker Studio</span>
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20">Data Visualization</span>
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700">Business Intelligence</span>
+            </div>
+            <h3 class="text-white text-xl sm:text-2xl font-bold leading-tight">
+              E-Commerce Sales Dashboard &amp; Performance Analytics
+            </h3>
+            <p class="text-slate-300 text-sm mt-3 leading-relaxed">
+              Engineered an interactive sales monitoring dashboard for e-commerce performance analytics covering Sales Value, Net Profit, Average Order Value (AOV), Quantity, Customer cohorts, and payment method behavior. Features integrated dynamic date, category, and value filters to derive actionable data-driven commercial recommendations.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-5">
+              <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-[#121d2a] text-slate-300 border border-[#22374c]">Looker Studio</span>
+              <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-[#121d2a] text-slate-300 border border-[#22374c]">Google Data Studio</span>
+              <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-[#121d2a] text-slate-300 border border-[#22374c]">E-Commerce KPI</span>
+              <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-[#121d2a] text-slate-300 border border-[#22374c]">Canva Deck</span>
+            </div>
+          </div>
+          <div class="mt-6 pt-4 border-t border-[#22374c] flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <button type="button" onclick="openViewOnModal('ecommerce')" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary hover:bg-primary-hover text-white font-bold text-sm shadow-md shadow-primary/20 transition-all duration-200">
+                <span>View On...</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              </button>
+              <a href="https://datastudio.google.com/u/0/reporting/80155dc6-5485-49ef-8a3d-7a5a9496ea9f/page/p_adnbrh656d" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#121d2a] hover:bg-[#1a2b3d] text-slate-300 hover:text-white border border-[#22374c] font-semibold text-sm transition-colors">
+                <span>Live Dashboard ↗</span>
+              </a>
+            </div>
+            <a href="https://canva.link/79zm5d2g0nahpq3" target="_blank" rel="noopener noreferrer" class="text-xs text-slate-400 hover:text-primary transition-colors">
+              Canva Deck ↗
             </a>
-            <span class="text-xs text-slate-400">Open Source</span>
           </div>
         </div>
       </div>
@@ -138,25 +227,154 @@
     <!-- Grid of All Projects -->
     <section class="flex flex-col gap-6">
       <div class="flex items-center justify-between pb-3 border-b border-[#22374c]">
-        <h2 class="text-white text-xl font-bold">All Engineered Applications</h2>
-        <span id="project-count" class="text-xs text-slate-400">Showing 6 projects</span>
+        <h2 class="text-white text-xl font-bold">All Engineered Applications &amp; Case Studies</h2>
+        <span id="project-count" class="text-xs text-slate-400">Showing 10 projects</span>
       </div>
 
       <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- 1. SQL Data Analysis Final Project -->
+        <article class="project-item card-glow flex flex-col rounded-2xl bg-[#162332] border border-[#22374c] overflow-hidden group" data-category="data">
+          <div class="relative w-full aspect-video bg-[#0c131c] overflow-hidden">
+            <img src="images/sql_data_analysis.png" alt="SQL Data Analysis Project" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='images/sql_data_analysis.jpg';" />
+            <div class="absolute top-3 right-3 bg-[#0c131c]/90 backdrop-blur-md border border-primary/40 px-2.5 py-1 rounded-full text-[11px] font-bold text-primary flex items-center gap-1.5 shadow-sm">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+              <span>SQL Analytics</span>
+            </div>
+            <div class="absolute bottom-3 left-3 bg-[#0c131c]/90 backdrop-blur-md px-2.5 py-0.5 rounded text-[10px] font-semibold text-slate-300 border border-[#22374c]">
+              MySkill Bootcamp
+            </div>
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <h3 class="text-white text-lg font-bold group-hover:text-primary transition-colors">SQL Data Analysis Final Project</h3>
+            <p class="text-slate-400 text-sm mt-2 flex-1 leading-relaxed">
+              Analyzed e-commerce datasets using advanced SQL (JOINs, filtering, aggregation, GROUP BY, DISTINCT, date-based cohorts) to answer core business questions, monthly sales velocity, conversion funnels, and customer acquisition timeframes.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-[#22374c]/70">
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">SQL</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">JOIN &amp; Subqueries</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Funnel Analysis</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Cohort Insights</span>
+            </div>
+            <div class="mt-5 pt-2 flex items-center justify-between">
+              <button type="button" onclick="openViewOnModal('sql')" class="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline">
+                <span>View On Canva Deck</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              </button>
+              <a href="https://canva.link/ufwpmck69lr1qp3" target="_blank" rel="noopener noreferrer" class="text-xs text-slate-400 hover:text-white transition-colors">Direct Link ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. Python Data Analysis Final Project -->
+        <article class="project-item card-glow flex flex-col rounded-2xl bg-[#162332] border border-[#22374c] overflow-hidden group" data-category="data">
+          <div class="relative w-full aspect-video bg-[#0c131c] overflow-hidden">
+            <img src="images/python_data_analysis.png" alt="Python Data Analysis Project" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='images/python_data_analysis.jpg';" />
+            <div class="absolute top-3 right-3 bg-[#0c131c]/90 backdrop-blur-md border border-amber-400/40 px-2.5 py-1 rounded-full text-[11px] font-bold text-amber-300 flex items-center gap-1.5 shadow-sm">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+              <span>Python &amp; Pandas</span>
+            </div>
+            <div class="absolute bottom-3 left-3 bg-[#0c131c]/90 backdrop-blur-md px-2 py-0.5 rounded text-[10px] font-semibold text-slate-300 border border-[#22374c]">
+              MySkill Bootcamp
+            </div>
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <h3 class="text-white text-lg font-bold group-hover:text-primary transition-colors">Python Data Analysis Final Project</h3>
+            <p class="text-slate-400 text-sm mt-2 flex-1 leading-relaxed">
+              Performed data filtering, transaction validation, grouping, merging, and sorting using Pandas &amp; NumPy. Analyzed product-level sales volumes, category benchmarks, and year-over-year commercial performance.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-[#22374c]/70">
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-amber-400/10 text-amber-300 border border-amber-400/20">Python</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Pandas</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">NumPy</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">EDA &amp; Viz</span>
+            </div>
+            <div class="mt-5 pt-2 flex items-center justify-between">
+              <button type="button" onclick="openViewOnModal('python')" class="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline">
+                <span>View On Canva Deck</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              </button>
+              <a href="https://canva.link/ktgkqnv2749hyt5" target="_blank" rel="noopener noreferrer" class="text-xs text-slate-400 hover:text-white transition-colors">Direct Link ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. E-Commerce Sales Dashboard Card -->
+        <article class="project-item card-glow flex flex-col rounded-2xl bg-[#162332] border border-[#22374c] overflow-hidden group" data-category="data">
+          <div class="relative w-full aspect-video bg-[#0c131c] overflow-hidden">
+            <img src="images/looker_dashboard.png" alt="Looker Studio Dashboard" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='images/looker_dashboard.jpg';" />
+            <div class="absolute top-3 right-3 bg-[#0c131c]/90 backdrop-blur-md border border-sky-400/40 px-2.5 py-1 rounded-full text-[11px] font-bold text-sky-300 flex items-center gap-1.5 shadow-sm">
+              <span class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse"></span>
+              <span>Looker Studio</span>
+            </div>
+            <div class="absolute bottom-3 left-3 bg-[#0c131c]/90 backdrop-blur-md px-2 py-0.5 rounded text-[10px] font-semibold text-slate-300 border border-[#22374c]">
+              Interactive BI
+            </div>
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <h3 class="text-white text-lg font-bold group-hover:text-primary transition-colors">E-Commerce Sales Dashboard</h3>
+            <p class="text-slate-400 text-sm mt-2 flex-1 leading-relaxed">
+              Built an interactive Looker Studio sales intelligence dashboard monitoring Sales Value, Net Profit, AOV, Order Quantity, Customer metrics, and payment channels with real-time parameter controls.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-[#22374c]/70">
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-sky-500/10 text-sky-400 border border-sky-500/20">Looker Studio</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Data Visualization</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Canva Deck</span>
+            </div>
+            <div class="mt-5 pt-2 flex items-center justify-between">
+              <button type="button" onclick="openViewOnModal('ecommerce')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary hover:bg-primary-hover text-white text-xs font-bold transition-all shadow-sm">
+                <span>View On...</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              </button>
+              <a href="https://datastudio.google.com/u/0/reporting/80155dc6-5485-49ef-8a3d-7a5a9496ea9f/page/p_adnbrh656d" target="_blank" rel="noopener noreferrer" class="text-xs font-medium text-slate-400 hover:text-white transition-colors">
+                Live Report ↗
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ZR Assistant -->
+        <article class="project-item card-glow flex flex-col rounded-2xl bg-[#162332] border border-[#22374c] overflow-hidden group" data-category="ai web">
+          <div class="relative w-full aspect-video bg-[#0c131c] overflow-hidden">
+            <img src="images/zr_assistant.png" alt="ZR Assistant - AI Customer Service" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/dzakisalman/zr-assistant-public/master/Screenshot.png';" />
+            <div class="absolute top-3 right-3 bg-[#0c131c]/90 backdrop-blur-md border border-primary/40 px-2.5 py-1 rounded-full text-[11px] font-bold text-primary flex items-center gap-1.5 shadow-sm">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span>RAG AI Chatbot</span>
+            </div>
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <h3 class="text-white text-lg font-bold group-hover:text-primary transition-colors">ZR Assistant</h3>
+            <p class="text-slate-400 text-sm mt-2 flex-1 leading-relaxed">
+              RAG-powered AI Customer Service system for Zakarya Group featuring multilingual conversational intelligence (Indonesian &amp; Javanese), real-time Google Sheets inventory sync, automated lead capture, and ChromaDB vector store catalog ingestion.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-[#22374c]/70">
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">FastAPI</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">Google Gemini</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">ChromaDB</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Google Sheets API</span>
+              <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">RAG</span>
+            </div>
+            <div class="mt-5 pt-2">
+              <a href="https://github.com/dzakisalman/zr-assistant-public" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline">
+                <span>View Repository</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              </a>
+            </div>
+          </div>
+        </article>
 
         <!-- NantiFit -->
         <article class="project-item card-glow flex flex-col rounded-2xl bg-[#162332] border border-[#22374c] overflow-hidden group" data-category="mobile ai">
           <div class="relative w-full aspect-video bg-[#0c131c] overflow-hidden">
             <img src="images/nantifit.png" alt="NantiFit" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
             <div class="absolute top-3 right-3 bg-[#0c131c]/95 backdrop-blur-md border border-amber-400/80 shadow-lg px-3 py-1.5 rounded-full flex items-center gap-1.5 z-10">
-              <span class="text-sm leading-none">🏆</span>
-              <span class="text-xs font-black text-amber-300 tracking-wide drop-shadow-sm">1st Winner</span>
+              <span class="text-xs font-bold text-amber-300 tracking-wide">1st Place Winner</span>
             </div>
           </div>
           <div class="p-5 flex flex-col flex-1">
             <h3 class="text-white text-lg font-bold group-hover:text-primary transition-colors">NantiFit</h3>
             <p class="text-slate-400 text-sm mt-2 flex-1 leading-relaxed">
-              An advanced AI health ecosystem evolved from FitMate. Features pose detection, smart AI nutrition tracking, workout recommendations, and fitness shorts. Won 🏆 1st Place at the Flutter Fusion Competition 2026.
+              An advanced AI health ecosystem evolved from FitMate. Features real-time pose estimation, smart AI nutrition tracking, personalized workout recommendations, and fitness coaching. 1st Place Winner at Flutter Fusion 2026.
             </p>
             <div class="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-[#22374c]/70">
               <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">Flutter</span>
@@ -164,10 +382,13 @@
               <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Gemini AI</span>
               <span class="text-[11px] font-medium px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Node.js</span>
             </div>
-            <div class="mt-5 pt-2">
+            <div class="mt-5 pt-2 flex items-center justify-between">
               <a href="https://github.com/erixiey/NantiFit" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline">
                 <span>View Repository</span>
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              </a>
+              <a href="https://drive.google.com/file/d/16HLJZvNa8Xov_DnvmBT8EFIlgiDFPhxG/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-semibold text-amber-300 hover:text-amber-200 transition-colors">
+                <span>Winner Cert ↗</span>
               </a>
             </div>
           </div>
@@ -287,6 +508,176 @@
       </div>
     </section>
 
+    <!-- View On Modal (Data Projects) -->
+    <div id="view-on-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+      <div class="absolute inset-0 bg-black/75 backdrop-blur-sm" onclick="closeViewOnModal()"></div>
+      <div class="relative bg-[#162332] border border-[#22374c] rounded-2xl max-w-lg w-full p-6 sm:p-7 shadow-2xl z-10 animate-in fade-in zoom-in duration-200">
+        <div class="flex items-center justify-between pb-4 border-b border-[#22374c]">
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-lg bg-primary/20 text-primary flex items-center justify-center">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </div>
+            <div>
+              <h3 id="view-on-title" class="text-white text-base sm:text-lg font-bold">View Project</h3>
+              <p class="text-xs text-slate-400">Select how you would like to explore this project</p>
+            </div>
+          </div>
+          <button onclick="closeViewOnModal()" class="text-slate-400 hover:text-white p-1.5 rounded-lg hover:bg-[#22374c] transition-colors" aria-label="Close modal">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          </button>
+        </div>
+
+        <p id="view-on-desc" class="text-slate-300 text-sm mt-4">
+          Choose a viewing destination below:
+        </p>
+
+        <!-- Options Container -->
+        <div id="view-on-options" class="flex flex-col gap-3 mt-5">
+          <!-- Dynamically populated options -->
+        </div>
+
+        <div class="flex justify-end mt-6 pt-4 border-t border-[#22374c]">
+          <button onclick="closeViewOnModal()" class="px-4 py-2 rounded-xl bg-[#121d2a] hover:bg-[#1a2b3d] text-slate-300 hover:text-white text-sm font-medium border border-[#22374c] transition-colors">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Research Abstract & Paper Details Modal -->
+    <div id="abstract-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+      <div class="absolute inset-0 bg-black/80 backdrop-blur-md" onclick="closeAbstractModal()"></div>
+      <div class="relative bg-[#162332] border border-[#22374c] rounded-2xl max-w-2xl w-full max-h-[90vh] flex flex-col p-6 sm:p-7 shadow-2xl z-10 animate-in fade-in zoom-in duration-200">
+        
+        <!-- Header -->
+        <div class="flex items-start justify-between pb-3 border-b border-[#22374c]">
+          <div class="pr-4">
+            <!-- Mode Switcher Tabs: Journal vs Skripsi -->
+            <div class="flex items-center gap-1.5 p-1 rounded-xl bg-[#0f1722] border border-[#22374c] mb-2.5 w-fit">
+              <button id="btn-mode-journal" onclick="switchResearchMode('journal')" class="px-3 py-1 rounded-lg text-xs font-bold bg-primary text-white transition-all shadow-sm">
+                Jurnal JINACS (2026)
+              </button>
+              <button id="btn-mode-skripsi" onclick="switchResearchMode('skripsi')" class="px-3 py-1 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition-all">
+                Skripsi (Digilib UNESA)
+              </button>
+            </div>
+
+            <!-- Title & Metadata (Dynamic) -->
+            <h3 id="research-title" class="text-white text-lg sm:text-xl font-bold leading-snug">
+              Faster R-CNN-Based Deep Q-Network for Smart Traffic Light Control
+            </h3>
+            <p id="research-meta" class="text-xs text-slate-400 mt-1">
+              JINACS Vol. 07 No. 04 (2026), hal. 983–988 | ISSN: 2686-2220 | Authors: <strong class="text-slate-200">Muhammad Dzaki Salman¹, Ervin Yohannes²</strong>
+            </p>
+          </div>
+          <button onclick="closeAbstractModal()" class="text-slate-400 hover:text-white p-1.5 rounded-lg hover:bg-[#22374c] transition-colors flex-shrink-0" aria-label="Close modal">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          </button>
+        </div>
+
+        <!-- Key Metrics Highlight -->
+        <div id="journal-metrics" class="grid grid-cols-4 gap-2 my-3 p-3 rounded-xl bg-[#121d2a] border border-[#22374c] text-center">
+          <div>
+            <div class="text-emerald-400 text-base sm:text-lg font-black">96.21%</div>
+            <div class="text-[10px] text-slate-400">Sensor Recall</div>
+          </div>
+          <div>
+            <div class="text-sky-400 text-base sm:text-lg font-black">500 Ep</div>
+            <div class="text-[10px] text-slate-400">Best Checkpoint</div>
+          </div>
+          <div>
+            <div class="text-amber-400 text-base sm:text-lg font-black">1,046.97</div>
+            <div class="text-[10px] text-slate-400">Departed Vehicles</div>
+          </div>
+          <div>
+            <div class="text-indigo-400 text-base sm:text-lg font-black">127.34</div>
+            <div class="text-[10px] text-slate-400">Avg Queue Length</div>
+          </div>
+        </div>
+
+        <!-- Skripsi Language Tabs (Visible only in Skripsi mode) -->
+        <div id="skripsi-lang-tabs" class="hidden items-center gap-2 border-b border-[#22374c] pb-2 my-1">
+          <span class="text-xs text-slate-400 font-medium">Bahasa Abstrak:</span>
+          <button id="btn-tab-skripsi-id" onclick="setSkripsiLang('id')" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-primary text-white transition-colors">
+            Indonesia (ID)
+          </button>
+          <button id="btn-tab-skripsi-en" onclick="setSkripsiLang('en')" class="px-2.5 py-1 rounded-lg text-xs font-medium text-slate-400 hover:text-white bg-[#121d2a] transition-colors">
+            English (EN)
+          </button>
+        </div>
+
+        <!-- Scrollable Abstract Body -->
+        <div class="overflow-y-auto flex-1 my-2 pr-1 text-slate-300 text-xs sm:text-sm leading-relaxed space-y-3">
+          
+          <!-- JINACS Official Abstract -->
+          <div id="content-journal">
+            <p>
+              <strong>Abstract</strong>—Conventional fixed-time traffic light control systems cannot accommodate real-time fluctuations in vehicle volume, making adaptive approaches based on reinforcement learning an increasingly popular alternative. This study implements a Deep Q-Network (DQN) architecture combined with a Faster R-CNN ResNet-50 FPN v2 object detection sensor for smart traffic light control. Traffic data were collected from CCTV recordings of a T-intersection in the city of Surabaya via the SITS application and processed into a Discrete Traffic State Encoding (DTSE) representation sized 4×20×3 as the model input.
+            </p>
+            <p>
+              Evaluation was carried out under three time conditions (morning, afternoon, and night) using the average queue length, average reward, and total departed metrics. The Faster R-CNN detector achieved a recall of 96.21%, outperforming comparable single-stage detection methods and providing more reliable traffic observations for the reinforcement learning agent. Among the evaluated checkpoints, the model trained for 500 episodes delivered the best overall performance, with an average queue length of 127.34, an average reward of 161.75, and 1,046.97 departed vehicles. These findings suggest that accurate vehicle detection plays an important role in improving reinforcement learning performance for adaptive traffic signal control.
+            </p>
+            <p class="text-slate-400 pt-2 border-t border-[#22374c]/50">
+              <strong class="text-slate-300">Keywords</strong>—Deep Q-Network, Faster R-CNN, Adaptive Traffic Light, DTSE, Reinforcement Learning.
+            </p>
+          </div>
+
+          <!-- Skripsi Digilib UNESA Content -->
+          <div id="content-skripsi" class="hidden space-y-3">
+            <div class="p-3 rounded-xl bg-[#121d2a] border border-[#22374c] text-xs space-y-1 text-slate-300">
+              <div><strong class="text-slate-400">Kode Dokumen:</strong> 0076/FT-TI/2026</div>
+              <div><strong class="text-slate-400">Penulis Utama:</strong> MUHAMMAD DZAKI SALMAN (NIM: 22051204042)</div>
+              <div><strong class="text-slate-400">Institusi:</strong> UNESA - Fakultas Teknik - Jurusan S1 Teknik Informatika (2026)</div>
+            </div>
+
+            <!-- Skripsi Abstrak ID -->
+            <div id="skripsi-text-id">
+              <p>
+                <strong>Abstrak:</strong> Sistem pengaturan lampu lalu lintas konvensional yang bersifat statis kurang mampu mengakomodasi fluktuasi volume kendaraan secara real-time, sehingga pendekatan adaptif berbasis reinforcement learning menjadi alternatif yang banyak dikembangkan. Performa sistem semacam ini ditentukan oleh dua komponen utama, yaitu kualitas sensor visi komputer yang mendeteksi kondisi lalu lintas dan arsitektur jaringan saraf yang memetakan kondisi tersebut menjadi keputusan kontrol. Penelitian ini bertujuan menganalisis pengaruh kedua komponen tersebut melalui desain eksperimen faktorial 2×2, yang mengombinasikan dua sensor deteksi objek (YOLOv8 dan Faster R-CNN ResNet-50) dengan dua arsitektur Deep Q-Network (DQN Baseline dan DQN Attention dengan Squeeze-and-Excitation Block). Data lalu lintas dikumpulkan dari rekaman CCTV pada studi kasus persimpangan T di Surabaya, kemudian diproses menjadi representasi Discrete Traffic State Encoding (DTSE) berukuran 4×20×3 sebagai input bagi model.
+              </p>
+              <p>
+                Evaluasi dilakukan pada tiga kondisi waktu (pagi, siang, dan malam) menggunakan tiga metrik, yaitu average queue length, average reward, dan total departed. Hasil penelitian menunjukkan bahwa kualitas sensor memberikan pengaruh yang menentukan terhadap performa sistem; Faster R-CNN (recall 96,21%) menghasilkan total departed rata-rata 24% lebih tinggi dibandingkan YOLOv8 (recall 67,96%). Keterbatasan deteksi pada YOLOv8 menyebabkan kedua varian DQN mengalami konvergensi kebijakan prematur (premature policy convergence), di mana DQN Baseline dan DQN Attention menghasilkan metrik evaluasi yang identik meskipun arsitekturnya berbeda. Analisis lebih lanjut terhadap urutan aksi menunjukkan bahwa agen dengan sensor Faster R-CNN menghasilkan variasi durasi fase yang jauh lebih besar (7 hingga 16 detik) dibandingkan YOLOv8 yang hampir seluruhnya seragam (11 detik), meskipun sumber variasi ini belum sepenuhnya terkonfirmasi berasal dari respons langsung terhadap kepadatan lalu lintas. Kombinasi DQN Attention dengan sensor Faster R-CNN menghasilkan performa terbaik secara keseluruhan di antara keempat kombinasi yang diuji, sehingga penelitian ini membuktikan bahwa kualitas representasi state yang disuplai sensor visi komputer berfungsi sebagai penentu batas atas kinerja arsitektur reinforcement learning pada sistem kendali lalu lintas adaptif.
+              </p>
+              <p class="text-slate-400 pt-2 border-t border-[#22374c]/50">
+                <strong class="text-slate-300">Kata Kunci:</strong> Deep Q-Network, Squeeze-and-Excitation Block, YOLOv8, Faster R-CNN, Lampu Lalu Lintas Adaptif.
+              </p>
+            </div>
+
+            <!-- Skripsi Abstrak EN -->
+            <div id="skripsi-text-en" class="hidden">
+              <p>
+                <strong>Abstract:</strong> Conventional static traffic light systems are unable to accommodate real-time fluctuations in vehicle volume, making adaptive control approaches based on reinforcement learning an increasingly explored alternative. The performance of such systems is determined by two primary components: the quality of the computer vision sensor used to detect traffic conditions and the neural network architecture that maps these conditions into control decisions. This study aims to analyze the influence of both components through a 2×2 factorial experimental design, combining two object detection sensors (YOLOv8 and Faster R-CNN ResNet-50) with two Deep Q-Network architectures (DQN Baseline and DQN Attention with a Squeeze-and-Excitation Block). Traffic data were collected from CCTV recordings at a T-intersection case study in Surabaya and processed into a Discrete Traffic State Encoding (DTSE) representation of size 4×20×3 as model input.
+              </p>
+              <p>
+                Evaluation was conducted across three time conditions (morning, afternoon, and night) using three metrics: average queue length, average reward, and total departed. The results show that sensor quality has a decisive influence on system performance; Faster R-CNN (96.21% recall) achieved an average total departed 24% higher than YOLOv8 (67.96% recall). The detection limitations of YOLOv8 caused both DQN variants to experience premature policy convergence, where DQN Baseline and DQN Attention produced identical evaluation metrics despite their architectural differences. Further analysis of the action sequences revealed that agents using the Faster R-CNN sensor produced substantially greater variation in phase duration (7 to 16 seconds) compared to YOLOv8, which remained nearly uniform at 11 seconds, although the source of this variation could not be fully confirmed as a direct response to traffic density. The combination of DQN Attention with the Faster R-CNN sensor achieved the best overall performance among the four tested combinations, demonstrating that the quality of state representation supplied by the computer vision sensor functions as the upper bound determinant of reinforcement learning architecture performance in adaptive traffic control systems.
+              </p>
+              <p class="text-slate-400 pt-2 border-t border-[#22374c]/50">
+                <strong class="text-slate-300">Keywords:</strong> Deep Q-Network, Squeeze-and-Excitation Block, YOLOv8, Faster R-CNN, Adaptive Traffic Light.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Footer Actions -->
+        <div class="flex items-center justify-between pt-3 border-t border-[#22374c] flex-wrap gap-2">
+          <span class="text-[11px] text-slate-400 hidden sm:inline">Open Access Publication &amp; Institutional Repository</span>
+          <div class="flex items-center gap-2 w-full sm:w-auto justify-end">
+            <button onclick="closeAbstractModal()" class="px-3.5 py-2 rounded-xl bg-[#121d2a] hover:bg-[#1a2b3d] text-slate-300 text-xs font-medium border border-[#22374c] transition-colors">
+              Close
+            </button>
+            <a href="https://digilib.unesa.ac.id/detail/OGZmY2JmODAtODRkMi0xMWYxLWIwZDktOGZiOTdhMDZjMDY3" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#1a2b3d] hover:bg-[#223952] border border-[#355474] text-slate-200 text-xs font-semibold transition-all">
+              <span>UNESA Digilib ↗</span>
+            </a>
+            <a href="https://ejournal.unesa.ac.id/index.php/jinacs/article/view/80461" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-primary hover:bg-primary-hover text-white text-xs font-bold shadow-md shadow-primary/20 transition-all">
+              <span>JINACS Paper ↗</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </main>
 
   <!-- Footer Container -->
@@ -327,7 +718,189 @@
           }
         });
       });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeViewOnModal();
+          closeAbstractModal();
+        }
+      });
     });
+
+    // View On Modal Handler
+    const projectLinkData = {
+      ecommerce: {
+        title: "E-Commerce Sales Dashboard & Performance Analytics",
+        desc: "Monitoring key revenue KPIs, category performance, payment channels, and customer metrics. Choose a platform to view this project:",
+        options: [
+          {
+            title: "Looker Studio Interactive Dashboard",
+            badge: "Live Interactive Reporting",
+            badgeColor: "bg-sky-500/10 text-sky-400 border-sky-500/20",
+            icon: `<svg class="w-6 h-6 text-sky-400" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>`,
+            desc: "Live interactive dashboard with dynamic filtering by Order Date, Category, Sales Value, and Payment Methods.",
+            url: "https://datastudio.google.com/u/0/reporting/80155dc6-5485-49ef-8a3d-7a5a9496ea9f/page/p_adnbrh656d",
+            btnText: "Open Looker Studio"
+          },
+          {
+            title: "Canva Presentation Deck",
+            badge: "Final Project Case Study",
+            badgeColor: "bg-indigo-500/10 text-indigo-400 border-indigo-500/20",
+            icon: `<svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/></svg>`,
+            desc: "Comprehensive executive presentation slide deck featuring deep business insights, charts, and strategic action plans.",
+            url: "https://canva.link/79zm5d2g0nahpq3",
+            btnText: "Open Canva Deck"
+          }
+        ]
+      },
+      sql: {
+        title: "SQL Data Analysis Final Project",
+        desc: "In-depth e-commerce dataset analysis using SQL JOINs, filtering, aggregation, and registration-to-purchase cohort funnels.",
+        options: [
+          {
+            title: "Canva Presentation Deck",
+            badge: "SQL Final Project Presentation",
+            badgeColor: "bg-primary/10 text-primary border-primary/20",
+            icon: `<svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3C7.58 3 4 4.79 4 7v10c0 2.21 3.58 4 8 4s8-1.79 8-4V7c0-2.21-3.58-4-8-4zm0 2c3.87 0 6 1.5 6 2s-2.13 2-6 2-6-1.5-6-2 2.13-2 6-2zm0 14c-3.87 0-6-1.5-6-2v-2.23c1.61.78 3.73 1.23 6 1.23s4.39-.45 6-1.23V17c0 .5-2.13 2-6 2zm0-5c-3.87 0-6-1.5-6-2v-2.23c1.61.78 3.73 1.23 6 1.23s4.39-.45 6-1.23V12c0 .5-2.13 2-6 2z"/></svg>`,
+            desc: "Detailed presentation slide deck analyzing monthly total sales, product categories, channel performance, and customer acquisition.",
+            url: "https://canva.link/ufwpmck69lr1qp3",
+            btnText: "Open Canva Presentation"
+          }
+        ]
+      },
+      python: {
+        title: "Python Data Analysis Final Project",
+        desc: "Sales analytics with Pandas & NumPy: transaction validation, data filtering, grouping, and YoY performance comparisons.",
+        options: [
+          {
+            title: "Canva Presentation Deck",
+            badge: "Python Final Project Presentation",
+            badgeColor: "bg-amber-400/10 text-amber-300 border-amber-400/20",
+            icon: `<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-6 h-6" />`,
+            desc: "Presentation slide deck analyzing product quantities, annual sales benchmarks, and data-driven insights.",
+            url: "https://canva.link/ktgkqnv2749hyt5",
+            btnText: "Open Canva Presentation"
+          }
+        ]
+      }
+    };
+
+    window.openViewOnModal = function(key) {
+      const data = projectLinkData[key];
+      if (!data) return;
+      const modal = document.getElementById('view-on-modal');
+      const titleEl = document.getElementById('view-on-title');
+      const descEl = document.getElementById('view-on-desc');
+      const optionsEl = document.getElementById('view-on-options');
+
+      titleEl.textContent = data.title;
+      descEl.textContent = data.desc;
+
+      optionsEl.innerHTML = data.options.map(opt => `
+        <a href="${opt.url}" target="_blank" rel="noopener noreferrer" class="card-glow flex items-start gap-4 p-4 rounded-xl bg-[#121d2a] hover:bg-[#182737] border border-[#22374c] hover:border-primary/50 transition-all group">
+          <div class="w-11 h-11 rounded-lg bg-[#162332] border border-[#22374c] flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+            ${opt.icon}
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-1 flex-wrap">
+              <span class="text-white font-bold text-sm group-hover:text-primary transition-colors">${opt.title}</span>
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full border ${opt.badgeColor}">${opt.badge}</span>
+            </div>
+            <p class="text-slate-400 text-xs leading-relaxed">${opt.desc}</p>
+            <div class="mt-2 text-xs font-bold text-primary flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+              <span>${opt.btnText}</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </div>
+          </div>
+        </a>
+      `).join('');
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    };
+
+    window.closeViewOnModal = function() {
+      const modal = document.getElementById('view-on-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    };
+
+    // Abstract Modal Handler
+    window.openAbstractModal = function() {
+      const modal = document.getElementById('abstract-modal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        switchResearchMode('journal');
+      }
+    };
+
+    window.closeAbstractModal = function() {
+      const modal = document.getElementById('abstract-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    };
+
+    window.switchResearchMode = function(mode) {
+      const btnJournal = document.getElementById('btn-mode-journal');
+      const btnSkripsi = document.getElementById('btn-mode-skripsi');
+      const contentJournal = document.getElementById('content-journal');
+      const contentSkripsi = document.getElementById('content-skripsi');
+      const journalMetrics = document.getElementById('journal-metrics');
+      const skripsiLangTabs = document.getElementById('skripsi-lang-tabs');
+      const researchTitle = document.getElementById('research-title');
+      const researchMeta = document.getElementById('research-meta');
+
+      if (mode === 'journal') {
+        if (btnJournal) btnJournal.className = 'px-3 py-1 rounded-lg text-xs font-bold bg-primary text-white transition-all shadow-sm';
+        if (btnSkripsi) btnSkripsi.className = 'px-3 py-1 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition-all';
+        if (contentJournal) contentJournal.classList.remove('hidden');
+        if (contentSkripsi) contentSkripsi.classList.add('hidden');
+        if (journalMetrics) journalMetrics.classList.remove('hidden');
+        if (skripsiLangTabs) skripsiLangTabs.classList.add('hidden');
+        if (researchTitle) researchTitle.textContent = 'Faster R-CNN-Based Deep Q-Network for Smart Traffic Light Control';
+        if (researchMeta) researchMeta.innerHTML = 'JINACS Vol. 07 No. 04 (2026), hal. 983–988 | ISSN: 2686-2220 | Authors: <strong class="text-slate-200">Muhammad Dzaki Salman¹, Ervin Yohannes²</strong>';
+      } else {
+        if (btnSkripsi) btnSkripsi.className = 'px-3 py-1 rounded-lg text-xs font-bold bg-primary text-white transition-all shadow-sm';
+        if (btnJournal) btnJournal.className = 'px-3 py-1 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition-all';
+        if (contentJournal) contentJournal.classList.add('hidden');
+        if (contentSkripsi) contentSkripsi.classList.remove('hidden');
+        if (journalMetrics) journalMetrics.classList.add('hidden');
+        if (skripsiLangTabs) {
+          skripsiLangTabs.classList.remove('hidden');
+          skripsiLangTabs.classList.add('flex');
+        }
+        if (researchTitle) researchTitle.textContent = 'Analisis Performa Model Deep Q-Network Dengan Channel Attention Module Pada Pengaturan Lampu Lalu Lintas Cerdas';
+        if (researchMeta) researchMeta.innerHTML = 'Kode Dokumen: 0076/FT-TI/2026 | NIM: 22051204042 | Sumber: <strong class="text-slate-200">UNESA - Fakultas Teknik - S1 Teknik Informatika (2026)</strong>';
+        setSkripsiLang('id');
+      }
+    };
+
+    window.setSkripsiLang = function(lang) {
+      const textId = document.getElementById('skripsi-text-id');
+      const textEn = document.getElementById('skripsi-text-en');
+      const btnId = document.getElementById('btn-tab-skripsi-id');
+      const btnEn = document.getElementById('btn-tab-skripsi-en');
+      const researchTitle = document.getElementById('research-title');
+
+      if (lang === 'id') {
+        if (textId) textId.classList.remove('hidden');
+        if (textEn) textEn.classList.add('hidden');
+        if (btnId) btnId.className = 'px-2.5 py-1 rounded-lg text-xs font-bold bg-primary text-white transition-colors';
+        if (btnEn) btnEn.className = 'px-2.5 py-1 rounded-lg text-xs font-medium text-slate-400 hover:text-white bg-[#121d2a] transition-colors';
+        if (researchTitle) researchTitle.textContent = 'Analisis Performa Model Deep Q-Network Dengan Channel Attention Module Pada Pengaturan Lampu Lalu Lintas Cerdas';
+      } else {
+        if (textId) textId.classList.add('hidden');
+        if (textEn) textEn.classList.remove('hidden');
+        if (btnEn) btnEn.className = 'px-2.5 py-1 rounded-lg text-xs font-bold bg-primary text-white transition-colors';
+        if (btnId) btnId.className = 'px-2.5 py-1 rounded-lg text-xs font-medium text-slate-400 hover:text-white bg-[#121d2a] transition-colors';
+        if (researchTitle) researchTitle.textContent = 'Performance Analysis Of Deep Q-Network Models With Channel Attention Module For Intelligent Traffic Light Control';
+      }
+    };
   </script>
 </body>
 </html>

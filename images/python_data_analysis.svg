@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="100%" height="100%">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Playfair+Display:wght@700&amp;family=Fira+Code:wght@400;500;600&amp;display=swap');
+      text { font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; }
+      .code { font-family: 'Fira Code', ui-monospace, Menlo, Monaco, Consolas, monospace; }
+      .title-serif { font-family: 'Playfair Display', Georgia, serif; }
+    </style>
+    <linearGradient id="bg-py" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="60%" stop-color="#f0f5fb"/>
+      <stop offset="100%" stop-color="#e3edf7"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="720" fill="url(#bg-py)"/>
+
+  <!-- Top Left Pink Badge "1" -->
+  <g transform="translate(48, 48)">
+    <circle cx="0" cy="0" r="44" fill="#ffd5d9" stroke="#fec5cb" stroke-width="2"/>
+    <text x="0" y="14" fill="#2b3b4f" font-size="38" font-family="'Playfair Display', serif" font-weight="700" text-anchor="middle">1</text>
+  </g>
+
+  <!-- Top Right Logos -->
+  <g transform="translate(940, 26)">
+    <!-- Python Logo -->
+    <g transform="translate(0, 4) scale(0.85)">
+      <path d="M19.8 0c-9.6 0-9 4.1-9 4.1l.1 4.3h9.2v1.3H7.4S0 8.9 0 18.5c0 9.7 6.4 9.4 6.4 9.4h3.8v-5.4s-.2-6.4 6.3-6.4h9.1s6.1.1 6.1-5.9c0-6-5.8-6.1-5.8-6.1l-6.1-.1zm-4.9 2.9a1.7 1.7 0 1 1 0 3.4 1.7 1.7 0 0 1 0-3.4z" fill="#3673A5"/>
+      <path d="M20.2 37.1c9.6 0 9-4.1 9-4.1l-.1-4.3h-9.2v-1.3h12.7s7.4.8 7.4-8.8c0-9.7-6.4-9.4-6.4-9.4h-3.8v5.4s.2 6.4-6.3 6.4h-9.1s-6.1-.1-6.1 5.9c0 6 5.8 6.1 5.8 6.1l6.1.1zm4.9-2.9a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4z" fill="#FFD43B"/>
+    </g>
+    <!-- MySkill Badge -->
+    <g transform="translate(56, 4)">
+      <rect x="0" y="0" width="76" height="34" rx="17" fill="#00a389"/>
+      <text x="38" y="22" fill="#ffffff" font-size="13" font-weight="700" text-anchor="middle">MySkill</text>
+      <text x="86" y="22" fill="#008a74" font-size="15" font-style="italic" font-weight="700">#RintisKarirImpian</text>
+    </g>
+  </g>
+
+  <!-- TOP RIGHT TITLE BANNER -->
+  <g transform="translate(730, 80)">
+    <rect x="-30" y="0" width="450" height="150" rx="3" fill="#20314a"/>
+    <text x="195" y="44" fill="#ffffff" font-size="20" font-family="'Playfair Display', serif" font-weight="700" text-anchor="middle" letter-spacing="1">TOP 5 PRODUK DARI</text>
+    <text x="195" y="76" fill="#ffffff" font-size="20" font-family="'Playfair Display', serif" font-weight="700" text-anchor="middle" letter-spacing="1">KATEGORI MOBILES &amp;</text>
+    <text x="195" y="108" fill="#ffffff" font-size="20" font-family="'Playfair Display', serif" font-weight="700" text-anchor="middle" letter-spacing="1">TABLETS SELAMA TAHUN</text>
+    <text x="195" y="140" fill="#ffffff" font-size="20" font-family="'Playfair Display', serif" font-weight="700" text-anchor="middle" letter-spacing="1">2022.</text>
+  </g>
+
+  <!-- Connection circles and lines -->
+  <line x1="560" y1="180" x2="700" y2="180" stroke="#2b3e59" stroke-width="3"/>
+  <circle cx="560" cy="180" r="18" fill="#2b3e59"/>
+  <circle cx="1120" cy="460" r="18" fill="#2b3e59"/>
+  <line x1="1120" y1="230" x2="1120" y2="460" stroke="#2b3e59" stroke-width="3"/>
+
+  <!-- LEFT COLUMN: LOGICAL THINKING -->
+  <g transform="translate(90, 80)">
+    <!-- Main blue container -->
+    <rect x="0" y="0" width="470" height="600" rx="10" fill="#d9e8f6" opacity="0.6"/>
+
+    <!-- Section Title: LOGICAL THINKING -->
+    <text x="25" y="42" fill="#1b2a3a" font-size="19" font-family="'Playfair Display', serif" font-weight="700" letter-spacing="0.5">LOGICAL THINKING</text>
+
+    <!-- Flowchart box -->
+    <rect x="25" y="55" width="410" height="235" rx="20" fill="#ffffff" stroke="#2b3e59" stroke-width="1.8"/>
+    
+    <g fill="#1e293b" font-size="12" font-weight="500">
+      <text x="135" y="78" font-weight="600">Memfilter data berdasarkan :</text>
+      <text x="45" y="100">• Transaksi valid (is_valid = 1)</text>
+      <text x="45" y="118">• Kategory 'Mobiles &amp; Tablets'</text>
+      <text x="45" y="136">• order_date Tahun 2022</text>
+      
+      <text x="230" y="156" font-size="14" fill="#2b3e59" text-anchor="middle">↓</text>
+      
+      <text x="230" y="174" text-anchor="middle">Kelompokkan berdasarkan nama produk dan jumlahkan</text>
+      <text x="230" y="190" text-anchor="middle" font-weight="600">qty_ordered</text>
+      
+      <text x="230" y="210" font-size="14" fill="#2b3e59" text-anchor="middle">↓</text>
+      
+      <text x="230" y="228" text-anchor="middle">Urutkan data (sort_values) secara menurun</text>
+      <text x="230" y="244" text-anchor="middle">(ascending=False)</text>
+      
+      <text x="230" y="262" font-size="14" fill="#2b3e59" text-anchor="middle">↓</text>
+      
+      <text x="230" y="280" text-anchor="middle">Gunakan head(5) untuk menampilkan top 5 produk</text>
+    </g>
+
+    <!-- Section Title: SYNTAX CODE -->
+    <text x="25" y="325" fill="#1b2a3a" font-size="19" font-family="'Playfair Display', serif" font-weight="700" letter-spacing="0.5">SYNTAX CODE</text>
+
+    <!-- Code card -->
+    <rect x="25" y="340" width="410" height="250" rx="16" fill="#ffffff" stroke="#2b3e59" stroke-width="1.8"/>
+
+    <g class="code" font-size="11.5" fill="#0f172a" font-weight="500">
+      <text x="38" y="365"><tspan fill="#0f172a" font-weight="700">df_filtered</tspan> = df[</text>
+      <text x="48" y="385">(df[<tspan fill="#0369a1">'is_valid'</tspan>] == <tspan fill="#b45309">1</tspan>) &amp;</text>
+      <text x="48" y="405">(df[<tspan fill="#0369a1">'category'</tspan>] == <tspan fill="#0369a1">'Mobiles &amp; Tablets'</tspan>) &amp;</text>
+      <text x="48" y="425">(df[<tspan fill="#0369a1">'order_date'</tspan>].dt.year == <tspan fill="#b45309">2022</tspan>)</text>
+      <text x="38" y="445">]</text>
+
+      <text x="38" y="475"><tspan fill="#0f172a" font-weight="700">df_hasil</tspan> = df_filtered.groupby(<tspan fill="#0369a1">'sku_name'</tspan>, as_index=<tspan fill="#6d28d9">False</tspan>)</text>
+      <text x="48" y="495">[<tspan fill="#0369a1">'qty_ordered'</tspan>].<tspan fill="#059669">sum</tspan>()</text>
+
+      <text x="38" y="525"><tspan fill="#0f172a" font-weight="700">df_sorted</tspan> = df_hasil.sort_values(by=<tspan fill="#0369a1">'qty_ordered'</tspan>,</text>
+      <text x="48" y="545">ascending=<tspan fill="#6d28d9">False</tspan>)</text>
+
+      <text x="38" y="575">df_sorted.<tspan fill="#059669">head</tspan>(<tspan fill="#b45309">5</tspan>)</text>
+    </g>
+  </g>
+
+  <!-- RIGHT COLUMN: RESULT -->
+  <g transform="translate(640, 290)">
+    <!-- RESULT Title -->
+    <text x="0" y="32" fill="#1b2a3a" font-size="20" font-family="'Playfair Display', serif" font-weight="700" letter-spacing="1">RESULT</text>
+
+    <!-- Dark Table Box -->
+    <g transform="translate(0, 48)">
+      <rect width="470" height="230" fill="#161c24" rx="2"/>
+
+      <!-- Table Header -->
+      <g fill="#f8fafc" font-size="15" font-weight="700">
+        <text x="240" y="30" text-anchor="middle">sku_name</text>
+        <text x="400" y="30" text-anchor="middle">qty_ordered</text>
+      </g>
+      <line x1="20" y1="42" x2="450" y2="42" stroke="#334155" stroke-width="1.2"/>
+
+      <!-- Row 1 -->
+      <g fill="#f8fafc" font-size="14.5" font-weight="600">
+        <text x="30" y="72" fill="#94a3b8">1</text>
+        <text x="120" y="72">IDROID_BALRX7-Gold</text>
+        <text x="400" y="72" text-anchor="middle" fill="#38bdf8">1000</text>
+      </g>
+
+      <!-- Row 2 -->
+      <g fill="#f8fafc" font-size="14.5" font-weight="600">
+        <text x="30" y="110" fill="#94a3b8">2</text>
+        <text x="120" y="110">IDROID_BALRX7-Jet black</text>
+        <text x="400" y="110" text-anchor="middle">31</text>
+      </g>
+
+      <!-- Row 3 -->
+      <g fill="#f8fafc" font-size="14.5" font-weight="600">
+        <text x="30" y="148" fill="#94a3b8">3</text>
+        <text x="120" y="148">Infinix Hot 4-Gold</text>
+        <text x="400" y="148" text-anchor="middle">15</text>
+      </g>
+
+      <!-- Row 4 -->
+      <g fill="#f8fafc" font-size="14.5" font-weight="600">
+        <text x="25" y="186" fill="#94a3b8">43</text>
+        <text x="120" y="186">samsung_Grand Prime Plus-Black</text>
+        <text x="400" y="186" text-anchor="middle">11</text>
+      </g>
+
+      <!-- Row 5 -->
+      <g fill="#f8fafc" font-size="14.5" font-weight="600">
+        <text x="25" y="222" fill="#94a3b8">34</text>
+        <text x="120" y="222">infinix_Zero 4-Grey</text>
+        <text x="400" y="222" text-anchor="middle">10</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom Right Group / Kelompok -->
+  <g transform="translate(1040, 680)">
+    <text x="0" y="0" fill="#1b2a3a" font-size="14" font-weight="700" letter-spacing="1">KELOMPOK</text>
+    <text x="88" y="0" fill="#94a3b8" font-size="16">|</text>
+    <text x="104" y="0" fill="#1b2a3a" font-size="17" font-weight="900">B3</text>
+  </g>
+</svg>
