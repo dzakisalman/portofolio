@@ -1,12 +1,16 @@
-<header class="w-full backdrop-blur-xl bg-[#0c131c]/95 border-b border-[#243b52]/80 shadow-lg shadow-black/25 transition-all duration-200">
+<header
+  class="w-full backdrop-blur-xl bg-[#0c131c]/95 border-b border-[#243b52]/80 shadow-lg shadow-black/25 transition-all duration-200">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
     <!-- Brand / Logo -->
-    <a href="index.html" class="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg py-1">
-      <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center text-white font-black text-sm shadow-md shadow-primary/20 group-hover:scale-105 transition-transform duration-200">
-        <span>DS</span>
+    <a href="index.html"
+      class="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg py-1">
+      <div
+        class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center text-white font-black text-sm shadow-md shadow-primary/20 group-hover:scale-105 transition-transform duration-200">
+        <img src="images/apple-touch-icon.png" alt="DS" class="w-full h-full object-cover rounded-lg" />
       </div>
       <div class="flex flex-col">
-        <span class="text-white font-bold text-base leading-tight tracking-tight group-hover:text-primary transition-colors">
+        <span
+          class="text-white font-bold text-base leading-tight tracking-tight group-hover:text-primary transition-colors">
           Dzaki Salman
         </span>
         <span class="text-xs text-slate-400 font-medium leading-none flex items-center gap-1.5 mt-0.5">
@@ -17,32 +21,43 @@
     </a>
 
     <!-- Desktop Navigation -->
-    <nav class="hidden md:flex items-center gap-1 bg-[#131e2b]/80 border border-[#243b52] p-1.5 rounded-full shadow-inner shadow-black/20" aria-label="Main Navigation">
-      <a id="nav-home" href="index.html" class="px-4 py-1.5 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all duration-150">
+    <nav
+      class="hidden md:flex items-center gap-1 bg-[#131e2b]/80 border border-[#243b52] p-1.5 rounded-full shadow-inner shadow-black/20"
+      aria-label="Main Navigation">
+      <a id="nav-home" href="index.html"
+        class="px-4 py-1.5 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all duration-150">
         Home
       </a>
-      <a id="nav-project" href="projects.html" class="px-4 py-1.5 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all duration-150">
+      <a id="nav-project" href="projects.html"
+        class="px-4 py-1.5 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all duration-150">
         Projects
       </a>
-      <a id="nav-about" href="about.html" class="px-4 py-1.5 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all duration-150">
+      <a id="nav-about" href="about.html"
+        class="px-4 py-1.5 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all duration-150">
         About
       </a>
-      <a id="nav-film" href="film.html" class="px-4 py-1.5 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all duration-150">
+      <a id="nav-film" href="film.html"
+        class="px-4 py-1.5 rounded-full text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all duration-150">
         Films
       </a>
     </nav>
 
     <!-- Right Actions: GitHub link & Mobile Menu Toggle -->
     <div class="flex items-center gap-3">
-      <a href="https://github.com/dzakisalman" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold text-white bg-[#182737] hover:bg-[#223649] border border-[#243b52] hover:border-primary/50 transition-all duration-200">
+      <a href="https://github.com/dzakisalman" target="_blank" rel="noopener noreferrer"
+        class="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold text-white bg-[#182737] hover:bg-[#223649] border border-[#243b52] hover:border-primary/50 transition-all duration-200">
         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z">
+          </path>
         </svg>
         <span>GitHub</span>
       </a>
 
       <!-- Mobile Menu Button -->
-      <button id="mobile-menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav" class="md:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-[#182737] border border-[#243b52] focus:outline-none focus:ring-2 focus:ring-primary" onclick="(function(){const nav=document.getElementById('mobile-nav'); if(!nav) return; nav.classList.toggle('hidden'); const isExpanded = !nav.classList.contains('hidden'); document.getElementById('mobile-menu-button')?.setAttribute('aria-expanded', isExpanded);})()">
+      <button id="mobile-menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav"
+        class="md:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-[#182737] border border-[#243b52] focus:outline-none focus:ring-2 focus:ring-primary"
+        onclick="(function(){const nav=document.getElementById('mobile-nav'); if(!nav) return; nav.classList.toggle('hidden'); const isExpanded = !nav.classList.contains('hidden'); document.getElementById('mobile-menu-button')?.setAttribute('aria-expanded', isExpanded);})()">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
         </svg>
@@ -51,27 +66,45 @@
   </div>
 
   <!-- Mobile Navigation Dropdown -->
-  <div id="mobile-nav" class="md:hidden hidden border-t border-[#243b52] bg-[#0c131c]/95 backdrop-blur-xl px-4 py-4 transition-all duration-200">
+  <div id="mobile-nav"
+    class="md:hidden hidden border-t border-[#243b52] bg-[#0c131c]/95 backdrop-blur-xl px-4 py-4 transition-all duration-200">
     <div class="flex flex-col gap-1">
-      <a id="mobile-nav-home" href="index.html" class="flex items-center justify-between px-4 py-3 rounded-lg text-base font-medium text-slate-200 hover:bg-[#182737] hover:text-primary transition-colors">
+      <a id="mobile-nav-home" href="index.html"
+        class="flex items-center justify-between px-4 py-3 rounded-lg text-base font-medium text-slate-200 hover:bg-[#182737] hover:text-primary transition-colors">
         <span>Home</span>
-        <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
       </a>
-      <a id="mobile-nav-project" href="projects.html" class="flex items-center justify-between px-4 py-3 rounded-lg text-base font-medium text-slate-200 hover:bg-[#182737] hover:text-primary transition-colors">
+      <a id="mobile-nav-project" href="projects.html"
+        class="flex items-center justify-between px-4 py-3 rounded-lg text-base font-medium text-slate-200 hover:bg-[#182737] hover:text-primary transition-colors">
         <span>Projects</span>
-        <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
       </a>
-      <a id="mobile-nav-about" href="about.html" class="flex items-center justify-between px-4 py-3 rounded-lg text-base font-medium text-slate-200 hover:bg-[#182737] hover:text-primary transition-colors">
+      <a id="mobile-nav-about" href="about.html"
+        class="flex items-center justify-between px-4 py-3 rounded-lg text-base font-medium text-slate-200 hover:bg-[#182737] hover:text-primary transition-colors">
         <span>About</span>
-        <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
       </a>
-      <a id="mobile-nav-film" href="film.html" class="flex items-center justify-between px-4 py-3 rounded-lg text-base font-medium text-slate-200 hover:bg-[#182737] hover:text-primary transition-colors">
+      <a id="mobile-nav-film" href="film.html"
+        class="flex items-center justify-between px-4 py-3 rounded-lg text-base font-medium text-slate-200 hover:bg-[#182737] hover:text-primary transition-colors">
         <span>Films</span>
-        <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
       </a>
       <div class="pt-3 mt-2 border-t border-[#243b52]/50 flex items-center justify-between">
-        <a href="https://github.com/dzakisalman" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg bg-primary text-white font-semibold text-sm hover:bg-primary/90 transition-colors">
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+        <a href="https://github.com/dzakisalman" target="_blank" rel="noopener noreferrer"
+          class="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg bg-primary text-white font-semibold text-sm hover:bg-primary/90 transition-colors">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z">
+            </path>
+          </svg>
           Visit GitHub Profile
         </a>
       </div>
